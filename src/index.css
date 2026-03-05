@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+/* HARTITUDEH EMPIRE Design System - Dark Luxury Corporate */
+
+@layer base {
+  :root {
+    --background: 220 20% 7%;
+    --foreground: 45 30% 92%;
+
+    --card: 220 18% 10%;
+    --card-foreground: 45 30% 92%;
+
+    --popover: 220 18% 10%;
+    --popover-foreground: 45 30% 92%;
+
+    --primary: 42 80% 55%;
+    --primary-foreground: 220 20% 7%;
+
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 45 30% 92%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 42 75% 50%;
+    --accent-foreground: 220 20% 7%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 42 80% 55%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens for HARTITUDEH */
+    --gold: 42 80% 55%;
+    --gold-light: 42 70% 65%;
+    --gold-dark: 42 85% 45%;
+    --obsidian: 220 20% 7%;
+    --obsidian-light: 220 18% 12%;
+    --cream: 45 30% 92%;
+    --cream-muted: 45 15% 70%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(42 80% 55%) 0%, hsl(42 85% 45%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(220 20% 7%) 0%, hsl(220 18% 12%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 20% 7%) 0%, hsl(220 18% 10%) 50%, hsl(220 20% 7%) 100%);
+
+    /* Shadows */
+    --shadow-gold: 0 4px 30px -5px hsl(42 80% 55% / 0.2);
+    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
+    --shadow-hover: 0 20px 50px -15px hsl(42 80% 55% / 0.3);
+
+    --sidebar-background: 220 20% 7%;
+    --sidebar-foreground: 45 30% 92%;
+    --sidebar-primary: 42 80% 55%;
+    --sidebar-primary-foreground: 220 20% 7%;
+    --sidebar-accent: 220 18% 12%;
+    --sidebar-accent-foreground: 45 30% 92%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 42 80% 55%;
+  }
+
+  .dark {
+    --background: 220 20% 7%;
+    --foreground: 45 30% 92%;
+
+    --card: 220 18% 10%;
+    --card-foreground: 45 30% 92%;
+
+    --popover: 220 18% 10%;
+    --popover-foreground: 45 30% 92%;
+
+    --primary: 42 80% 55%;
+    --primary-foreground: 220 20% 7%;
+
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 45 30% 92%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 42 75% 50%;
+    --accent-foreground: 220 20% 7%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 42 80% 55%;
+
+    --sidebar-background: 220 20% 7%;
+    --sidebar-foreground: 45 30% 92%;
+    --sidebar-primary: 42 80% 55%;
+    --sidebar-primary-foreground: 220 20% 7%;
+    --sidebar-accent: 220 18% 12%;
+    --sidebar-accent-foreground: 45 30% 92%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 42 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(42 70% 65%) 0%, hsl(42 80% 55%) 50%, hsl(42 85% 45%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gradient-gold {
+    border: 1px solid transparent;
+    background: linear-gradient(hsl(220 18% 10%), hsl(220 18% 10%)) padding-box,
+                linear-gradient(135deg, hsl(42 80% 55%) 0%, hsl(42 85% 45%) 100%) border-box;
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 30px -5px hsl(42 80% 55% / 0.4);
+  }
+}
