@@ -38,14 +38,14 @@ const values = [
 
 const testimonials = [
   {
-    name: "Michael Chen",
-    role: "CEO, TechStart Inc.",
+    name: "Michael Adebisi",
+    role: "CEO, Zentira Inc.",
     content: "HARTITUDEH EMPIRE transformed our digital presence completely. Their tech solutions team delivered beyond expectations.",
     service: "Tech Solutions",
   },
   {
-    name: "Sarah Williams",
-    role: "Crypto Investor",
+    name: "Akinlabi Hammad",
+    role: "Partner & Investor",
     content: "The ROI from their crypto trading services has been exceptional. Trustworthy and professional.",
     service: "CryptoTech",
   },

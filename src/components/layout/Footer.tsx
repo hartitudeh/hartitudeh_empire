@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook, Youtube } from "lucide-react";
 
 const footerLinks = {
   services: [
@@ -20,9 +20,10 @@ const footerLinks = {
 
 const socialLinks = [
   { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: Twitter, href: "https://x.com/hartitudehtech", label: "Twitter" },
+  { icon: Instagram, href: "https://www.instagram.com/hartitudeh_empire/", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/Hartitudeh", label: "Facebook" },
+  { icon: Youtube, href: "https://www.youtube.com/@hartitudeh_empire", label: "Youtube" },
 ];
 
 export default function Footer() {
@@ -48,6 +49,7 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
                   className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:bg-gold hover:text-primary-foreground transition-colors"
                   aria-label={social.label}
                 >
@@ -101,7 +103,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-gold mt-0.5" />
-                <span className="text-muted-foreground">+1 (555) 123-4567</span>
+                <span className="text-muted-foreground">+2347083777336, +2348139212462</span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-gold mt-0.5" />
