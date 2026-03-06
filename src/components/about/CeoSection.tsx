@@ -53,12 +53,17 @@ export default function CeoSection() {
           >
             <motion.div variants={fadeInUp} className="relative inline-block mb-6">
               <div className="w-64 h-64 md:w-72 md:h-72 rounded-2xl border-2 border-gold/30 overflow-hidden mx-auto bg-card">
-                <Avatar className="w-full h-full rounded-2xl">
+              <img
+                  src="../../assets/ceo.png"
+                  alt="Adeyemi Pelumi Obaloluwa"
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                {/* <Avatar className="w-full h-full rounded-2xl">
                   <AvatarImage src="" alt="Adeyemi Pelumi Obaloluwa" className="object-cover" />
                   <AvatarFallback className="text-5xl font-display bg-gold/10 text-gold rounded-2xl w-full h-full">
                     APO
                   </AvatarFallback>
-                </Avatar>
+                </Avatar> */}
               </div>
               <div className="absolute -bottom-3 -right-3 w-20 h-20 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center">
                 <span className="text-gold font-display font-bold text-sm text-center leading-tight">CEO &<br />Founder</span>
