@@ -22,7 +22,7 @@ import {
 
 const teamMembers = [
   {
-    name: "Adebayo Johnson",
+    name: "Engr. Adeyemi Pelumi",
     role: "CEO & Founder",
     image: "../../../src/assets/team1.jpeg",
     description: "20+ years experience in Nigerian real estate market.",
