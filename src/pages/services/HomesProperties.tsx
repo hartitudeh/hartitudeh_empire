@@ -50,7 +50,7 @@ const teamMembers = [
     socials: { linkedin: "#", twitter: "#", instagram: "#" },
   },
   {
-    name: "Oluwaseun Bakare",
+    name: "Adeniyi Oluwaseun",
     role: "Investment Analyst",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400",
     description: "Expert in market analysis and investment strategies.",
