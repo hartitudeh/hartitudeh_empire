@@ -1,5 +1,7 @@
 import { motion } from "motion/react";
 import { Linkedin, Twitter, Globe } from "lucide-react";
+import ceoImage from "../../assets/team1.jpeg";
+
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -50,16 +52,16 @@ export default function CeoSection() {
             variants={staggerContainer}
             className="lg:col-span-2 text-center"
           >
-            <motion.div variants={fadeInUp} className="relative inline-block mb-6">
+             <motion.div variants={fadeInUp} className="relative inline-block mb-6">
               <div className="w-64 h-64 md:w-72 md:h-72 rounded-2xl border-2 border-gold/30 overflow-hidden mx-auto bg-card">
                 <img 
-                  src="/placeholder.svg" 
+                  src={ceoImage}
                   alt="Adeyemi Pelumi Obaloluwa" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="absolute -bottom-3 -right-3 w-20 h-20 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center">
-                <span className="text-gold font-display font-bold text-sm text-center leading-tight">CEO &<br />Founder</span>
+                <span className="text-white font-display font-bold text-sm text-center leading-tight">CEO &<br />Founder</span>
               </div>
             </motion.div>
 

@@ -104,7 +104,7 @@ export default function PrivacyPolicy() {
               <p className="text-muted-foreground mt-2">
                 <strong className="text-foreground">Hartitudeh Empire</strong><br />
                 Email: info@hartitudehempire.com<br />
-                Phone: +1 (555) 123-4567
+                Phone: +2347083777336, +2348112989898
               </p>
             </section>
           </motion.div>

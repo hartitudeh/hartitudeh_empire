@@ -20,18 +20,22 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+import Team1 from "@/assets/team1.jpeg";
+import Team2 from "@/assets/team2.jpg";
+import Team3 from "@/assets/team2.jpg";
+
 const teamMembers = [
   {
-    name: "Adebayo Johnson",
+    name: "Adeyemi-Adegoke P.M",
     role: "CEO & Founder",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400",
+    image: Team1,
     description: "20+ years experience in Nigerian real estate market.",
     socials: { linkedin: "#", twitter: "#", instagram: "#" },
   },
   {
-    name: "Chioma Okonkwo",
+    name: "Akinlabi Hammad",
     role: "Head of Sales",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400",
+    image: Team2,
     description: "Expert in luxury property sales and client relations.",
     socials: { linkedin: "#", twitter: "#", instagram: "#" },
   },
