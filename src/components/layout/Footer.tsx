@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const footerLinks = {
   services: [
@@ -33,9 +34,11 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-display font-bold text-xl">H</span>
-              </div>
+              <img 
+                src={logo} 
+                alt="Hartitudeh Empire Logo" 
+                className="w-10 h-10 object-contain rounded-lg border border-gold/20 bg-black" 
+              />
               <span className="font-display font-bold text-xl text-foreground">
                 HARTITUDEH <span className="text-gold">EMPIRE</span>
               </span>

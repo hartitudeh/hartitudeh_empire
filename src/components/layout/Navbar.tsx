@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import logo from "@/assets/logo.png";
 
 const services = [
   {
@@ -25,10 +26,10 @@ const services = [
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
   { name: "Services", href: "#", hasDropdown: true },
-  { name: "Blog", href: "/blog" },
+  { name: "About", href: "/about" },
   { name: "Testimonials", href: "/testimonials" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -45,9 +46,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-display font-bold text-xl">H</span>
-            </div>
+            <img 
+              src={logo} 
+              alt="Hartitudeh Empire Logo" 
+              className="w-10 h-10 object-contain rounded-lg border border-gold/20 bg-black" 
+            />
             <span className="font-display font-bold text-xl text-foreground">
               HARTITUDEH <span className="text-gold">EMPIRE</span>
             </span>
