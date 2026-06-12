@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import logo from "@/assets/logo.png";
+import logoFull from "@/assets/logo-full.png";
 
 const services = [
   {
@@ -45,15 +45,12 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center">
             <img 
-              src={logo} 
+              src={logoFull} 
               alt="Hartitudeh Empire Logo" 
-              className="w-10 h-10 object-contain rounded-lg border border-gold/20 bg-black" 
+              className="h-14 md:h-16 w-auto object-contain" 
             />
-            <span className="font-display font-bold text-xl text-foreground">
-              HARTITUDEH <span className="text-gold">EMPIRE</span>
-            </span>
           </Link>
 
           {/* Desktop Navigation */}

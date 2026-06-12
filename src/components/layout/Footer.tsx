@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logoFull from "@/assets/logo-full.png";
 
 const footerLinks = {
   services: [
@@ -33,15 +33,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-6">
+            <Link to="/" className="flex items-center mb-6">
               <img 
-                src={logo} 
+                src={logoFull} 
                 alt="Hartitudeh Empire Logo" 
-                className="w-10 h-10 object-contain rounded-lg border border-gold/20 bg-black" 
+                className="h-16 w-auto object-contain" 
               />
-              <span className="font-display font-bold text-xl text-foreground">
-                HARTITUDEH <span className="text-gold">EMPIRE</span>
-              </span>
             </Link>
             <p className="text-muted-foreground mb-6">
               A diversified emporium delivering technology, digital innovation, crypto investment solutions, and real estate opportunities.
