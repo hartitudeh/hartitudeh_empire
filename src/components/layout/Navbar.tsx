@@ -5,6 +5,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import logoFull from "@/assets/logo-full.png";
+import styled from "styled-components";
 
 const services = [
   {
@@ -33,6 +34,226 @@ const navLinks = [
   { name: "Contact", href: "/contact" },
 ];
 
+const NavContainer = styled.nav`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: hsl(var(--background) / 0.8);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+`;
+
+const Container = styled.div`
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  
+  @media (min-width: 640px) {
+    max-width: 640px;
+  }
+  @media (min-width: 768px) {
+    max-width: 768px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  @media (min-width: 1024px) {
+    max-width: 1024px;
+  }
+  @media (min-width: 1280px) {
+    max-width: 1280px;
+  }
+  @media (min-width: 1400px) {
+    max-width: 1400px;
+  }
+`;
+
+const FlexRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem; /* h-20 */
+`;
+
+const LogoLink = styled(Link)`
+  display: flex;
+  align-items: center;
+`;
+
+const LogoImage = styled.img`
+  height: 2.5rem; /* h-10 */
+  width: auto;
+  object-fit: contain;
+  @media (min-width: 768px) {
+    height: 3rem; /* h-12 */
+  }
+`;
+
+const DesktopNav = styled.div`
+  display: none;
+  @media (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* gap-8 */
+  }
+`;
+
+const NavLinkWrapper = styled.div`
+  position: relative;
+`;
+
+const NavDropdownTrigger = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem; /* gap-1 */
+  color: hsl(var(--foreground) / 0.8);
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.gold};
+  }
+`;
+
+const DropdownMenu = styled(motion.div)`
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 1rem;
+`;
+
+const DropdownContent = styled.div`
+  background-color: ${({ theme }) => theme.colors.card};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  padding: 1rem;
+  width: 20rem; /* w-80 */
+  box-shadow: ${({ theme }) => theme.shadows.card};
+`;
+
+const DropdownItemLink = styled(Link)`
+  display: block;
+  padding: 0.75rem;
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.muted};
+  }
+`;
+
+const DropdownItemTitle = styled.p`
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.foreground};
+  transition: color 0.2s;
+  
+  ${DropdownItemLink}:hover & {
+    color: ${({ theme }) => theme.colors.gold};
+  }
+`;
+
+const DropdownItemDesc = styled.p`
+  font-size: 0.875rem;
+  color: ${({ theme }) => theme.colors.mutedForeground};
+  margin-top: 0.25rem;
+`;
+
+const HeaderNavLink = styled(Link)<{ $isActive: boolean }>`
+  font-weight: 500;
+  transition: color 0.2s;
+  color: ${({ $isActive, theme }) => 
+    $isActive ? theme.colors.gold : 'hsl(var(--foreground) / 0.8)'};
+  
+  &:hover {
+    color: ${({ theme }) => theme.colors.gold};
+  }
+`;
+
+const DesktopControls = styled.div`
+  display: none;
+  @media (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* gap-2 */
+  }
+`;
+
+const MobileMenuButton = styled.button`
+  display: block;
+  color: ${({ theme }) => theme.colors.foreground};
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  @media (min-width: 1024px) {
+    display: none;
+  }
+`;
+
+const MobileMenu = styled(motion.div)`
+  display: block;
+  background-color: ${({ theme }) => theme.colors.card};
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  @media (min-width: 1024px) {
+    display: none;
+  }
+`;
+
+const MobileMenuContainer = styled.div`
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+const MobileDropdownButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 0;
+  color: ${({ theme }) => theme.colors.foreground};
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
+const MobileDropdownContent = styled(motion.div)`
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+`;
+
+const MobileDropdownLink = styled(Link)`
+  display: block;
+  padding: 0.5rem 0;
+  color: ${({ theme }) => theme.colors.mutedForeground};
+  transition: color 0.2s;
+  
+  &:hover {
+    color: ${({ theme }) => theme.colors.gold};
+  }
+`;
+
+const MobileNavLink = styled(Link)<{ $isActive: boolean }>`
+  display: block;
+  padding: 0.5rem 0;
+  font-weight: 500;
+  color: ${({ $isActive, theme }) => 
+    $isActive ? theme.colors.gold : theme.colors.foreground};
+`;
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -41,148 +262,140 @@ export default function Navbar() {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+    <NavContainer>
+      <Container>
+        <FlexRow>
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img 
+          <LogoLink to="/">
+            <LogoImage 
               src={logoFull} 
               alt="Hartitudeh Empire Logo" 
-              className="h-10 md:h-12 w-auto object-contain" 
             />
-          </Link>
+          </LogoLink>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <DesktopNav>
             {navLinks.map((link) => (
-              <div key={link.name} className="relative">
+              <NavLinkWrapper key={link.name}>
                 {link.hasDropdown ? (
                   <div
-                    className="relative"
                     onMouseEnter={() => setIsServicesOpen(true)}
                     onMouseLeave={() => setIsServicesOpen(false)}
+                    style={{ position: 'relative' }}
                   >
-                    <button className="flex items-center gap-1 text-foreground/80 hover:text-gold transition-colors font-medium">
+                    <NavDropdownTrigger>
                       {link.name}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
-                    </button>
+                      <ChevronDown 
+                        className="w-4 h-4 transition-transform" 
+                        style={{ transform: isServicesOpen ? 'rotate(180deg)' : 'none' }}
+                      />
+                    </NavDropdownTrigger>
                     
                     <AnimatePresence>
                       {isServicesOpen && (
-                        <motion.div
+                        <DropdownMenu
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
                         >
-                          <div className="bg-card border border-border rounded-xl p-4 w-80 shadow-2xl">
+                          <DropdownContent>
                             {services.map((service) => (
-                              <Link
+                              <DropdownItemLink
                                 key={service.href}
                                 to={service.href}
-                                className="block p-3 rounded-lg hover:bg-muted transition-colors group"
                               >
-                                <p className="font-semibold text-foreground group-hover:text-gold transition-colors">
+                                <DropdownItemTitle>
                                   {service.name}
-                                </p>
-                                <p className="text-sm text-muted-foreground mt-1">
+                                </DropdownItemTitle>
+                                <DropdownItemDesc>
                                   {service.description}
-                                </p>
-                              </Link>
+                                </DropdownItemDesc>
+                              </DropdownItemLink>
                             ))}
-                          </div>
-                        </motion.div>
+                          </DropdownContent>
+                        </DropdownMenu>
                       )}
                     </AnimatePresence>
                   </div>
                 ) : (
-                  <Link
+                  <HeaderNavLink
                     to={link.href}
-                    className={`font-medium transition-colors ${
-                      isActive(link.href)
-                        ? "text-gold"
-                        : "text-foreground/80 hover:text-gold"
-                    }`}
+                    $isActive={isActive(link.href)}
                   >
                     {link.name}
-                  </Link>
+                  </HeaderNavLink>
                 )}
-              </div>
+              </NavLinkWrapper>
             ))}
-          </div>
+          </DesktopNav>
 
           {/* Desktop CTA + Theme Toggle */}
-          <div className="hidden lg:flex items-center gap-2">
+          <DesktopControls>
             <ThemeToggle />
             <Button variant="gold" asChild>
               <Link to="/contact">Get Started</Link>
             </Button>
-          </div>
+          </DesktopControls>
 
           {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden text-foreground p-2"
+          <MobileMenuButton
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-      </div>
+          </MobileMenuButton>
+        </FlexRow>
+      </Container>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <MobileMenu
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-card border-t border-border"
           >
-            <div className="container mx-auto px-4 py-6 space-y-4">
+            <MobileMenuContainer>
               {navLinks.map((link) => (
                 <div key={link.name}>
                   {link.hasDropdown ? (
                     <div>
-                      <button
+                      <MobileDropdownButton
                         onClick={() => setIsServicesOpen(!isServicesOpen)}
-                        className="flex items-center justify-between w-full py-2 text-foreground font-medium"
                       >
                         {link.name}
-                        <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
-                      </button>
+                        <ChevronDown 
+                          className="w-4 h-4 transition-transform" 
+                          style={{ transform: isServicesOpen ? 'rotate(180deg)' : 'none' }}
+                        />
+                      </MobileDropdownButton>
                       <AnimatePresence>
                         {isServicesOpen && (
-                          <motion.div
+                          <MobileDropdownContent
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="pl-4 space-y-2 mt-2"
                           >
                             {services.map((service) => (
-                              <Link
+                              <MobileDropdownLink
                                 key={service.href}
                                 to={service.href}
                                 onClick={() => setIsOpen(false)}
-                                className="block py-2 text-muted-foreground hover:text-gold transition-colors"
                               >
                                 {service.name}
-                              </Link>
+                              </MobileDropdownLink>
                             ))}
-                          </motion.div>
+                          </MobileDropdownContent>
                         )}
                       </AnimatePresence>
                     </div>
                   ) : (
-                    <Link
+                    <MobileNavLink
                       to={link.href}
                       onClick={() => setIsOpen(false)}
-                      className={`block py-2 font-medium ${
-                        isActive(link.href) ? "text-gold" : "text-foreground"
-                      }`}
+                      $isActive={isActive(link.href)}
                     >
                       {link.name}
-                    </Link>
+                    </MobileNavLink>
                   )}
                 </div>
               ))}
@@ -191,10 +404,10 @@ export default function Navbar() {
                   Get Started
                 </Link>
               </Button>
-            </div>
-          </motion.div>
+            </MobileMenuContainer>
+          </MobileMenu>
         )}
       </AnimatePresence>
-    </nav>
+    </NavContainer>
   );
 }
