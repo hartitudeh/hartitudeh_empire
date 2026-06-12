@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider as SCThemeProvider, DefaultTheme } from 'styled-components';
 
-export const theme: DefaultTheme = {
+export const parentTheme: DefaultTheme = {
   colors: {
     background: 'hsl(var(--background))',
     foreground: 'hsl(var(--foreground))',
@@ -51,9 +51,77 @@ export const theme: DefaultTheme = {
   },
 };
 
+export const realEstateTheme: DefaultTheme = {
+  ...parentTheme,
+  colors: {
+    ...parentTheme.colors,
+    primary: 'hsl(var(--emerald))',
+    accent: 'hsl(var(--emerald))',
+    gold: 'hsl(var(--emerald))',
+    goldLight: 'hsl(142 70% 55%)',
+    goldDark: 'hsl(142 85% 35%)',
+  },
+  gradients: {
+    ...parentTheme.gradients,
+    gold: 'linear-gradient(135deg, hsl(142 70% 50%) 0%, hsl(142 85% 35%) 100%)',
+  },
+};
+
+export const cryptoTheme: DefaultTheme = {
+  ...parentTheme,
+  colors: {
+    ...parentTheme.colors,
+    primary: 'hsl(var(--bronze))',
+    accent: 'hsl(var(--bronze))',
+    gold: 'hsl(var(--bronze))',
+    goldLight: 'hsl(30 75% 60%)',
+    goldDark: 'hsl(30 85% 40%)',
+  },
+  gradients: {
+    ...parentTheme.gradients,
+    gold: 'linear-gradient(135deg, hsl(30 75% 55%) 0%, hsl(30 85% 40%) 100%)',
+  },
+};
+
+export const techTheme: DefaultTheme = {
+  ...parentTheme,
+  colors: {
+    ...parentTheme.colors,
+    primary: 'hsl(var(--cobalt))',
+    accent: 'hsl(var(--cobalt))',
+    gold: 'hsl(var(--cobalt))',
+    goldLight: 'hsl(195 80% 55%)',
+    goldDark: 'hsl(195 90% 35%)',
+  },
+  gradients: {
+    ...parentTheme.gradients,
+    gold: 'linear-gradient(135deg, hsl(195 80% 50%) 0%, hsl(195 90% 35%) 100%)',
+  },
+};
+
 export function StyledThemeProvider({ children }: { children: React.ReactNode }) {
   return (
-    <SCThemeProvider theme={theme}>
+    <SCThemeProvider theme={parentTheme}>
+      {children}
+    </SCThemeProvider>
+  );
+}
+
+export function BrandThemeProvider({ 
+  children, 
+  brand 
+}: { 
+  children: React.ReactNode; 
+  brand: 'real-estate' | 'crypto' | 'tech' | 'parent';
+}) {
+  const selectedTheme = 
+    brand === 'real-estate' ? realEstateTheme :
+    brand === 'crypto' ? cryptoTheme :
+    brand === 'tech' ? techTheme :
+    parentTheme;
+    
+  return (
+    <SCThemeProvider theme={selectedTheme}>
       {children}
     </SCThemeProvider>
   );

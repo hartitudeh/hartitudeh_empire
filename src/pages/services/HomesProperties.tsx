@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { ArrowRight, Home, Key, Building2, FileText, MapPin, Shield, Clock, CheckCircle, Users, Search, ChevronLeft, ChevronRight, Linkedin, Twitter, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import { BrandThemeProvider } from "@/components/styled/ThemeProvider";
 import { useState } from "react";
 import realEstateHero from "@/assets/real-estate-hero.jpg";
 import FeaturedProperties from "@/components/home/FeaturedProperties";
@@ -175,7 +176,8 @@ export default function HomesProperties() {
   };
 
   return (
-    <Layout>
+    <BrandThemeProvider brand="real-estate">
+      <Layout>
       {/* Hero Section */}
       <section className="relative min-h-screen w-full overflow-hidden flex items-center">
         {/* Background with overlay */}
@@ -682,6 +684,7 @@ export default function HomesProperties() {
           </motion.div>
         </div>
       </section>
-    </Layout>
+      </Layout>
+    </BrandThemeProvider>
   );
 }

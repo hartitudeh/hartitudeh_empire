@@ -5,6 +5,7 @@ import { ArrowRight, Code, Palette, Video, Printer, Smartphone, Monitor, Lightbu
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Layout from "@/components/layout/Layout";
+import { BrandThemeProvider } from "@/components/styled/ThemeProvider";
 import slideTech from "@/assets/slide-tech.jpg";
 import slideRealEstate from "@/assets/slide-realestate.jpg";
 import slideCrypto from "@/assets/slide-crypto.jpg";
@@ -187,7 +188,8 @@ export default function TechSolutions() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
 
   return (
-    <Layout>
+    <BrandThemeProvider brand="tech">
+      <Layout>
       {/* Hero Carousel Section */}
       <section className="relative h-[80vh] min-h-[600px] overflow-hidden">
         {/* Animated Background Image */}
@@ -602,5 +604,6 @@ export default function TechSolutions() {
         </div>
       </section>
     </Layout>
+    </BrandThemeProvider>
   );
 }

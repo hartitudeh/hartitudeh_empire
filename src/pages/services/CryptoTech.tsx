@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { ArrowRight, TrendingUp, Coins, Megaphone, Gift, Shield, BarChart3, Lock, CheckCircle, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import { BrandThemeProvider } from "@/components/styled/ThemeProvider";
 import CryptoHeroCarousel from "@/components/crypto/CryptoHeroCarousel";
 import LiveCryptoMarket from "@/components/crypto/LiveCryptoMarket";
 import AirdropsSection from "@/components/crypto/AirdropsSection";
@@ -56,7 +57,8 @@ const staggerContainer = {
 
 export default function CryptoTech() {
   return (
-    <Layout>
+    <BrandThemeProvider brand="crypto">
+      <Layout>
       {/* Hero Carousel Section */}
       <CryptoHeroCarousel />
 
@@ -233,5 +235,6 @@ export default function CryptoTech() {
         </div>
       </section>
     </Layout>
+    </BrandThemeProvider>
   );
 }
