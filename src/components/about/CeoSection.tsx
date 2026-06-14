@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Linkedin, Twitter, Globe } from "lucide-react";
-import ceoImage from "../../assets/team1.jpeg";
+import ceoImage from "../../assets/ceo.jpg";
 
 
 const fadeInUp = {
@@ -53,7 +53,7 @@ export default function CeoSection() {
             className="lg:col-span-2 text-center"
           >
              <motion.div variants={fadeInUp} className="relative inline-block mb-6">
-              <div className="w-64 h-64 md:w-72 md:h-72 rounded-2xl border-2 border-gold/30 overflow-hidden mx-auto bg-card">
+              <div className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl border-2 border-gold/30 overflow-hidden mx-auto bg-card">
                 <img 
                   src={ceoImage}
                   alt="Adeyemi Pelumi Obaloluwa" 

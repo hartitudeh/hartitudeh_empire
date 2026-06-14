@@ -4,6 +4,7 @@ import { ArrowRight, Target, Eye, Heart, Award, Users, Clock, Globe } from "luci
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import CeoSection from "@/components/about/CeoSection";
+import TeamSection from "@/components/about/TeamSection";
 
 const values = [
   { icon: Heart, title: "Integrity", description: "We uphold the highest ethical standards in all our dealings." },
@@ -15,8 +16,8 @@ const values = [
 const stats = [
   { value: "500+", label: "Clients Served" },
   { value: "3", label: "Business Verticals" },
-  { value: "50+", label: "Team Members" },
-  { value: "10+", label: "Countries Reached" },
+  { value: "30+", label: "Team Members" },
+  { value: "22+", label: "States Reached" },
 ];
 
 const subBrands = [
@@ -292,6 +293,9 @@ export default function About() {
 
       {/* CEO Section */}
       <CeoSection />
+
+      {/* Team Section */}
+      <TeamSection />
 
       {/* CTA */}
       <section className="py-24">

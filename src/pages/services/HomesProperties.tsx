@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
-import { ArrowRight, Home, Key, Building2, FileText, MapPin, Shield, Clock, CheckCircle, Users, Search, ChevronLeft, ChevronRight, Linkedin, Twitter, Instagram } from "lucide-react";
+import { ArrowRight, Home, Key, Building2, FileText, MapPin, Shield, Clock, CheckCircle, Users, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import { BrandThemeProvider } from "@/components/styled/ThemeProvider";
@@ -21,54 +21,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import Team1 from "@/assets/team1.jpeg";
-import Team2 from "@/assets/team2.jpg";
-import Team3 from "@/assets/team2.jpg";
 
-const teamMembers = [
-  {
-    name: "Adeyemi-Adegoke P.M",
-    role: "CEO & Founder",
-    image: Team1,
-    description: "20+ years experience in Nigerian real estate market.",
-    socials: { linkedin: "#", twitter: "#", instagram: "#" },
-  },
-  {
-    name: "Akinlabi Hammad",
-    role: "Head of Sales",
-    image: Team2,
-    description: "Expert in luxury property sales and client relations.",
-    socials: { linkedin: "#", twitter: "#", instagram: "#" },
-  },
-  {
-    name: "Emeka Nwachukwu",
-    role: "Property Manager",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400",
-    description: "Ensures seamless property management operations.",
-    socials: { linkedin: "#", twitter: "#", instagram: "#" },
-  },
-  {
-    name: "Funke Adeyemi",
-    role: "Legal Advisor",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400",
-    description: "Specializes in property law and documentation.",
-    socials: { linkedin: "#", twitter: "#", instagram: "#" },
-  },
-  {
-    name: "Oluwaseun Bakare",
-    role: "Investment Analyst",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400",
-    description: "Expert in market analysis and investment strategies.",
-    socials: { linkedin: "#", twitter: "#", instagram: "#" },
-  },
-  {
-    name: "Ngozi Eze",
-    role: "Client Relations",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400",
-    description: "Dedicated to exceptional customer experience.",
-    socials: { linkedin: "#", twitter: "#", instagram: "#" },
-  },
-];
 
 const services = [
   {
@@ -363,104 +316,7 @@ export default function HomesProperties() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-primary text-sm font-medium tracking-widest uppercase"
-            >
-              Our Team
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2"
-            >
-              Meet The <span className="text-gradient-gold">Experts</span>
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-muted-foreground mt-4"
-            >
-              Our dedicated professionals are here to guide you through every step of your real estate journey.
-            </motion.p>
-          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-4">
-                {teamMembers.map((member, index) => (
-                  <CarouselItem key={member.name} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                    <div className="group p-6 bg-card rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 h-full">
-                      <div className="relative mb-6 overflow-hidden rounded-xl">
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        {/* Social Links on Hover */}
-                        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-3 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                          <a
-                            href={member.socials.linkedin}
-                            className="w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                          >
-                            <Linkedin className="w-4 h-4" />
-                          </a>
-                          <a
-                            href={member.socials.twitter}
-                            className="w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                          >
-                            <Twitter className="w-4 h-4" />
-                          </a>
-                          <a
-                            href={member.socials.instagram}
-                            className="w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                          >
-                            <Instagram className="w-4 h-4" />
-                          </a>
-                        </div>
-                      </div>
-                      <h3 className="font-display font-semibold text-xl text-foreground mb-1">
-                        {member.name}
-                      </h3>
-                      <p className="text-primary text-sm font-medium mb-3">
-                        {member.role}
-                      </p>
-                      <p className="text-muted-foreground text-sm">
-                        {member.description}
-                      </p>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="flex justify-center gap-4 mt-8">
-                <CarouselPrevious className="relative static translate-y-0 bg-card border-border hover:bg-primary hover:text-primary-foreground" />
-                <CarouselNext className="relative static translate-y-0 bg-card border-border hover:bg-primary hover:text-primary-foreground" />
-              </div>
-            </Carousel>
-          </motion.div>
-        </div>
-      </section>
 
       {/* FAQ Section */}
       <section className="py-24 bg-card">
