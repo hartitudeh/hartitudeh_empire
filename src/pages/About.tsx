@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import CeoSection from "@/components/about/CeoSection";
 import TeamSection from "@/components/about/TeamSection";
+import { label } from "framer-motion/client";
 
 const values = [
   { icon: Heart, title: "Integrity", description: "We uphold the highest ethical standards in all our dealings." },
@@ -18,6 +19,7 @@ const stats = [
   { value: "3", label: "Business Verticals" },
   { value: "30+", label: "Team Members" },
   { value: "22+", label: "States Reached" },
+  { value: "3+", label: "Countries Reached"},
 ];
 
 const subBrands = [

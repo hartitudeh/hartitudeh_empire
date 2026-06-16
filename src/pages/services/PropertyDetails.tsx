@@ -1,9 +1,11 @@
+import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowLeft, MapPin, Bed, Bath, Maximize, Calendar, CheckCircle, Phone, Mail, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Layout from "@/components/layout/Layout";
+import { supabase } from "@/integrations/supabase/client";
 
 const properties = [
   {
@@ -138,10 +140,68 @@ const staggerContainer = {
   },
 };
 
+const isUuid = (str: string) => {
+  const regex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  return regex.test(str);
+};
+
 export default function PropertyDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const property = properties.find((p) => p.id === Number(id));
+  const [property, setProperty] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!id) return;
+
+    if (isUuid(id)) {
+      const fetchProperty = async () => {
+        const { data, error } = await supabase
+          .from("partner_listings")
+          .select("*")
+          .eq("id", id)
+          .single();
+        
+        if (data && !error) {
+          setProperty({
+            id: data.id,
+            title: data.title,
+            type: data.property_type,
+            purpose: data.listing_type,
+            location: data.location,
+            price: data.price_label,
+            size: data.area,
+            bedrooms: data.bedrooms,
+            bathrooms: data.bathrooms,
+            description: data.description,
+            image: data.image_url || "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2070",
+            gallery: data.image_url ? [data.image_url] : [],
+            features: data.features || [],
+            amenities: data.amenities || [],
+            is_sold: data.is_sold || false,
+          });
+        }
+        setLoading(false);
+      };
+      fetchProperty();
+    } else {
+      const staticProp = properties.find((p) => p.id === Number(id));
+      if (staticProp) {
+        setProperty(staticProp);
+      }
+      setLoading(false);
+    }
+  }, [id]);
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="min-h-screen flex items-center justify-center bg-background">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gold"></div>
+        </div>
+      </Layout>
+    );
+  }
 
   if (!property) {
     return (
@@ -163,6 +223,13 @@ export default function PropertyDetails() {
     <Layout>
       {/* Hero Image */}
       <section className="relative h-[60vh] w-full overflow-hidden">
+        {property.is_sold && (
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center z-20">
+            <span className="px-8 py-3 border-4 border-red-500 text-red-500 font-display font-bold uppercase tracking-widest text-3xl rounded rotate-[-12deg] bg-black/90 shadow-2xl animate-pulse">
+              Sold Out
+            </span>
+          </div>
+        )}
         <img
           src={property.image}
           alt={property.title}
@@ -334,6 +401,13 @@ export default function PropertyDetails() {
                 variants={fadeInUp}
                 className="bg-card rounded-2xl p-8 border border-border sticky top-24"
               >
+                {property.is_sold && (
+                  <div className="mb-4">
+                    <Badge className="bg-red-500 hover:bg-red-600 text-white font-bold uppercase tracking-wider">
+                      Sold Out
+                    </Badge>
+                  </div>
+                )}
                 <p className="text-sm text-muted-foreground mb-1">Price</p>
                 <p className="text-3xl font-display font-bold text-gradient-gold mb-2">
                   {property.price}

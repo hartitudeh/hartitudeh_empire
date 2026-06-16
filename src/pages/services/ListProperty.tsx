@@ -81,6 +81,10 @@ export default function ListProperty() {
     },
   });
 
+  const watchedPrice = form.watch("price") || 0;
+  const commissionAmount = Math.round(watchedPrice * 0.1);
+  const sellerYield = watchedPrice - commissionAmount;
+
   useEffect(() => {
     supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
@@ -141,6 +145,8 @@ export default function ListProperty() {
       contact_name: data.contact_name,
       contact_phone: data.contact_phone,
       contact_email: data.contact_email || null,
+      commission_rate: 10.0,
+      commission_amount: commissionAmount,
     });
     setLoading(false);
 
@@ -332,6 +338,22 @@ export default function ListProperty() {
                       </FormItem>
                     )} />
                   </div>
+
+                  {watchedPrice > 0 && (
+                    <div className="p-4 rounded-xl bg-gold/5 border border-gold/20 space-y-2 mt-4">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-muted-foreground">Hartitudeh Commission (10%):</span>
+                        <span className="font-semibold text-gold">₦{commissionAmount.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-sm border-t border-border pt-2">
+                        <span className="text-muted-foreground">Your Expected Yield:</span>
+                        <span className="font-semibold text-foreground">₦{sellerYield.toLocaleString()}</span>
+                      </div>
+                      <p className="text-[11px] text-muted-foreground italic mt-2">
+                        * Note: Hartitudeh Empire charges a standard 10% commission on all listed properties. This amount is automatically included in the final transaction pricing.
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 {/* Specifications */}

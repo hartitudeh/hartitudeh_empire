@@ -21,6 +21,8 @@ import HomesProperties from "./pages/services/HomesProperties";
 import Properties from "./pages/services/Properties";
 import PropertyDetails from "./pages/services/PropertyDetails";
 import ListProperty from "./pages/services/ListProperty";
+import Profile from "./pages/Profile";
+import Sitemap from "./pages/Sitemap";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
@@ -52,6 +54,8 @@ const App = () => (
           <Route path="/properties" element={<Properties />} />
           <Route path="/property/:id" element={<PropertyDetails />} />
           <Route path="/list-property" element={<ListProperty />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/sitemap" element={<Sitemap />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="*" element={<NotFound />} />

@@ -5,6 +5,7 @@ import { MapPin, Bed, Bath, Maximize, Search, ChevronRight } from "lucide-react"
 import { Link, useSearchParams } from "react-router-dom";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { supabase } from "@/integrations/supabase/client";
 import {
   Select,
   SelectContent,
@@ -371,6 +372,39 @@ const Properties = () => {
   const [propertyType, setPropertyType] = useState("all");
   const [listingType, setListingType] = useState("all");
   const [priceRange, setPriceRange] = useState("all");
+  const [dbProperties, setDbProperties] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchDbProperties = async () => {
+      const { data, error } = await supabase
+        .from("partner_listings")
+        .select("*")
+        .eq("status", "approved");
+      
+      if (data && !error) {
+        const mapped = data.map((item) => ({
+          id: item.id,
+          title: item.title,
+          location: item.location,
+          price: item.price_label,
+          priceValue: Number(item.price),
+          type: item.listing_type === "sale" ? "For Sale" : item.listing_type === "rent" ? "For Rent" : "For Lease",
+          propertyType: item.property_type,
+          beds: item.bedrooms || 0,
+          baths: item.bathrooms || 0,
+          area: item.area,
+          image: item.image_url || "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2070",
+          features: item.features || [],
+          is_sold: item.is_sold || false,
+        }));
+        setDbProperties(mapped);
+      }
+    };
+
+    fetchDbProperties();
+  }, []);
+
+  const combinedProperties = [...dbProperties, ...allProperties];
 
   // Initialize filters from URL params
   useEffect(() => {
@@ -383,7 +417,7 @@ const Properties = () => {
     if (listing) setListingType(listing);
   }, [searchParams]);
 
-  const filteredProperties = allProperties.filter((property) => {
+  const filteredProperties = combinedProperties.filter((property) => {
     const matchesSearch =
       property.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       property.location.toLowerCase().includes(searchQuery.toLowerCase());
@@ -543,6 +577,13 @@ const Properties = () => {
                     <Card className="overflow-hidden bg-card border-border hover:border-gold/30 transition-all duration-300 group cursor-pointer">
                       <CardHeader className="p-0 relative">
                         <div className="relative h-56 overflow-hidden">
+                          {property.is_sold && (
+                            <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center z-10 animate-fade-in">
+                              <span className="px-6 py-2 border-2 border-red-500 text-red-500 font-display font-bold uppercase tracking-widest text-lg rounded rotate-[-12deg] bg-black/80 shadow-lg animate-pulse">
+                                Sold Out
+                              </span>
+                            </div>
+                          )}
                           <img
                             src={property.image}
                             alt={property.title}

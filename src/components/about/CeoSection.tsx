@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Linkedin, Twitter, Globe } from "lucide-react";
+import { Linkedin, Twitter, Globe, Youtube, Instagram, Facebook } from "lucide-react";
 import ceoImage from "../../assets/ceo.jpg";
 
 
@@ -22,6 +22,15 @@ const milestones = [
   { year: "2022", event: "Expanded into cryptocurrency and Web3 with Hartitudeh CryptoTech & Global Exchange." },
   { year: "2023", event: "Entered the real estate sector with Hartitudeh Homes & Properties." },
   { year: "2025", event: "Grew to 50+ team members serving 500+ clients across 10+ countries." },
+];
+
+const socialLinks = [
+  { icon: Facebook, href: "https://facebook.com/hartitudehempire", label: "Facebook" },
+  { icon: Linkedin, href: "https://linkedin.com/in/adeyemi-pelumi-obaloluwa", label: "LinkedIn" },
+  { icon: Twitter, href: "https://twitter.com/hartitudehtech", label: "Twitter" },
+  { icon: Globe, href: "https://hartitudehempire.com", label: "Website" },
+  { icon: Youtube, href: "https://youtube.com/@hartitudeh", label: "YouTube" },
+  { icon: Instagram, href: "https://instagram.com/hartitudehempire", label: "Instagram" },
 ];
 
 export default function CeoSection() {
@@ -60,9 +69,9 @@ export default function CeoSection() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-3 -right-3 w-20 h-20 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center">
+              {/* <div className="absolute -bottom-3 -right-3 w-20 h-20 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center">
                 <span className="text-white font-display font-bold text-sm text-center leading-tight">CEO &<br />Founder</span>
-              </div>
+              </div> */}
             </motion.div>
 
             <motion.h3 variants={fadeInUp} className="text-2xl md:text-3xl font-display font-bold mt-4">
@@ -73,10 +82,13 @@ export default function CeoSection() {
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex items-center justify-center gap-3 mt-5">
-              {[Linkedin, Twitter, Globe].map((Icon, i) => (
+              {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
                   className="w-10 h-10 rounded-full bg-card border border-border hover:border-gold/50 flex items-center justify-center transition-colors"
                 >
                   <Icon className="w-4 h-4 text-muted-foreground hover:text-gold transition-colors" />
@@ -102,14 +114,14 @@ export default function CeoSection() {
                 Starting from humble beginnings, Pelumi identified a gap in the market for a trusted, all-in-one solution provider that could serve the evolving needs of a digital-first generation. What began as a passion for technology and innovation quickly evolved into a multi-vertical empire spanning three continents.
               </p>
               <p className="text-muted-foreground">
-                Under his leadership, Hartitudeh Empire has grown from a solo venture into a thriving enterprise with over 50 team members, serving 500+ clients across 10+ countries. His hands-on approach, relentless work ethic, and commitment to excellence have been the driving forces behind the company's rapid growth and reputation for delivering results.
+                Under his leadership, Hartitudeh Empire has grown from a solo venture into a thriving enterprise with over 30+ team members, serving 500+ clients across 22+ states and 3+ countries. His hands-on approach, relentless work ethic, and commitment to excellence have been the driving forces behind the company's rapid growth and reputation for delivering results.
               </p>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="p-8 rounded-2xl bg-card border border-border mb-8">
               <h4 className="text-lg font-display font-bold mb-4 text-gold">Vision for the Future</h4>
               <p className="text-muted-foreground">
-                Pelumi envisions HARTITUDEH EMPIRE becoming a global household name — a trusted ecosystem where anyone can access world-class technology services, build wealth through smart crypto investments, and secure their future through premium real estate. The next chapter includes expanding into new markets, launching innovative fintech products, and establishing a Hartitudeh Academy to train the next generation of African entrepreneurs.
+                Pelumi envisions HARTITUDEH EMPIRE becoming a global household name, a trusted ecosystem where anyone can access world-class technology services, build wealth through smart crypto investments, and secure their future through premium real estate. The next chapter includes expanding into new markets, launching innovative fintech products, and establishing a Hartitudeh Academy to train the next generation of African entrepreneurs.
               </p>
             </motion.div>
 

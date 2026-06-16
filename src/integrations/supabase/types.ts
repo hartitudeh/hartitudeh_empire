@@ -123,6 +123,9 @@ export type Database = {
           title: string
           updated_at: string
           user_id: string
+          is_sold: boolean
+          commission_rate: number | null
+          commission_amount: number | null
         }
         Insert: {
           amenities?: string[] | null
@@ -146,6 +149,9 @@ export type Database = {
           title: string
           updated_at?: string
           user_id: string
+          is_sold?: boolean
+          commission_rate?: number | null
+          commission_amount?: number | null
         }
         Update: {
           amenities?: string[] | null
@@ -169,6 +175,9 @@ export type Database = {
           title?: string
           updated_at?: string
           user_id?: string
+          is_sold?: boolean
+          commission_rate?: number | null
+          commission_amount?: number | null
         }
         Relationships: []
       }
@@ -181,6 +190,9 @@ export type Database = {
           id: string
           updated_at: string
           user_id: string
+          phone: string | null
+          bio: string | null
+          role: string | null
         }
         Insert: {
           avatar_url?: string | null
@@ -190,6 +202,9 @@ export type Database = {
           id?: string
           updated_at?: string
           user_id: string
+          phone?: string | null
+          bio?: string | null
+          role?: string | null
         }
         Update: {
           avatar_url?: string | null
@@ -199,6 +214,9 @@ export type Database = {
           id?: string
           updated_at?: string
           user_id?: string
+          phone?: string | null
+          bio?: string | null
+          role?: string | null
         }
         Relationships: []
       }

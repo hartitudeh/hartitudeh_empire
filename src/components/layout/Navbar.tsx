@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import logoFull from "@/assets/logo-full.png";
 import styled from "styled-components";
+import { supabase } from "@/integrations/supabase/client";
 
 const services = [
   {
@@ -257,7 +258,25 @@ const MobileNavLink = styled(Link)<{ $isActive: boolean }>`
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [user, setUser] = useState<any>(null);
   const location = useLocation();
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+  };
 
   const isActive = (href: string) => location.pathname === href;
 
@@ -332,9 +351,24 @@ export default function Navbar() {
           {/* Desktop CTA + Theme Toggle */}
           <DesktopControls>
             <ThemeToggle />
-            <Button variant="gold" asChild>
-              <Link to="/contact">Get Started</Link>
-            </Button>
+            {user ? (
+              <div className="flex items-center gap-2">
+                <Button variant="goldOutline" size="sm" asChild>
+                  <Link to="/profile" className="flex items-center gap-2">
+                    <User className="w-4 h-4" />
+                    Profile
+                  </Link>
+                </Button>
+                <Button variant="ghost" size="sm" onClick={handleLogout} className="text-muted-foreground hover:text-red-500">
+                  <LogOut className="w-4 h-4 mr-1" />
+                  Logout
+                </Button>
+              </div>
+            ) : (
+              <Button variant="gold" asChild>
+                <Link to="/login">Get Started</Link>
+              </Button>
+            )}
           </DesktopControls>
 
           {/* Mobile Menu Button */}
@@ -399,11 +433,26 @@ export default function Navbar() {
                   )}
                 </div>
               ))}
-              <Button variant="gold" className="w-full mt-4" asChild>
-                <Link to="/contact" onClick={() => setIsOpen(false)}>
-                  Get Started
-                </Link>
-              </Button>
+              {user ? (
+                <div className="flex flex-col gap-2 w-full mt-4">
+                  <Button variant="goldOutline" className="w-full flex items-center justify-center gap-2" asChild>
+                    <Link to="/profile" onClick={() => setIsOpen(false)}>
+                      <User className="w-4 h-4" />
+                      My Profile
+                    </Link>
+                  </Button>
+                  <Button variant="ghost" className="w-full text-muted-foreground hover:text-red-500 flex items-center justify-center gap-2" onClick={() => { handleLogout(); setIsOpen(false); }}>
+                    <LogOut className="w-4 h-4" />
+                    Logout
+                  </Button>
+                </div>
+              ) : (
+                <Button variant="gold" className="w-full mt-4" asChild>
+                  <Link to="/login" onClick={() => setIsOpen(false)}>
+                    Get Started
+                  </Link>
+                </Button>
+              )}
             </MobileMenuContainer>
           </MobileMenu>
         )}

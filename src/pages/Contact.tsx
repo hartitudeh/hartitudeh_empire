@@ -17,7 +17,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    details: "+1 (555) 123-4567",
+    details: "+234 708 377 7336, +234 811 298 9898",
     description: "Mon-Fri, 9am-6pm EST",
   },
   {

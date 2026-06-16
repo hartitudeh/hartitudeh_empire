@@ -38,21 +38,21 @@ const values = [
 
 const testimonials = [
   {
-    name: "Michael Chen",
-    role: "CEO, TechStart Inc.",
-    content: "HARTITUDEH EMPIRE transformed our digital presence completely. Their tech solutions team delivered beyond expectations.",
+    name: "Chinedu Okeke",
+    role: "CTO, VendaPay",
+    content: "HARTITUDEH Tech Solutions built our payment gateway API. The codebase is extremely clean, well-documented, and scales effortlessly under high transaction loads.",
     service: "Tech Solutions",
   },
   {
-    name: "Sarah Williams",
+    name: "Oluwaseun Ajayi",
     role: "Crypto Investor",
-    content: "The ROI from their crypto trading services has been exceptional. Trustworthy and professional.",
+    content: "Hartitudeh CryptoTech has made digital asset trading simple and accessible. Their exchange rates are very competitive, and customer support is incredibly responsive.",
     service: "CryptoTech",
   },
   {
-    name: "James Okonkwo",
-    role: "Property Investor",
-    content: "Found my dream investment property through their real estate team. Seamless experience from start to finish.",
+    name: "Emeka Nwosu",
+    role: "Real Estate Investor",
+    content: "HARTITUDEH Homes & Properties helped me acquire high-yield properties in Lekki. Their legal team verified everything, and the transfer of deed was done in days.",
     service: "Homes & Properties",
   },
 ];
