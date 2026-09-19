@@ -1,67 +1,89 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight, Target, Eye, Heart, Award, Users, Clock, Globe } from "lucide-react";
+import { motion } from "motion/react";
+import { ArrowRight, Target, Eye, Heart, Award, Users, Globe, Building2, Cpu, Coins, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import CeoSection from "@/components/about/CeoSection";
 import TeamSection from "@/components/about/TeamSection";
-import { label } from "framer-motion/client";
 
 const values = [
-  { icon: Heart, title: "Integrity", description: "We uphold the highest ethical standards in all our dealings." },
-  { icon: Target, title: "Innovation", description: "We constantly push boundaries to deliver cutting-edge solutions." },
-  { icon: Award, title: "Excellence", description: "We strive for perfection in every service we provide." },
-  { icon: Eye, title: "Transparency", description: "We believe in open, honest communication with all stakeholders." },
+  { 
+    icon: Heart, 
+    title: "Integrity & Trust", 
+    description: "We uphold the highest ethical standards, transparency, and accountability in every client transaction and partnership." 
+  },
+  { 
+    icon: Target, 
+    title: "Cutting-Edge Innovation", 
+    description: "We constantly pioneer new technologies, Web3 strategies, and modern real estate solutions to stay ahead of global trends." 
+  },
+  { 
+    icon: Award, 
+    title: "Uncompromising Excellence", 
+    description: "We deliver exceptional quality and world-class service across all our technology, crypto, and property verticals." 
+  },
+  { 
+    icon: Eye, 
+    title: "Complete Transparency", 
+    description: "We maintain clear, open communication, transparent pricing, and dependable reporting for all stakeholders." 
+  },
 ];
 
 const stats = [
-  { value: "500+", label: "Clients Served" },
-  { value: "3", label: "Business Verticals" },
-  { value: "30+", label: "Team Members" },
-  { value: "22+", label: "States Reached" },
-  { value: "3+", label: "Countries Reached"},
+  { value: "500+", label: "Clients & Investors Served", icon: Users },
+  { value: "3", label: "Core Business Divisions", icon: Building2 },
+  { value: "30+", label: "Dedicated Professionals", icon: Award },
+  { value: "22+", label: "Nigerian States Reached", icon: Globe },
+  { value: "10+", label: "Global Markets & Countries", icon: ShieldCheck },
 ];
 
 const subBrands = [
   {
     title: "Hartitudeh Tech Solutions",
-    description: "Your partner in digital transformation. We specialize in software development, graphic design, video editing, and comprehensive digital solutions that bring your imagination to life.",
+    category: "Software & Digital Media",
+    icon: Cpu,
+    description: "Your trusted partner in enterprise digital transformation. We engineer custom web and mobile software, brand identities, motion graphics, and high-impact digital solutions that elevate modern brands.",
     href: "/tech-solutions",
-    features: ["Web & Mobile Development", "Graphic Design & Branding", "Video Editing & Motion Graphics", "Digital Media Solutions"],
+    features: ["Custom Software & Mobile App Development", "Brand Identity & Graphic Design", "Video Production & Motion Graphics", "Print Media & Digital Marketing"],
   },
   {
     title: "Hartitudeh CryptoTech & Global Exchange",
-    description: "Navigating the future of finance. We offer crypto trading services, ROI-based investment management, Web3 marketing, and airdrop campaign solutions.",
+    category: "Web3 & Digital Finance",
+    icon: Coins,
+    description: "Navigating the future of global digital assets. We provide professional managed crypto trading, ROI-structured investment packages, Web3 project marketing, and token campaign execution.",
     href: "/cryptotech",
-    features: ["Managed Crypto Trading", "ROI Investment Plans", "Web3 Project Marketing", "Airdrop Campaigns"],
+    features: ["Managed Crypto Asset Portfolios", "ROI Investment Management", "Web3 & Blockchain Marketing", "Airdrop Campaign Execution"],
   },
   {
     title: "Hartitudeh Homes & Properties",
-    description: "Building your future through real estate. We provide comprehensive property services including sales, leasing, rentals, and investment consulting.",
+    category: "Real Estate & Land Advisory",
+    icon: Building2,
+    description: "Building sustainable wealth through premium real estate. We deliver comprehensive property solutions including luxury residential sales, commercial leasing, land acquisitions, and property management.",
     href: "/homes-properties",
-    features: ["Property Sales", "Land & House Leasing", "Property Rentals", "Real Estate Consulting"],
+    features: ["Luxury Residential & Land Sales", "Commercial Property Leasing", "Diaspora Real Estate Advisory", "Full-Spectrum Property Management"],
   },
 ];
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.12 },
   },
 };
 
 export default function About() {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="py-24 bg-card">
-        <div className="container px-4">
+      {/* Hero Header Section */}
+      <section className="relative py-28 overflow-hidden bg-gradient-to-b from-card via-background to-background border-b border-border">
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="container px-4 relative z-10">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -70,28 +92,48 @@ export default function About() {
           >
             <motion.span
               variants={fadeInUp}
-              className="inline-block px-4 py-2 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium mb-6"
+              className="inline-block px-4 py-1.5 rounded-full border border-amber-500/40 bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-6"
             >
-              About Us
+              About HARTITUDEH EMPIRE
             </motion.span>
             <motion.h1
               variants={fadeInUp}
-              className="text-4xl md:text-6xl font-display font-bold mb-6"
+              className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight"
             >
-              The Story of{" "}
-              <span className="text-gradient-gold">HARTITUDEH EMPIRE</span>
+              Pioneering Innovation in <br />
+              <span className="text-gradient-gold">Technology, Finance & Real Estate</span>
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="text-lg text-muted-foreground max-w-2xl mx-auto"
+              className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             >
-              A diversified emporium delivering technology, digital innovation, crypto investment solutions, and real estate opportunities — all under one trusted ecosystem.
+              HARTITUDEH EMPIRE is a premier multi-sector conglomerate engineered to deliver transformative software development, digital asset management, and high-value real estate opportunities under one unified ecosystem.
             </motion.p>
+          </motion.div>
+
+          {/* Stats Bar */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-16 max-w-5xl mx-auto"
+          >
+            {stats.map((stat) => (
+              <motion.div
+                key={stat.label}
+                variants={fadeInUp}
+                className="p-5 rounded-2xl bg-card border border-border/80 shadow-md text-center hover:border-amber-500/40 transition-all"
+              >
+                <stat.icon className="w-5 h-5 text-amber-500 mx-auto mb-2" />
+                <p className="text-2xl md:text-3xl font-display font-bold text-gradient-gold mb-1">{stat.value}</p>
+                <p className="text-xs text-muted-foreground font-medium">{stat.label}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Who We Are */}
+      {/* Corporate Overview: Who We Are */}
       <section className="py-24">
         <div className="container px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -103,47 +145,73 @@ export default function About() {
             >
               <motion.span
                 variants={fadeInUp}
-                className="text-gold font-medium tracking-wide uppercase text-sm"
+                className="text-amber-600 dark:text-amber-400 font-semibold tracking-wider uppercase text-xs"
               >
-                Who We Are
+                Corporate Overview
               </motion.span>
               <motion.h2
                 variants={fadeInUp}
-                className="text-3xl md:text-4xl font-display font-bold mt-4 mb-6"
+                className="text-3xl md:text-5xl font-display font-bold mt-3 mb-6 leading-tight"
               >
-                A Unified Vision for Diverse Excellence
+                A Unified Vision for <br />
+                <span className="text-gradient-gold">Diverse Excellence</span>
               </motion.h2>
-              <motion.p variants={fadeInUp} className="text-muted-foreground mb-6">
-                HARTITUDEH EMPIRE stands as a beacon of innovation and trust in the modern business landscape. Founded with the vision of creating a multi-faceted enterprise that serves diverse needs, we have grown into a comprehensive solution provider.
+              <motion.p variants={fadeInUp} className="text-muted-foreground leading-relaxed mb-5">
+                HARTITUDEH EMPIRE stands as a benchmark of growth and reliability in the contemporary commercial landscape. Built on a foundation of visionary leadership, our conglomerate combines technological precision, Web3 foresight, and tangible property assets.
               </motion.p>
-              <motion.p variants={fadeInUp} className="text-muted-foreground mb-8">
-                Our empire encompasses three powerful verticals: Technology & Creative Services, Cryptocurrency & Web3 Solutions, and Real Estate. Each division operates with autonomy while benefiting from the collective strength, credibility, and resources of the HARTITUDEH brand.
+              <motion.p variants={fadeInUp} className="text-muted-foreground leading-relaxed mb-8">
+                Operating through three specialized divisions—<strong>Tech Solutions</strong>, <strong>CryptoTech & Global Exchange</strong>, and <strong>Homes & Properties</strong>—we provide individuals, corporate entities, diaspora investors, and ambitious projects with end-to-end solutions designed for long-term prosperity.
               </motion.p>
-              <motion.div variants={fadeInUp}>
-                <Button variant="gold" asChild>
+              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
+                <Button className="bg-[#19013b] hover:bg-[#2b0363] text-white font-bold px-6 py-2.5 rounded-xl shadow-md" asChild>
                   <Link to="/contact">
-                    Get In Touch
-                    <ArrowRight className="w-4 h-4" />
+                    Partner With Us
+                    <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
+                </Button>
+                <Button variant="outline" className="border-border font-semibold rounded-xl" asChild>
+                  <a href="#verticals">Explore Divisions</a>
                 </Button>
               </motion.div>
             </motion.div>
 
+            {/* Strategic Pillars Feature Card */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid grid-cols-2 gap-6"
+              className="space-y-4"
             >
-              {stats.map((stat) => (
+              {[
+                {
+                  title: "Technology & Software",
+                  desc: "Engineering custom web applications, digital branding, and enterprise tools for scale.",
+                  icon: Cpu,
+                },
+                {
+                  title: "Crypto & Web3 Growth",
+                  desc: "Professional trading management, structured investment ROI plans, and token promotion.",
+                  icon: Coins,
+                },
+                {
+                  title: "Real Estate & Properties",
+                  desc: "Curating verified residential estates, commercial plots, and property leasing across Nigeria.",
+                  icon: Building2,
+                },
+              ].map((pillar) => (
                 <motion.div
-                  key={stat.label}
+                  key={pillar.title}
                   variants={fadeInUp}
-                  className="p-6 rounded-2xl bg-card border border-border text-center"
+                  className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border shadow-sm hover:border-amber-500/40 hover:shadow-md transition-all"
                 >
-                  <p className="text-4xl font-display font-bold text-gold mb-2">{stat.value}</p>
-                  <p className="text-muted-foreground">{stat.label}</p>
+                  <div className="w-12 h-12 rounded-xl bg-[#19013b] text-white flex items-center justify-center flex-shrink-0 shadow-md">
+                    <pillar.icon className="w-6 h-6 text-amber-400" />
+                  </div>
+                  <div>
+                    <h3 className="font-display font-bold text-lg text-foreground mb-1">{pillar.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{pillar.desc}</p>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -151,24 +219,24 @@ export default function About() {
         </div>
       </section>
 
-      {/* Vision & Mission */}
-      <section className="py-24 bg-card">
+      {/* Vision & Mission Section */}
+      <section className="py-24 bg-gradient-to-b from-card via-card to-background border-y border-border">
         <div className="container px-4">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="p-8 rounded-2xl bg-background border border-border"
+              className="p-8 rounded-3xl bg-background border border-border/80 shadow-md relative overflow-hidden group hover:border-amber-500/50 transition-all"
             >
-              <motion.div variants={fadeInUp} className="w-14 h-14 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center mb-6">
-                <Eye className="w-7 h-7 text-gold" />
-              </motion.div>
-              <motion.h3 variants={fadeInUp} className="text-2xl font-display font-bold mb-4">Our Vision</motion.h3>
-              <motion.p variants={fadeInUp} className="text-muted-foreground">
-                To become the most trusted and innovative multi-sector enterprise, empowering individuals and businesses worldwide through technology, financial growth, and property ownership.
-              </motion.p>
+              <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mb-6">
+                <Eye className="w-7 h-7 text-amber-500" />
+              </div>
+              <h3 className="text-2xl font-display font-bold mb-3">Our Vision</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                To position HARTITUDEH EMPIRE as an internationally renowned multi-sector conglomerate that empowers millions of individuals and businesses through scalable technology, smart digital wealth creation, and premium real estate assets.
+              </p>
             </motion.div>
 
             <motion.div
@@ -176,36 +244,39 @@ export default function About() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="p-8 rounded-2xl bg-background border border-border"
+              className="p-8 rounded-3xl bg-background border border-border/80 shadow-md relative overflow-hidden group hover:border-amber-500/50 transition-all"
             >
-              <motion.div variants={fadeInUp} className="w-14 h-14 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center mb-6">
-                <Target className="w-7 h-7 text-gold" />
-              </motion.div>
-              <motion.h3 variants={fadeInUp} className="text-2xl font-display font-bold mb-4">Our Mission</motion.h3>
-              <motion.p variants={fadeInUp} className="text-muted-foreground">
-                To deliver exceptional value across technology, cryptocurrency, and real estate sectors, maintaining the highest standards of integrity, innovation, and customer satisfaction in every interaction.
-              </motion.p>
+              <div className="w-14 h-14 rounded-2xl bg-[#19013b]/10 border border-[#19013b]/30 flex items-center justify-center mb-6">
+                <Target className="w-7 h-7 text-[#19013b] dark:text-amber-400" />
+              </div>
+              <h3 className="text-2xl font-display font-bold mb-3">Our Mission</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                To deliver unmatched value across technology, Web3 finance, and property sectors by enforcing strict ethical standards, cutting-edge innovation, transparent management, and client-first relationship building in all operations.
+              </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* What We Do */}
-      <section className="py-24">
+      {/* Business Verticals Deep Dive */}
+      <section id="verticals" className="py-24">
         <div className="container px-4">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="text-center mb-16"
+            className="text-center max-w-3xl mx-auto mb-16"
           >
-            <motion.span variants={fadeInUp} className="text-gold font-medium tracking-wide uppercase text-sm">
-              What We Do
+            <motion.span variants={fadeInUp} className="text-amber-600 dark:text-amber-400 font-semibold tracking-wider uppercase text-xs">
+              Ecosystem
             </motion.span>
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-display font-bold mt-4">
-              Our Business Verticals
+            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-display font-bold mt-3">
+              Our Core Business Verticals
             </motion.h2>
+            <motion.p variants={fadeInUp} className="text-muted-foreground mt-4 text-base">
+              Each division operates as a specialized powerhouse while sharing the overarching credibility, security, and infrastructure of HARTITUDEH EMPIRE.
+            </motion.p>
           </motion.div>
 
           <motion.div
@@ -213,33 +284,44 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="space-y-8"
+            className="space-y-8 max-w-5xl mx-auto"
           >
             {subBrands.map((brand, index) => (
               <motion.div
                 key={brand.title}
                 variants={fadeInUp}
-                className="p-8 rounded-2xl bg-card border border-border hover:border-gold/30 transition-colors"
+                className="p-8 md:p-10 rounded-3xl bg-card border border-border/80 shadow-md hover:shadow-xl hover:border-amber-500/40 transition-all"
               >
-                <div className="flex flex-col lg:flex-row gap-8 items-start">
-                  <div className="flex-1">
-                    <span className="text-gold font-medium text-sm">0{index + 1}</span>
-                    <h3 className="text-2xl font-display font-bold mt-2 mb-4">{brand.title}</h3>
-                    <p className="text-muted-foreground mb-6">{brand.description}</p>
-                    <Button variant="goldOutline" size="sm" asChild>
+                <div className="flex flex-col lg:flex-row gap-8 items-start justify-between">
+                  <div className="flex-1 space-y-4">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-bold uppercase tracking-widest text-amber-500 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full">
+                        Division 0{index + 1}
+                      </span>
+                      <span className="text-xs font-semibold text-muted-foreground">{brand.category}</span>
+                    </div>
+
+                    <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground">{brand.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{brand.description}</p>
+
+                    <Button variant="outline" className="border-[#19013b] text-[#19013b] hover:bg-[#19013b] hover:text-white font-bold rounded-xl gap-2 mt-2" asChild>
                       <Link to={brand.href}>
-                        Learn More
+                        Explore Division
                         <ArrowRight className="w-4 h-4" />
                       </Link>
                     </Button>
                   </div>
-                  <div className="lg:w-80">
-                    <h4 className="font-semibold mb-4 text-foreground">Key Services:</h4>
-                    <ul className="space-y-2">
+
+                  <div className="lg:w-80 w-full p-6 rounded-2xl bg-secondary/40 border border-border/60">
+                    <h4 className="font-display font-bold text-sm text-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-amber-500" />
+                      Key Offerings
+                    </h4>
+                    <ul className="space-y-2.5">
                       {brand.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-muted-foreground">
-                          <div className="w-1.5 h-1.5 rounded-full bg-gold" />
-                          {feature}
+                        <li key={feature} className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                          <CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0" />
+                          <span>{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -251,21 +333,21 @@ export default function About() {
         </div>
       </section>
 
-      {/* Our Values */}
-      <section className="py-24 bg-card">
+      {/* Core Values */}
+      <section className="py-24 bg-card border-t border-border">
         <div className="container px-4">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="text-center mb-16"
+            className="text-center max-w-3xl mx-auto mb-16"
           >
-            <motion.span variants={fadeInUp} className="text-gold font-medium tracking-wide uppercase text-sm">
-              Our Values
+            <motion.span variants={fadeInUp} className="text-amber-600 dark:text-amber-400 font-semibold tracking-wider uppercase text-xs">
+              Our Principles
             </motion.span>
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-display font-bold mt-4">
-              The Principles We Live By
+            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-display font-bold mt-3">
+              The Values That Guide Our Growth
             </motion.h2>
           </motion.div>
 
@@ -274,32 +356,34 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
           >
             {values.map((value) => (
               <motion.div
                 key={value.title}
                 variants={fadeInUp}
-                className="p-6 rounded-2xl bg-background border border-border text-center"
+                className="p-6 rounded-2xl bg-background border border-border/80 shadow-sm text-center hover:border-amber-500/40 hover:shadow-md transition-all flex flex-col justify-between"
               >
-                <div className="w-14 h-14 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center mx-auto mb-5">
-                  <value.icon className="w-6 h-6 text-gold" />
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-[#19013b] text-amber-400 flex items-center justify-center mx-auto mb-5 shadow-md">
+                    <value.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-display font-bold mb-2 text-foreground">{value.title}</h3>
+                  <p className="text-muted-foreground text-xs leading-relaxed">{value.description}</p>
                 </div>
-                <h3 className="text-lg font-display font-bold mb-2">{value.title}</h3>
-                <p className="text-muted-foreground text-sm">{value.description}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* CEO Section */}
+      {/* CEO & Founder Section */}
       <CeoSection />
 
-      {/* Team Section */}
+      {/* Team Leadership Section */}
       <TeamSection />
 
-      {/* CTA */}
+      {/* Corporate Call To Action */}
       <section className="py-24">
         <div className="container px-4">
           <motion.div
@@ -307,19 +391,22 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-4xl mx-auto bg-gradient-to-r from-[#19013b] via-[#240254] to-[#19013b] rounded-3xl p-10 md:p-16 text-center text-white shadow-2xl relative overflow-hidden"
           >
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-display font-bold mb-6">
-              Ready to Partner With Us?
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-lg text-muted-foreground mb-10">
-              Whether you need cutting-edge technology, crypto investment opportunities, or prime real estate, we're here to help you succeed.
-            </motion.p>
             <motion.div variants={fadeInUp}>
-              <Button variant="hero" size="xl" asChild>
+              <Building2 className="w-14 h-14 text-amber-400 mx-auto mb-6" />
+            </motion.div>
+            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-display font-bold mb-6">
+              Ready to Build Your Legacy With Us?
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-slate-200 max-w-xl mx-auto mb-10 leading-relaxed text-base">
+              Whether you are seeking custom enterprise software, Web3 crypto management, or verified real estate investments, our team is ready to deliver.
+            </motion.p>
+            <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-4">
+              <Button className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-6 rounded-xl shadow-xl text-base" asChild>
                 <Link to="/contact">
-                  Contact Our Team
-                  <ArrowRight className="w-5 h-5" />
+                  Contact Our Empire Team
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
             </motion.div>
@@ -329,3 +416,4 @@ export default function About() {
     </Layout>
   );
 }
+
