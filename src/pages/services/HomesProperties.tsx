@@ -140,7 +140,8 @@ export default function HomesProperties() {
             alt="Luxury real estate"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-background/60" />
+          <div className="absolute inset-0 bg-slate-950/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/60" />
         </div>
 
         {/* Decorative elements */}
@@ -156,23 +157,23 @@ export default function HomesProperties() {
           >
             <motion.span
               variants={fadeInUp}
-              className="inline-block px-4 py-2 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium mb-6"
+              className="inline-block px-4 py-2 rounded-full border border-amber-500/40 bg-amber-500/10 text-amber-400 text-sm font-medium mb-6"
             >
               Welcome to Hartitudeh Homes & Properties
             </motion.span>
 
             <motion.h1
               variants={fadeInUp}
-              className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight"
+              className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight text-white"
             >
-              Find Your
+              Find Your{" "}
               <span className="text-gradient-gold block">Perfect Home</span>
-              <span className="text-foreground/80">With Confidence</span>
+              <span className="text-white">With Confidence</span>
             </motion.h1>
 
             <motion.p
               variants={fadeInUp}
-              className="text-lg text-muted-foreground max-w-xl mx-auto mb-10"
+              className="text-lg text-slate-200 max-w-xl mx-auto mb-10"
             >
               Your trusted partner in premium real estate. We help you buy, sell, lease, 
               and rent properties with transparency and excellence.
@@ -181,7 +182,7 @@ export default function HomesProperties() {
             {/* Search Box */}
             <motion.div
               variants={fadeInUp}
-              className="bg-card/90 backdrop-blur-lg rounded-2xl p-6 border border-border max-w-3xl mx-auto"
+              className="bg-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-slate-800 shadow-2xl max-w-3xl mx-auto"
             >
               {/* Search Type Tabs */}
               <div className="flex gap-2 mb-6">
@@ -191,8 +192,8 @@ export default function HomesProperties() {
                     onClick={() => setSearchType(type)}
                     className={`px-6 py-2 rounded-lg font-medium text-sm transition-all ${
                       searchType === type
-                        ? "bg-gradient-to-r from-gold to-gold-dark text-primary-foreground shadow-lg"
-                        : "bg-secondary text-muted-foreground hover:text-foreground"
+                        ? "bg-gradient-to-r from-gold to-gold-dark text-slate-950 shadow-lg"
+                        : "bg-slate-800/80 text-slate-300 hover:text-white"
                     }`}
                   >
                     {type.charAt(0).toUpperCase() + type.slice(1)}
@@ -202,29 +203,29 @@ export default function HomesProperties() {
 
               {/* Search Fields */}
               <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1 flex items-center gap-3 bg-background rounded-xl px-4 py-3 border border-border">
+                <div className="flex-1 flex items-center gap-3 bg-slate-950/90 rounded-xl px-4 py-3 border border-slate-800">
                   <MapPin className="w-5 h-5 text-gold" />
                   <input
                     type="text"
                     placeholder="Enter location..."
                     value={searchLocation}
                     onChange={(e) => setSearchLocation(e.target.value)}
-                    className="flex-1 bg-transparent outline-none text-foreground placeholder:text-muted-foreground"
+                    className="flex-1 bg-transparent outline-none text-white placeholder:text-slate-400"
                   />
                 </div>
 
-                <div className="flex items-center gap-3 bg-background rounded-xl px-4 py-3 border border-border">
+                <div className="flex items-center gap-3 bg-slate-950/90 rounded-xl px-4 py-3 border border-slate-800">
                   <Home className="w-5 h-5 text-gold" />
                   <select 
                     value={propertyType}
                     onChange={(e) => setPropertyType(e.target.value)}
-                    className="bg-transparent outline-none text-foreground appearance-none cursor-pointer pr-4"
+                    className="bg-transparent outline-none text-white appearance-none cursor-pointer pr-4"
                   >
-                    <option value="">Property Type</option>
-                    <option value="house">House</option>
-                    <option value="apartment">Apartment</option>
-                    <option value="land">Land</option>
-                    <option value="commercial">Commercial</option>
+                    <option value="" className="bg-slate-900 text-white">Property Type</option>
+                    <option value="house" className="bg-slate-900 text-white">House</option>
+                    <option value="apartment" className="bg-slate-900 text-white">Apartment</option>
+                    <option value="land" className="bg-slate-900 text-white">Land</option>
+                    <option value="commercial" className="bg-slate-900 text-white">Commercial</option>
                   </select>
                 </div>
 
@@ -249,7 +250,7 @@ export default function HomesProperties() {
                   <div className="text-3xl md:text-4xl font-display font-bold text-gradient-gold">
                     {stat.value}
                   </div>
-                  <p className="text-muted-foreground text-sm">{stat.label}</p>
+                  <div className="text-slate-300 text-sm mt-1">{stat.label}</div>
                 </div>
               ))}
             </motion.div>

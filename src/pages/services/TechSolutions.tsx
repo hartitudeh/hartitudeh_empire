@@ -207,7 +207,9 @@ export default function TechSolutions() {
               alt={heroSlides[currentSlide].badge}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-background/80" />
+            {/* High-Contrast Vignette Overlays */}
+            <div className="absolute inset-0 bg-slate-950/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/60" />
           </motion.div>
         </AnimatePresence>
 
@@ -224,7 +226,7 @@ export default function TechSolutions() {
         </AnimatePresence>
 
         {/* Content */}
-        <div className="container px-4 relative z-10 h-full flex items-center">
+        <div className="container px-6 md:px-16 relative z-10 h-full flex items-center justify-center">
           <div className="max-w-4xl mx-auto text-center">
             <AnimatePresence mode="wait">
               <motion.div
@@ -237,35 +239,35 @@ export default function TechSolutions() {
               >
                 {/* Badge with Icon */}
                 <div className="flex items-center justify-center gap-3">
-                  <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium">
+                  <span className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-amber-400/40 bg-amber-400/15 text-amber-300 text-sm font-semibold tracking-wide backdrop-blur-md shadow-sm">
                     {(() => {
                       const IconComponent = heroSlides[currentSlide].icon;
-                      return <IconComponent className="w-4 h-4" />;
+                      return <IconComponent className="w-4 h-4 text-amber-400" />;
                     })()}
                     {heroSlides[currentSlide].badge}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white tracking-wide drop-shadow-md">
                   {heroSlides[currentSlide].title}{" "}
-                  <span className="text-gradient-gold">{heroSlides[currentSlide].highlight}</span>
+                  <span className="text-amber-400">{heroSlides[currentSlide].highlight}</span>
                 </h1>
 
                 {/* Description */}
-                <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
                   {heroSlides[currentSlide].description}
                 </p>
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                  <Button variant="hero" asChild>
+                  <Button variant="hero" size="xl" asChild>
                     <Link to="/contact">
                       Start Your Project
-                      <ArrowRight className="w-5 h-5" />
+                      <ArrowRight className="w-5 h-5 ml-1" />
                     </Link>
                   </Button>
-                  <Button variant="heroOutline" asChild>
+                  <Button variant="heroOutline" size="lg" className="border-white/40 text-white hover:bg-white hover:text-slate-950" asChild>
                     <a href="#services">View Services</a>
                   </Button>
                 </div>
@@ -277,29 +279,29 @@ export default function TechSolutions() {
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/20 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-background/40 transition-colors z-20"
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-gold hover:text-slate-950 hover:border-gold transition-all duration-300 z-20 shadow-lg"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/20 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-background/40 transition-colors z-20"
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-gold hover:text-slate-950 hover:border-gold transition-all duration-300 z-20 shadow-lg"
           aria-label="Next slide"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2.5 z-20">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${
+              className={`h-2.5 rounded-full transition-all duration-300 ${
                 index === currentSlide
-                  ? "w-8 bg-gold"
-                  : "w-2 bg-white/30 hover:bg-white/50"
+                  ? "w-8 bg-amber-400 shadow-md"
+                  : "w-2.5 bg-white/40 hover:bg-white/70"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
