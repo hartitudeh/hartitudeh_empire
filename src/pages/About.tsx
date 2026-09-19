@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { ArrowRight, Target, Eye, Heart, Award, Users, Globe, Building2, Cpu, Coins, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Target, Eye, Heart, Award, Users, Globe, Building2, Cpu, Coins, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import CeoSection from "@/components/about/CeoSection";
@@ -304,8 +304,7 @@ export default function About() {
                   </div>
 
                   <div className="lg:w-80 w-full p-6 rounded-2xl bg-secondary/40 border border-border/60">
-                    <h4 className="font-display font-bold text-sm text-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-amber-500" />
+                    <h4 className="font-display font-bold text-sm text-foreground uppercase tracking-wider mb-4">
                       Key Offerings
                     </h4>
                     <ul className="space-y-2.5">
