@@ -574,12 +574,12 @@ const Properties = () => {
               {filteredProperties.map((property) => (
                 <motion.div key={property.id} variants={fadeInUp}>
                   <Link to={`/property/${property.id}`}>
-                    <Card className="overflow-hidden bg-card border-border hover:border-gold/30 transition-all duration-300 group cursor-pointer">
+                    <Card className="overflow-hidden bg-card border border-border/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 transition-all duration-300 group cursor-pointer rounded-2xl flex flex-col h-full">
                       <CardHeader className="p-0 relative">
-                        <div className="relative h-56 overflow-hidden">
+                        <div className="relative h-60 overflow-hidden">
                           {property.is_sold && (
-                            <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center z-10 animate-fade-in">
-                              <span className="px-6 py-2 border-2 border-red-500 text-red-500 font-display font-bold uppercase tracking-widest text-lg rounded rotate-[-12deg] bg-black/80 shadow-lg animate-pulse">
+                            <div className="absolute inset-0 bg-black/65 backdrop-blur-[2px] flex items-center justify-center z-20 animate-fade-in">
+                              <span className="px-6 py-2 border-2 border-red-500 text-red-500 font-display font-bold uppercase tracking-widest text-lg rounded rotate-[-12deg] bg-black/90 shadow-lg animate-pulse">
                                 Sold Out
                               </span>
                             </div>
@@ -587,94 +587,96 @@ const Properties = () => {
                           <img
                             src={property.image}
                             alt={property.title}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                          {/* Subtle dark vignette overlay for top badges & price pill contrast */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30 pointer-events-none" />
 
                           {/* Badges */}
-                          <div className="absolute top-4 right-4 flex gap-2">
+                          <div className="absolute top-3.5 right-3.5 flex gap-2 z-10">
                             <Badge
-                              variant="outline"
                               className={`${
                                 property.type === "For Sale"
-                                  ? "bg-gold/90 text-primary-foreground border-gold"
-                                  : "bg-emerald-500/90 text-white border-emerald-500"
+                                  ? "bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-semibold shadow-lg border border-amber-300/40 text-xs px-2.5 py-0.5"
+                                  : "bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold shadow-lg border border-emerald-400/40 text-xs px-2.5 py-0.5"
                               }`}
                             >
                               {property.type}
                             </Badge>
-                            <Badge variant="outline" className="bg-background/80 border-border text-foreground">
+                            <Badge className="bg-slate-900/80 backdrop-blur-md text-slate-200 font-medium shadow-lg border border-slate-700/60 text-xs px-2.5 py-0.5">
                               {getPropertyTypeLabel(property.propertyType)}
                             </Badge>
                           </div>
 
-                          {/* Price */}
-                          <div className="absolute bottom-4 left-4">
-                            <p className="text-xs text-muted-foreground">Price</p>
-                            <p className="text-2xl font-display font-bold text-gold">
+                          {/* Floating Glass Price Pill */}
+                          <div className="absolute bottom-3.5 left-3.5 z-10 bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-slate-800 shadow-xl flex items-baseline gap-2 group-hover:border-amber-500/50 transition-colors">
+                            <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400">Price</span>
+                            <span className="text-xl md:text-2xl font-display font-bold text-amber-400">
                               {property.price}
-                            </p>
+                            </span>
                           </div>
                         </div>
                       </CardHeader>
 
-                      <CardContent className="p-5 space-y-4">
-                        <div>
-                          <h3 className="font-display font-bold text-lg mb-2 line-clamp-1 group-hover:text-gold transition-colors">
-                            {property.title}
-                          </h3>
-                          <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                            <MapPin className="w-4 h-4 text-gold" />
-                            {property.location}
-                          </div>
-                        </div>
-
-                        {/* Property Details */}
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                          <div className="flex items-center gap-1">
-                            <Maximize className="w-4 h-4" />
-                            {property.area}
-                          </div>
-                          {property.beds > 0 && (
-                            <div className="flex items-center gap-1">
-                              <Bed className="w-4 h-4" />
-                              {property.beds}
+                      <CardContent className="p-5 space-y-4 flex-1 flex flex-col justify-between">
+                        <div className="space-y-3">
+                          <div>
+                            <h3 className="font-display font-bold text-lg mb-1.5 line-clamp-1 group-hover:text-amber-600 transition-colors">
+                              {property.title}
+                            </h3>
+                            <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                              <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0" />
+                              <span className="line-clamp-1">{property.location}</span>
                             </div>
-                          )}
-                          {property.baths > 0 && (
-                            <div className="flex items-center gap-1">
-                              <Bath className="w-4 h-4" />
-                              {property.baths}
-                            </div>
-                          )}
-                        </div>
+                          </div>
 
-                        {/* Features */}
-                        <div className="flex flex-wrap gap-2">
-                          {property.features.slice(0, 3).map((feature, index) => (
-                            <Badge
-                              key={index}
-                              variant="outline"
-                              className="text-xs bg-secondary/50 border-border text-muted-foreground"
-                            >
-                              {feature}
-                            </Badge>
-                          ))}
-                          {property.features.length > 3 && (
-                            <Badge
-                              variant="outline"
-                              className="text-xs bg-gold/10 border-gold/30 text-gold"
-                            >
-                              +{property.features.length - 3}
-                            </Badge>
-                          )}
+                          {/* Property Details */}
+                          <div className="flex items-center gap-4 text-xs font-medium text-foreground py-2 px-3 rounded-lg bg-secondary/50 border border-border/60">
+                            <div className="flex items-center gap-1.5">
+                              <Maximize className="w-3.5 h-3.5 text-amber-500" />
+                              {property.area}
+                            </div>
+                            {property.beds > 0 && (
+                              <div className="flex items-center gap-1.5">
+                                <Bed className="w-3.5 h-3.5 text-amber-500" />
+                                {property.beds} Beds
+                              </div>
+                            )}
+                            {property.baths > 0 && (
+                              <div className="flex items-center gap-1.5">
+                                <Bath className="w-3.5 h-3.5 text-amber-500" />
+                                {property.baths} Baths
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Features */}
+                          <div className="flex flex-wrap gap-1.5">
+                            {property.features.slice(0, 3).map((feature, index) => (
+                              <Badge
+                                key={index}
+                                variant="outline"
+                                className="text-[11px] bg-amber-500/10 border-amber-500/20 text-amber-700 dark:text-amber-400 font-medium"
+                              >
+                                {feature}
+                              </Badge>
+                            ))}
+                            {property.features.length > 3 && (
+                              <Badge
+                                variant="outline"
+                                className="text-[11px] bg-amber-500/15 border-amber-500/30 text-amber-600 font-semibold"
+                              >
+                                +{property.features.length - 3}
+                              </Badge>
+                            )}
+                          </div>
                         </div>
 
                         {/* View Details */}
-                        <span className="inline-flex items-center gap-2 text-gold text-sm font-medium group-hover:gap-3 transition-all">
-                          View Details
-                          <ChevronRight className="w-4 h-4" />
-                        </span>
+                        <div className="pt-2 border-t border-border/40 flex items-center justify-between text-xs font-semibold text-amber-600 group-hover:text-amber-500 transition-colors">
+                          <span>View Details</span>
+                          <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                        </div>
                       </CardContent>
                     </Card>
                   </Link>
