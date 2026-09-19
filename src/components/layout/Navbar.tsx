@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ChevronDown, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoFull from "@/assets/logo-full.png";
-import Logo from "@/components/Logo";
 import styled from "styled-components";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -292,7 +291,10 @@ export default function Navbar() {
         <FlexRow>
           {/* Logo */}
           <LogoLink to="/">
-            <Logo className="h-10 md:h-11" />
+            <LogoImage 
+              src={logoFull} 
+              alt="Hartitudeh Empire Logo" 
+            />
           </LogoLink>
 
           {/* Desktop Navigation */}
