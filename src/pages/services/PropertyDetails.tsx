@@ -222,7 +222,7 @@ export default function PropertyDetails() {
   return (
     <Layout>
       {/* Hero Image */}
-      <section className="relative h-[60vh] w-full overflow-hidden">
+      <section className="relative h-[60vh] min-h-[420px] w-full overflow-hidden">
         {property.is_sold && (
           <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex items-center justify-center z-20">
             <span className="px-8 py-3 border-4 border-red-500 text-red-500 font-display font-bold uppercase tracking-widest text-3xl rounded rotate-[-12deg] bg-black/90 shadow-2xl animate-pulse">
@@ -235,13 +235,15 @@ export default function PropertyDetails() {
           alt={property.title}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+        {/* Dark High-Contrast Vignette */}
+        <div className="absolute inset-0 bg-slate-950/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-black/30 pointer-events-none" />
         
-        <div className="absolute bottom-0 left-0 right-0 p-8">
-          <div className="container">
+        <div className="absolute top-24 left-0 right-0 z-20">
+          <div className="container px-4">
             <Button
               variant="ghost"
-              className="mb-4 text-foreground hover:text-gold"
+              className="text-white hover:text-amber-400 bg-slate-950/70 backdrop-blur-md border border-slate-800 shadow-lg hover:bg-slate-900 rounded-xl px-4 py-2 font-semibold transition-all"
               onClick={() => navigate("/homes-properties")}
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -265,19 +267,19 @@ export default function PropertyDetails() {
               {/* Header */}
               <motion.div
                 variants={fadeInUp}
-                className="bg-card rounded-2xl p-8 border border-border"
+                className="bg-card rounded-2xl p-8 border border-border shadow-lg"
               >
                 <div className="flex flex-wrap gap-2 mb-4">
                   <Badge
                     className={`${
                       property.purpose === "sale"
-                        ? "bg-gold text-primary-foreground border-gold"
-                        : "bg-emerald-500 text-white border-emerald-500"
+                        ? "bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold px-3 py-1 rounded-full shadow-md"
+                        : "bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-bold px-3 py-1 rounded-full shadow-md"
                     }`}
                   >
                     {property.purpose === "sale" ? "For Sale" : "For Rent"}
                   </Badge>
-                  <Badge variant="outline" className="border-border">
+                  <Badge className="bg-slate-900/80 backdrop-blur-md text-slate-200 border border-slate-700/60 font-medium px-3 py-1 rounded-full shadow-md">
                     {property.type === "land" && "Land"}
                     {property.type === "house" && "Residential"}
                     {property.type === "commercial" && "Commercial"}
@@ -424,19 +426,19 @@ export default function PropertyDetails() {
                 )}
 
                 <div className="space-y-3">
-                  <Button variant="gold" className="w-full gap-2" asChild>
+                  <Button className="w-full gap-2 bg-[#19013b] hover:bg-[#2a0361] text-white font-bold h-11 rounded-xl shadow-md transition-all" asChild>
                     <Link to="/contact">
                       <Phone className="w-4 h-4" />
                       Contact Agent
                     </Link>
                   </Button>
-                  <Button variant="goldOutline" className="w-full gap-2" asChild>
+                  <Button variant="outline" className="w-full gap-2 border-2 border-[#19013b] text-[#19013b] hover:bg-[#19013b] hover:text-white font-bold h-11 rounded-xl transition-all" asChild>
                     <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
                       <MessageSquare className="w-4 h-4" />
                       WhatsApp
                     </a>
                   </Button>
-                  <Button variant="outline" className="w-full gap-2" asChild>
+                  <Button variant="ghost" className="w-full gap-2 text-muted-foreground hover:text-foreground font-semibold" asChild>
                     <a href="mailto:properties@hartitudeh.com">
                       <Mail className="w-4 h-4" />
                       Send Email
