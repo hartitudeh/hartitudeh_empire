@@ -368,31 +368,25 @@ export default function About() {
       {/* Corporate Call To Action */}
       <section className="py-24">
         <div className="container px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="max-w-4xl mx-auto bg-gradient-to-r from-[#19013b] via-[#240254] to-[#19013b] rounded-3xl p-10 md:p-16 text-center text-white shadow-2xl relative overflow-hidden"
-          >
-            <motion.div variants={fadeInUp}>
+          <div className="max-w-4xl mx-auto bg-gradient-to-r from-[#19013b] via-[#240254] to-[#19013b] rounded-3xl p-10 md:p-16 text-center text-white shadow-2xl relative overflow-hidden">
+            <div>
               <Building2 className="w-14 h-14 text-amber-400 mx-auto mb-6" />
-            </motion.div>
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-display font-bold mb-6">
+            </div>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
               Ready to Build Your Legacy With Us?
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-slate-200 max-w-xl mx-auto mb-10 leading-relaxed text-base">
+            </h2>
+            <p className="text-slate-200 max-w-xl mx-auto mb-10 leading-relaxed text-base">
               Whether you are seeking custom enterprise software, Web3 crypto management, or verified real estate investments, our team is ready to deliver.
-            </motion.p>
-            <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-4">
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-6 rounded-xl shadow-xl text-base" asChild>
                 <Link to="/contact">
                   Contact Our Empire Team
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
     </Layout>
