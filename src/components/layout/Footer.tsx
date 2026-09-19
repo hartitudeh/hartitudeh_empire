@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
 import logoFull from "@/assets/logo-full.png";
+import Logo from "@/components/Logo";
 import styled from "styled-components";
 
 const footerLinks = {
@@ -201,10 +202,7 @@ export default function Footer() {
           {/* Brand Column */}
           <BrandColumn>
             <LogoLink to="/">
-              <LogoImage 
-                src={logoFull} 
-                alt="Hartitudeh Empire Logo" 
-              />
+              <Logo className="h-10 md:h-12" variant="light" />
             </LogoLink>
             <BrandDesc>
               A diversified emporium delivering technology, digital innovation, crypto investment solutions, and real estate opportunities.
