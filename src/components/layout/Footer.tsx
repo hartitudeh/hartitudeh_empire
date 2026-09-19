@@ -30,7 +30,10 @@ const socialLinks = [
 
 const FooterContainer = styled.footer`
   background-color: ${({ theme }) => theme.colors.card};
-  border-top: 4px solid #19013b;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  box-shadow: 0 -12px 32px -4px rgba(25, 1, 59, 0.08), 0 -4px 12px -2px rgba(0, 0, 0, 0.04);
+  position: relative;
+  z-index: 10;
 `;
 
 const Container = styled.div`
