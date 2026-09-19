@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ChevronDown, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import logoFull from "@/assets/logo-full.png";
 import styled from "styled-components";
 import { supabase } from "@/integrations/supabase/client";
@@ -348,9 +347,8 @@ export default function Navbar() {
             ))}
           </DesktopNav>
 
-          {/* Desktop CTA + Theme Toggle */}
+          {/* Desktop CTA */}
           <DesktopControls>
-            <ThemeToggle />
             {user ? (
               <div className="flex items-center gap-2">
                 <Button variant="goldOutline" size="sm" asChild>
