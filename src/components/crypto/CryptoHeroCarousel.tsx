@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight, ChevronLeft, ChevronRight, Sparkles, TrendingUp, Coins, BarChart3, Gift } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, TrendingUp, Coins, BarChart3, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import slideCrypto from "@/assets/slide-crypto.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
@@ -130,13 +130,11 @@ export default function CryptoHeroCarousel() {
             transition={{ duration: 0.5 }}
             className="max-w-4xl mx-auto text-center"
           >
-            {/* Welcome text with sparkles */}
+            {/* Welcome text */}
             <div className="flex items-center justify-center gap-2 mb-6">
-              <Sparkles className="w-5 h-5 text-amber-400" />
               <span className="text-amber-400 font-semibold text-sm md:text-base tracking-widest uppercase">
                 Cryptocurrency & Web3 Solutions
               </span>
-              <Sparkles className="w-5 h-5 text-amber-400" />
             </div>
 
             {/* Badge with Icon */}

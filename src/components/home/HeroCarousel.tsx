@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 import slideTech from "@/assets/slide-tech.jpg";
@@ -125,13 +125,11 @@ export default function HeroCarousel() {
             transition={{ duration: 0.5 }}
             className="max-w-4xl mx-auto text-center"
           >
-            {/* Welcome text with sparkles */}
+            {/* Welcome text */}
             <div className="flex items-center justify-center gap-2 mb-6">
-              <Sparkles className="w-5 h-5 text-amber-400" />
               <span className="text-amber-400 font-semibold text-sm md:text-base tracking-widest uppercase">
                 Welcome to HARTITUDEH EMPIRE
               </span>
-              <Sparkles className="w-5 h-5 text-amber-400" />
             </div>
 
             {/* Badge */}
@@ -142,7 +140,6 @@ export default function HeroCarousel() {
               className="mb-8"
             >
               <span className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-amber-400/15 border border-amber-400/40 text-amber-300 font-semibold tracking-wide backdrop-blur-md shadow-sm">
-                <Sparkles className="w-4 h-4 text-amber-400" />
                 {slide.badge}
               </span>
             </motion.div>
