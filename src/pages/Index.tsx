@@ -214,13 +214,13 @@ export default function Index() {
               <motion.div
                 key={value.title}
                 variants={fadeInUp}
-                className="text-center p-6"
+                className="group text-center p-8 rounded-2xl bg-background border border-border shadow-sm hover:shadow-xl hover:border-gold/50 transition-all duration-300 hover:-translate-y-1.5"
               >
-                <div className="w-16 h-16 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center mx-auto mb-5">
+                <div className="w-16 h-16 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:bg-amber-400/20 transition-all duration-300 shadow-sm">
                   <value.icon className="w-7 h-7 text-gold" />
                 </div>
-                <h3 className="text-lg font-display font-bold mb-2">{value.title}</h3>
-                <p className="text-muted-foreground text-sm">{value.description}</p>
+                <h3 className="text-xl font-display font-bold mb-3 text-foreground group-hover:text-gold transition-colors">{value.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
               </motion.div>
             ))}
           </motion.div>
