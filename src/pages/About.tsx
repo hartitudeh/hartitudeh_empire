@@ -224,10 +224,8 @@ export default function About() {
         <div className="container px-4">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainer}
+              initial={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               className="p-8 rounded-3xl bg-background border border-border/80 shadow-md relative overflow-hidden group hover:border-amber-500/50 transition-all"
             >
               <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mb-6">
@@ -240,10 +238,8 @@ export default function About() {
             </motion.div>
 
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainer}
+              initial={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               className="p-8 rounded-3xl bg-background border border-border/80 shadow-md relative overflow-hidden group hover:border-amber-500/50 transition-all"
             >
               <div className="w-14 h-14 rounded-2xl bg-[#19013b]/10 border border-[#19013b]/30 flex items-center justify-center mb-6">
@@ -262,34 +258,29 @@ export default function About() {
       <section id="verticals" className="py-24">
         <div className="container px-4">
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
+            initial={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <motion.span variants={fadeInUp} className="text-amber-600 dark:text-amber-400 font-semibold tracking-wider uppercase text-xs">
+            <span className="text-amber-600 dark:text-amber-400 font-semibold tracking-wider uppercase text-xs">
               Ecosystem
-            </motion.span>
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-display font-bold mt-3">
+            </span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 text-foreground">
               Our Core Business Verticals
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-muted-foreground mt-4 text-base">
+            </h2>
+            <p className="text-muted-foreground mt-4 text-base">
               Each division operates as a specialized powerhouse while sharing the overarching credibility, security, and infrastructure of HARTITUDEH EMPIRE.
-            </motion.p>
+            </p>
           </motion.div>
 
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
+            initial={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             className="space-y-8 max-w-5xl mx-auto"
           >
             {subBrands.map((brand, index) => (
-              <motion.div
+              <div
                 key={brand.title}
-                variants={fadeInUp}
                 className="p-8 md:p-10 rounded-3xl bg-card border border-border/80 shadow-md hover:shadow-xl hover:border-amber-500/40 transition-all"
               >
                 <div className="flex flex-col lg:flex-row gap-8 items-start justify-between">
@@ -327,7 +318,7 @@ export default function About() {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
         </div>
@@ -337,32 +328,23 @@ export default function About() {
       <section className="py-24 bg-card border-t border-border">
         <div className="container px-4">
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
+            initial={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <motion.span variants={fadeInUp} className="text-amber-600 dark:text-amber-400 font-semibold tracking-wider uppercase text-xs">
+            <span className="text-amber-600 dark:text-amber-400 font-semibold tracking-wider uppercase text-xs">
               Our Principles
-            </motion.span>
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-display font-bold mt-3">
+            </span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 text-foreground">
               The Values That Guide Our Growth
-            </motion.h2>
+            </h2>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
-          >
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {values.map((value) => (
-              <motion.div
+              <div
                 key={value.title}
-                variants={fadeInUp}
-                className="p-6 rounded-2xl bg-background border border-border/80 shadow-sm text-center hover:border-amber-500/40 hover:shadow-md transition-all flex flex-col justify-between"
+                className="p-6 rounded-2xl bg-background border border-[#19013b]/30 shadow-md text-center hover:border-amber-500 hover:shadow-lg transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="w-12 h-12 rounded-2xl bg-[#19013b] text-amber-400 flex items-center justify-center mx-auto mb-5 shadow-md">
@@ -371,9 +353,9 @@ export default function About() {
                   <h3 className="text-lg font-display font-bold mb-2 text-foreground">{value.title}</h3>
                   <p className="text-muted-foreground text-xs leading-relaxed">{value.description}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
