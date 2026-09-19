@@ -94,14 +94,33 @@ export default function CryptoHeroCarousel() {
             alt="Slide background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-background/70" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background/90" />
+          {/* Sharp High-Contrast Vignette Overlays */}
+          <div className="absolute inset-0 bg-slate-950/55" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/60" />
           <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-orange-500/10" />
         </motion.div>
       </AnimatePresence>
 
+      {/* Side Arrow Navigation - Left */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/30 bg-black/40 text-white backdrop-blur-md flex items-center justify-center hover:bg-gold hover:text-slate-950 hover:border-gold transition-all duration-300 shadow-lg"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+
+      {/* Side Arrow Navigation - Right */}
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/30 bg-black/40 text-white backdrop-blur-md flex items-center justify-center hover:bg-gold hover:text-slate-950 hover:border-gold transition-all duration-300 shadow-lg"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center px-4">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 md:px-16 pt-16">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -113,11 +132,11 @@ export default function CryptoHeroCarousel() {
           >
             {/* Welcome text with sparkles */}
             <div className="flex items-center justify-center gap-2 mb-6">
-              <Sparkles className="w-5 h-5 text-gold" />
-              <span className="text-gold text-sm md:text-base tracking-widest uppercase">
+              <Sparkles className="w-5 h-5 text-amber-400" />
+              <span className="text-amber-400 font-semibold text-sm md:text-base tracking-widest uppercase">
                 Cryptocurrency & Web3 Solutions
               </span>
-              <Sparkles className="w-5 h-5 text-gold" />
+              <Sparkles className="w-5 h-5 text-amber-400" />
             </div>
 
             {/* Badge with Icon */}
@@ -127,8 +146,8 @@ export default function CryptoHeroCarousel() {
               transition={{ delay: 0.1 }}
               className="mb-8"
             >
-              <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gold/20 border border-gold/40 text-gold font-semibold tracking-wide">
-                <IconComponent className="w-4 h-4" />
+              <span className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-amber-400/15 border border-amber-400/40 text-amber-300 font-semibold tracking-wide backdrop-blur-md shadow-sm">
+                <IconComponent className="w-4 h-4 text-amber-400" />
                 {slide.badge}
               </span>
             </motion.div>
@@ -138,7 +157,7 @@ export default function CryptoHeroCarousel() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-gold mb-2 tracking-wide"
+              className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-amber-400 mb-2 tracking-wide drop-shadow-md"
             >
               {slide.title}
             </motion.h1>
@@ -148,7 +167,7 @@ export default function CryptoHeroCarousel() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-2xl md:text-3xl lg:text-4xl text-foreground font-display font-bold mb-6"
+              className="text-2xl md:text-3xl lg:text-4xl text-white font-display font-bold mb-6 drop-shadow-sm"
             >
               {slide.subtitle}
             </motion.p>
@@ -158,7 +177,7 @@ export default function CryptoHeroCarousel() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-muted-foreground text-base md:text-lg mb-8 max-w-2xl mx-auto"
+              className="text-slate-200 text-base md:text-lg mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-sm"
             >
               {slide.description}
             </motion.p>
@@ -173,7 +192,7 @@ export default function CryptoHeroCarousel() {
               {slide.services.map((service) => (
                 <span
                   key={service}
-                  className="px-4 py-2 rounded-full border border-gold/30 bg-gold/10 text-sm text-foreground backdrop-blur-sm"
+                  className="px-4 py-2 rounded-full border border-white/20 bg-white/10 text-sm text-white backdrop-blur-md hover:border-amber-400/50 transition-colors shadow-sm"
                 >
                   {service}
                 </span>
@@ -185,71 +204,35 @@ export default function CryptoHeroCarousel() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
             >
               <Button variant="hero" size="xl" asChild>
                 <Link to={slide.cta.href}>
                   {slide.cta.text}
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-5 h-5 ml-1" />
                 </Link>
               </Button>
-              <Button variant="heroOutline" size="lg" asChild>
+              <Button variant="heroOutline" size="lg" className="border-white/40 text-white hover:bg-white hover:text-slate-950" asChild>
                 <a href="#crypto-market">View Live Market</a>
               </Button>
             </motion.div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation Controls */}
-        <div className="absolute bottom-32 left-1/2 -translate-x-1/2 flex items-center gap-4">
-          {/* Previous Button */}
-          <button
-            onClick={prevSlide}
-            className="w-12 h-12 rounded-full border border-border bg-card/50 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-gold hover:text-background hover:border-gold transition-all duration-300"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          {/* Dots */}
-          <div className="flex items-center gap-2">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentSlide
-                    ? "w-8 bg-gold"
-                    : "w-2 bg-muted-foreground/50 hover:bg-muted-foreground"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-
-          {/* Next Button */}
-          <button
-            onClick={nextSlide}
-            className="w-12 h-12 rounded-full border border-border bg-card/50 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-gold hover:text-background hover:border-gold transition-all duration-300"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-6 h-10 rounded-full border-2 border-gold/50 flex items-start justify-center pt-2"
-          >
-            <motion.div
-              animate={{ opacity: [1, 0.3, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1 h-2 rounded-full bg-gold"
+        {/* Slide Indicator Dots */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`h-2.5 rounded-full transition-all duration-300 ${
+                index === currentSlide
+                  ? "w-8 bg-amber-400 shadow-md"
+                  : "w-2.5 bg-white/40 hover:bg-white/70"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
             />
-          </motion.div>
+          ))}
         </div>
       </div>
     </section>
