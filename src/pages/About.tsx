@@ -122,7 +122,7 @@ export default function About() {
               <motion.div
                 key={stat.label}
                 variants={fadeInUp}
-                className="p-5 rounded-2xl bg-card border border-border/80 shadow-md text-center hover:border-amber-500/40 transition-all"
+                className="p-5 rounded-2xl bg-card border border-[#19013b] shadow-md text-center hover:border-amber-500 hover:shadow-lg transition-all"
               >
                 <stat.icon className="w-5 h-5 text-amber-500 mx-auto mb-2" />
                 <p className="text-2xl md:text-3xl font-display font-bold text-gradient-gold mb-1">{stat.value}</p>
