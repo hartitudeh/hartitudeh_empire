@@ -109,8 +109,9 @@ const NavDropdownTrigger = styled.button`
   display: flex;
   align-items: center;
   gap: 0.25rem; /* gap-1 */
-  color: hsl(var(--foreground) / 0.8);
-  font-weight: 500;
+  color: hsl(var(--foreground));
+  font-weight: 700;
+  font-size: 0.95rem;
   transition: color 0.2s ease-in-out;
   background: none;
   border: none;
@@ -118,7 +119,7 @@ const NavDropdownTrigger = styled.button`
   padding: 0;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.gold};
+    color: #19013b;
   }
 `;
 
@@ -151,29 +152,31 @@ const DropdownItemLink = styled(Link)`
 `;
 
 const DropdownItemTitle = styled.p`
-  font-weight: 600;
+  font-weight: 700;
   color: ${({ theme }) => theme.colors.foreground};
   transition: color 0.2s;
   
   ${DropdownItemLink}:hover & {
-    color: ${({ theme }) => theme.colors.gold};
+    color: #19013b;
   }
 `;
 
 const DropdownItemDesc = styled.p`
   font-size: 0.875rem;
+  font-weight: 500;
   color: ${({ theme }) => theme.colors.mutedForeground};
   margin-top: 0.25rem;
 `;
 
 const HeaderNavLink = styled(Link)<{ $isActive: boolean }>`
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 0.95rem;
   transition: color 0.2s;
-  color: ${({ $isActive, theme }) => 
-    $isActive ? theme.colors.gold : 'hsl(var(--foreground) / 0.8)'};
+  color: ${({ $isActive }) => 
+    $isActive ? '#19013b' : 'hsl(var(--foreground))'};
   
   &:hover {
-    color: ${({ theme }) => theme.colors.gold};
+    color: #19013b;
   }
 `;
 
@@ -221,7 +224,8 @@ const MobileDropdownButton = styled.button`
   width: 100%;
   padding: 0.5rem 0;
   color: ${({ theme }) => theme.colors.foreground};
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 1rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -238,20 +242,22 @@ const MobileDropdownContent = styled(motion.div)`
 const MobileDropdownLink = styled(Link)`
   display: block;
   padding: 0.5rem 0;
+  font-weight: 600;
   color: ${({ theme }) => theme.colors.mutedForeground};
   transition: color 0.2s;
   
   &:hover {
-    color: ${({ theme }) => theme.colors.gold};
+    color: #19013b;
   }
 `;
 
 const MobileNavLink = styled(Link)<{ $isActive: boolean }>`
   display: block;
   padding: 0.5rem 0;
-  font-weight: 500;
-  color: ${({ $isActive, theme }) => 
-    $isActive ? theme.colors.gold : theme.colors.foreground};
+  font-weight: 700;
+  font-size: 1rem;
+  color: ${({ $isActive }) => 
+    $isActive ? '#19013b' : 'hsl(var(--foreground))'};
 `;
 
 export default function Navbar() {
@@ -351,19 +357,19 @@ export default function Navbar() {
           <DesktopControls>
             {user ? (
               <div className="flex items-center gap-2">
-                <Button variant="goldOutline" size="sm" asChild>
+                <Button variant="outline" size="sm" className="border-[#19013b] text-[#19013b] hover:bg-[#19013b] hover:text-white font-bold" asChild>
                   <Link to="/profile" className="flex items-center gap-2">
                     <User className="w-4 h-4" />
                     Profile
                   </Link>
                 </Button>
-                <Button variant="ghost" size="sm" onClick={handleLogout} className="text-muted-foreground hover:text-red-500">
+                <Button variant="ghost" size="sm" onClick={handleLogout} className="text-muted-foreground hover:text-red-500 font-bold">
                   <LogOut className="w-4 h-4 mr-1" />
                   Logout
                 </Button>
               </div>
             ) : (
-              <Button variant="gold" asChild>
+              <Button className="bg-[#19013b] hover:bg-[#2c0366] text-white font-bold px-6 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all duration-300" asChild>
                 <Link to="/login">Get Started</Link>
               </Button>
             )}
@@ -373,7 +379,7 @@ export default function Navbar() {
           <MobileMenuButton
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-6 h-6 text-[#19013b]" /> : <Menu className="w-6 h-6 text-[#19013b]" />}
           </MobileMenuButton>
         </FlexRow>
       </Container>
@@ -433,19 +439,19 @@ export default function Navbar() {
               ))}
               {user ? (
                 <div className="flex flex-col gap-2 w-full mt-4">
-                  <Button variant="goldOutline" className="w-full flex items-center justify-center gap-2" asChild>
+                  <Button variant="outline" className="w-full flex items-center justify-center gap-2 border-[#19013b] text-[#19013b] font-bold" asChild>
                     <Link to="/profile" onClick={() => setIsOpen(false)}>
                       <User className="w-4 h-4" />
                       My Profile
                     </Link>
                   </Button>
-                  <Button variant="ghost" className="w-full text-muted-foreground hover:text-red-500 flex items-center justify-center gap-2" onClick={() => { handleLogout(); setIsOpen(false); }}>
+                  <Button variant="ghost" className="w-full text-muted-foreground hover:text-red-500 font-bold flex items-center justify-center gap-2" onClick={() => { handleLogout(); setIsOpen(false); }}>
                     <LogOut className="w-4 h-4" />
                     Logout
                   </Button>
                 </div>
               ) : (
-                <Button variant="gold" className="w-full mt-4" asChild>
+                <Button className="bg-[#19013b] hover:bg-[#2c0366] text-white font-bold w-full mt-4 shadow-md py-3" asChild>
                   <Link to="/login" onClick={() => setIsOpen(false)}>
                     Get Started
                   </Link>
