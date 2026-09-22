@@ -111,7 +111,7 @@ const NavDropdownTrigger = styled.button`
   gap: 0.25rem; /* gap-1 */
   color: hsl(var(--foreground));
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   transition: color 0.2s ease-in-out;
   background: none;
   border: none;
@@ -153,6 +153,7 @@ const DropdownItemLink = styled(Link)`
 
 const DropdownItemTitle = styled.p`
   font-weight: 700;
+  font-size: 1rem;
   color: ${({ theme }) => theme.colors.foreground};
   transition: color 0.2s;
   
@@ -170,7 +171,7 @@ const DropdownItemDesc = styled.p`
 
 const HeaderNavLink = styled(Link)<{ $isActive: boolean }>`
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   transition: color 0.2s;
   color: ${({ $isActive }) => 
     $isActive ? '#19013b' : 'hsl(var(--foreground))'};
@@ -225,7 +226,7 @@ const MobileDropdownButton = styled.button`
   padding: 0.5rem 0;
   color: ${({ theme }) => theme.colors.foreground};
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.1rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -243,6 +244,7 @@ const MobileDropdownLink = styled(Link)`
   display: block;
   padding: 0.5rem 0;
   font-weight: 600;
+  font-size: 1rem;
   color: ${({ theme }) => theme.colors.mutedForeground};
   transition: color 0.2s;
   
@@ -255,7 +257,7 @@ const MobileNavLink = styled(Link)<{ $isActive: boolean }>`
   display: block;
   padding: 0.5rem 0;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: ${({ $isActive }) => 
     $isActive ? '#19013b' : 'hsl(var(--foreground))'};
 `;

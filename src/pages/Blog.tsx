@@ -1,24 +1,24 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { Calendar, User, MessageSquare, Search, Filter } from "lucide-react";
+import { Calendar, User, Search, ArrowRight, RefreshCw } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
-
-interface BlogPost {
-  id: string;
-  title: string;
-  description: string | null;
-  image_url: string | null;
-  category: string;
-  source: string | null;
-  published_at: string | null;
-  created_at: string;
-}
+import {
+  fetchAllBlogPosts,
+  triggerDailyNewsFetch,
+  BlogPost,
+} from "@/services/blogService";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const categories = [
   { id: "all", name: "All Posts" },
@@ -35,72 +35,51 @@ const fadeInUp = {
 export default function Blog() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    fetchPosts();
-    // Trigger news fetch on first load
-    fetchLatestNews();
-  }, []);
-
-  const fetchLatestNews = async () => {
-    try {
-      await supabase.functions.invoke('fetch-news');
-      // Refetch posts after news update
-      fetchPosts();
-    } catch (error) {
-      console.error('Error fetching latest news:', error);
-    }
-  };
-
-  const fetchPosts = async () => {
-    try {
-      let query = supabase
-        .from('blog_posts')
-        .select('id, title, description, image_url, category, source, published_at, created_at')
-        .order('published_at', { ascending: false });
-
-      if (selectedCategory !== 'all') {
-        query = query.eq('category', selectedCategory);
-      }
-
-      if (searchQuery) {
-        query = query.ilike('title', `%${searchQuery}%`);
-      }
-
-      const { data, error } = await query;
-
-      if (error) throw error;
-      setPosts(data || []);
-    } catch (error) {
-      console.error('Error fetching posts:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchPosts();
+    loadData();
   }, [selectedCategory, searchQuery]);
+
+  const loadData = async () => {
+    setLoading(true);
+    // Background sync daily news
+    triggerDailyNewsFetch().catch(() => {});
+    
+    const data = await fetchAllBlogPosts(selectedCategory, searchQuery);
+    setPosts(data);
+    setLoading(false);
+  };
+
+  const handleRefresh = async () => {
+    setRefreshing(true);
+    await triggerDailyNewsFetch();
+    const data = await fetchAllBlogPosts(selectedCategory, searchQuery);
+    setPosts(data);
+    setRefreshing(false);
+  };
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case 'tech':
-        return 'bg-blue-500/10 text-blue-500 border-blue-500/20';
-      case 'crypto':
-        return 'bg-purple-500/10 text-purple-500 border-purple-500/20';
-      case 'real-estate':
-        return 'bg-green-500/10 text-green-500 border-green-500/20';
+      case "tech":
+        return "bg-blue-500/10 text-blue-400 border-blue-500/30";
+      case "crypto":
+        return "bg-purple-500/10 text-purple-400 border-purple-500/30";
+      case "real-estate":
+        return "bg-emerald-500/10 text-emerald-400 border-emerald-500/30";
       default:
-        return 'bg-gold/10 text-gold border-gold/20';
+        return "bg-gold/10 text-gold border-gold/30";
     }
   };
+
+  const featuredPosts = posts.slice(0, 5);
 
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-b from-background to-muted/30">
+      <section className="relative pt-32 pb-16 bg-gradient-to-b from-background via-muted/20 to-background border-b border-border">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -108,18 +87,103 @@ export default function Blog() {
             variants={fadeInUp}
             className="text-center max-w-3xl mx-auto"
           >
-            <Badge variant="outline" className="mb-4 border-gold/50 text-gold">
-              Our Blog
+            <Badge variant="outline" className="mb-4 border-gold/50 text-gold px-4 py-1">
+              Daily Updated Blog & News
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-              Latest <span className="text-gold">Insights</span>
+              Latest <span className="text-gold">Insights & Articles</span>
             </h1>
-            <p className="text-lg text-muted-foreground">
-              Stay updated with the latest news and insights on Technology, Cryptocurrency, and Real Estate.
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Explore daily updated industry insights, expert analyses, and tech trends across Technology, Cryptocurrency, and Real Estate.
             </p>
           </motion.div>
         </div>
       </section>
+
+      {/* Featured Daily Carousel Section */}
+      {featuredPosts.length > 0 && !searchQuery && selectedCategory === "all" && (
+        <section className="py-12 bg-muted/10 border-b border-border/60">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <span className="text-xs uppercase tracking-widest text-gold font-bold">Featured Today</span>
+                <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mt-1">
+                  Daily Trending Articles
+                </h2>
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleRefresh}
+                disabled={refreshing}
+                className="border-gold/30 hover:border-gold text-foreground"
+              >
+                <RefreshCw className={`w-4 h-4 mr-2 ${refreshing ? "animate-spin text-gold" : ""}`} />
+                {refreshing ? "Updating..." : "Sync Daily Feed"}
+              </Button>
+            </div>
+
+            <Carousel opts={{ align: "start", loop: true }} className="w-full">
+              <CarouselContent className="-ml-4">
+                {featuredPosts.map((post) => (
+                  <CarouselItem key={post.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <div className="bg-card rounded-2xl overflow-hidden border border-border hover:border-gold/50 transition-all duration-300 h-full flex flex-col justify-between group shadow-sm hover:shadow-md">
+                      <div>
+                        <div className="relative h-52 overflow-hidden">
+                          <img
+                            src={post.image_url || "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800"}
+                            alt={post.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute top-4 left-4">
+                            <Badge className={getCategoryColor(post.category)}>
+                              {post.category.replace("-", " ").toUpperCase()}
+                            </Badge>
+                          </div>
+                        </div>
+                        <div className="p-6">
+                          <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
+                            <span className="flex items-center gap-1">
+                              <Calendar className="w-3.5 h-3.5" />
+                              {post.published_at
+                                ? format(new Date(post.published_at), "MMM dd, yyyy")
+                                : format(new Date(post.created_at), "MMM dd, yyyy")}
+                            </span>
+                            {post.source && (
+                              <span className="flex items-center gap-1">
+                                <User className="w-3.5 h-3.5" />
+                                {post.source}
+                              </span>
+                            )}
+                          </div>
+                          <h3 className="text-xl font-bold mb-3 group-hover:text-gold transition-colors line-clamp-2 leading-snug">
+                            {post.title}
+                          </h3>
+                          <p className="text-muted-foreground text-sm line-clamp-2 leading-relaxed">
+                            {post.description}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="px-6 pb-6 pt-2">
+                        <Button variant="goldOutline" size="sm" className="w-full group/btn" asChild>
+                          <Link to={`/blog/${post.id}`}>
+                            Read Full Details
+                            <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="flex justify-center gap-4 mt-8">
+                <CarouselPrevious className="relative static translate-y-0 bg-card border-border hover:bg-gold hover:text-background" />
+                <CarouselNext className="relative static translate-y-0 bg-card border-border hover:bg-gold hover:text-background" />
+              </div>
+            </Carousel>
+          </div>
+        </section>
+      )}
 
       {/* Filters Section */}
       <section className="py-8 border-b border-border">
@@ -133,6 +197,7 @@ export default function Blog() {
                   variant={selectedCategory === category.id ? "gold" : "outline"}
                   size="sm"
                   onClick={() => setSelectedCategory(category.id)}
+                  className="font-medium"
                 >
                   {category.name}
                 </Button>
@@ -154,12 +219,12 @@ export default function Blog() {
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="py-20">
+      <section className="py-16">
         <div className="container mx-auto px-4">
           {loading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={i} className="bg-card rounded-xl overflow-hidden animate-pulse">
+                <div key={i} className="bg-card rounded-2xl overflow-hidden animate-pulse border border-border">
                   <div className="h-48 bg-muted" />
                   <div className="p-6 space-y-4">
                     <div className="h-4 bg-muted rounded w-1/4" />
@@ -171,9 +236,9 @@ export default function Blog() {
             </div>
           ) : posts.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-muted-foreground text-lg">No articles found.</p>
-              <Button variant="gold" className="mt-4" onClick={fetchLatestNews}>
-                Refresh Articles
+              <p className="text-muted-foreground text-lg mb-4">No articles found matching your criteria.</p>
+              <Button variant="gold" onClick={handleRefresh}>
+                Refresh Blog Feed
               </Button>
             </div>
           ) : (
@@ -183,46 +248,54 @@ export default function Blog() {
                   key={post.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, delay: (index % 6) * 0.08 }}
                 >
-                  <Link to={`/blog/${post.id}`}>
-                    <div className="bg-card rounded-xl overflow-hidden border border-border hover:border-gold/50 transition-all duration-300 group h-full">
-                      <div className="relative h-48 overflow-hidden">
+                  <div className="bg-card rounded-2xl overflow-hidden border border-border hover:border-gold/50 transition-all duration-300 group h-full flex flex-col justify-between shadow-sm hover:shadow-md">
+                    <div>
+                      <div className="relative h-52 overflow-hidden">
                         <img
-                          src={post.image_url || 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800'}
+                          src={post.image_url || "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800"}
                           alt={post.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute top-4 left-4">
                           <Badge className={getCategoryColor(post.category)}>
-                            {post.category.replace('-', ' ').toUpperCase()}
+                            {post.category.replace("-", " ").toUpperCase()}
                           </Badge>
                         </div>
                       </div>
                       <div className="p-6">
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                        <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
                           <span className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
+                            <Calendar className="w-3.5 h-3.5" />
                             {post.published_at
-                              ? format(new Date(post.published_at), 'MMM dd, yyyy')
-                              : format(new Date(post.created_at), 'MMM dd, yyyy')}
+                              ? format(new Date(post.published_at), "MMM dd, yyyy")
+                              : format(new Date(post.created_at), "MMM dd, yyyy")}
                           </span>
                           {post.source && (
                             <span className="flex items-center gap-1">
-                              <User className="w-4 h-4" />
+                              <User className="w-3.5 h-3.5" />
                               {post.source}
                             </span>
                           )}
                         </div>
-                        <h3 className="text-xl font-semibold mb-2 group-hover:text-gold transition-colors line-clamp-2">
+                        <h3 className="text-xl font-bold mb-3 group-hover:text-gold transition-colors line-clamp-2 leading-snug">
                           {post.title}
                         </h3>
-                        <p className="text-muted-foreground line-clamp-2">
+                        <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
                           {post.description}
                         </p>
                       </div>
                     </div>
-                  </Link>
+                    <div className="px-6 pb-6 pt-2">
+                      <Button variant="gold" className="w-full font-semibold group/btn" asChild>
+                        <Link to={`/blog/${post.id}`}>
+                          Read Article
+                          <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
