@@ -10,6 +10,7 @@ import slideTech from "@/assets/slide-tech.jpg";
 import slideRealEstate from "@/assets/slide-realestate.jpg";
 import slideCrypto from "@/assets/slide-crypto.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
+import htVideo from "@/assets/HT-Video.mp4";
 
 const faqItems = [
   {
@@ -39,6 +40,16 @@ const faqItems = [
 ];
 
 const heroSlides = [
+  {
+    badge: "Hartitudeh Tech",
+    title: "Hartitudeh Tech",
+    highlight: "Solutions",
+    description: "Transforming ideas into powerful digital reality through innovative software engineering, creative design, and cutting-edge media.",
+    icon: Code,
+    gradient: "from-blue-500/10 via-transparent to-cyan-500/10",
+    background: slideTech,
+    video: htVideo,
+  },
   {
     badge: "Software Development",
     title: "Building Digital",
@@ -180,36 +191,64 @@ export default function TechSolutions() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
+    }, 10000);
     return () => clearInterval(interval);
-  }, []);
+  }, [currentSlide]);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+
+  const isVideoSlide = Boolean(heroSlides[currentSlide].video);
 
   return (
     <BrandThemeProvider brand="tech">
       <Layout>
       {/* Hero Carousel Section */}
-      <section className="relative h-[80vh] min-h-[600px] overflow-hidden">
-        {/* Animated Background Image */}
+      <section className="relative h-[80vh] min-h-[600px] overflow-hidden bg-[#020817]">
+        {/* Animated Background Image or Video */}
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
-            initial={{ opacity: 0, scale: 1.1 }}
+            initial={{ opacity: 0, scale: isVideoSlide ? 1 : 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.7 }}
             className="absolute inset-0"
           >
-            <img
-              src={heroSlides[currentSlide].background}
-              alt={heroSlides[currentSlide].badge}
-              className="w-full h-full object-cover"
-            />
-            {/* High-Contrast Vignette Overlays */}
-            <div className="absolute inset-0 bg-slate-950/60" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/60" />
+            {heroSlides[currentSlide].video ? (
+              <div className="relative w-full h-full bg-[#020817] flex items-center justify-center overflow-hidden">
+                {/* Ambient blurred background video to fill widescreen edges */}
+                <video
+                  src={heroSlides[currentSlide].video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-50 scale-110"
+                />
+                {/* Crisp centered brand video */}
+                <video
+                  src={heroSlides[currentSlide].video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="relative z-10 w-full h-full object-contain"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/20 z-10 pointer-events-none" />
+              </div>
+            ) : (
+              <>
+                <img
+                  src={heroSlides[currentSlide].background}
+                  alt={heroSlides[currentSlide].badge}
+                  className="w-full h-full object-cover"
+                />
+                {/* High-Contrast Vignette Overlays */}
+                <div className="absolute inset-0 bg-slate-950/60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/60" />
+              </>
+            )}
           </motion.div>
         </AnimatePresence>
 
@@ -221,12 +260,16 @@ export default function TechSolutions() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className={`absolute inset-0 bg-gradient-to-br ${heroSlides[currentSlide].gradient}`}
+            className={`absolute inset-0 bg-gradient-to-br ${heroSlides[currentSlide].gradient} pointer-events-none`}
           />
         </AnimatePresence>
 
         {/* Content */}
-        <div className="container px-6 md:px-16 relative z-10 h-full flex items-center justify-center">
+        <div
+          className={`container px-6 md:px-16 relative z-10 h-full flex justify-center ${
+            isVideoSlide ? "items-end pb-20" : "items-center"
+          }`}
+        >
           <div className="max-w-4xl mx-auto text-center">
             <AnimatePresence mode="wait">
               <motion.div
@@ -237,27 +280,31 @@ export default function TechSolutions() {
                 transition={{ duration: 0.5 }}
                 className="space-y-6"
               >
-                {/* Badge with Icon */}
-                <div className="flex items-center justify-center gap-3">
-                  <span className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-amber-400/40 bg-amber-400/15 text-amber-300 text-sm font-semibold tracking-wide backdrop-blur-md shadow-sm">
-                    {(() => {
-                      const IconComponent = heroSlides[currentSlide].icon;
-                      return <IconComponent className="w-4 h-4 text-amber-400" />;
-                    })()}
-                    {heroSlides[currentSlide].badge}
-                  </span>
-                </div>
+                {!isVideoSlide && (
+                  <>
+                    {/* Badge with Icon */}
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-amber-400/40 bg-amber-400/15 text-amber-300 text-sm font-semibold tracking-wide backdrop-blur-md shadow-sm">
+                        {(() => {
+                          const IconComponent = heroSlides[currentSlide].icon;
+                          return <IconComponent className="w-4 h-4 text-amber-400" />;
+                        })()}
+                        {heroSlides[currentSlide].badge}
+                      </span>
+                    </div>
 
-                {/* Title */}
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white tracking-wide drop-shadow-md">
-                  {heroSlides[currentSlide].title}{" "}
-                  <span className="text-amber-400">{heroSlides[currentSlide].highlight}</span>
-                </h1>
+                    {/* Title */}
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white tracking-wide drop-shadow-md">
+                      {heroSlides[currentSlide].title}{" "}
+                      <span className="text-amber-400">{heroSlides[currentSlide].highlight}</span>
+                    </h1>
 
-                {/* Description */}
-                <p className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
-                  {heroSlides[currentSlide].description}
-                </p>
+                    {/* Description */}
+                    <p className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
+                      {heroSlides[currentSlide].description}
+                    </p>
+                  </>
+                )}
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">

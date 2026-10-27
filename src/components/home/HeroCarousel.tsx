@@ -62,14 +62,14 @@ export default function HeroCarousel() {
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
     setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 8000);
+    setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   useEffect(() => {
     if (!isAutoPlaying) return;
-    const interval = setInterval(nextSlide, 6000);
+    const interval = setInterval(nextSlide, 10000);
     return () => clearInterval(interval);
-  }, [isAutoPlaying, nextSlide]);
+  }, [isAutoPlaying, nextSlide, currentSlide]);
 
   const slide = slides[currentSlide];
 
