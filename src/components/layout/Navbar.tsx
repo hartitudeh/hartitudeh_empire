@@ -84,12 +84,9 @@ const LogoLink = styled(Link)`
 `;
 
 const LogoImage = styled.img`
-  height: 2.5rem; /* h-10 */
+  height: 5rem;
   width: auto;
   object-fit: contain;
-  @media (min-width: 768px) {
-    height: 3rem; /* h-12 */
-  }
 `;
 
 const DesktopNav = styled.div`

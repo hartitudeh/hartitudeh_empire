@@ -91,7 +91,7 @@ const LogoLink = styled(Link)`
 `;
 
 const LogoImage = styled.img`
-  height: 4rem; /* h-16 */
+  height: 5rem;
   width: auto;
   object-fit: contain;
 `;

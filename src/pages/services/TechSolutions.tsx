@@ -204,8 +204,8 @@ export default function TechSolutions() {
     <BrandThemeProvider brand="tech">
       <Layout>
       {/* Hero Carousel Section */}
-      <section className="relative h-[80vh] min-h-[600px] overflow-hidden bg-[#020817]">
-        {/* Animated Background Image or Video */}
+      <section className="relative min-h-[85vh] py-24 lg:py-0 lg:h-[85vh] overflow-hidden bg-[#020817] flex items-center">
+        {/* Animated Background Image */}
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -215,40 +215,14 @@ export default function TechSolutions() {
             transition={{ duration: 0.7 }}
             className="absolute inset-0"
           >
-            {heroSlides[currentSlide].video ? (
-              <div className="relative w-full h-full bg-[#020817] flex items-center justify-center overflow-hidden">
-                {/* Ambient blurred background video to fill widescreen edges */}
-                <video
-                  src={heroSlides[currentSlide].video}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-50 scale-110"
-                />
-                {/* Crisp centered brand video */}
-                <video
-                  src={heroSlides[currentSlide].video}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="relative z-10 w-full h-full object-contain"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/20 z-10 pointer-events-none" />
-              </div>
-            ) : (
-              <>
-                <img
-                  src={heroSlides[currentSlide].background}
-                  alt={heroSlides[currentSlide].badge}
-                  className="w-full h-full object-cover"
-                />
-                {/* High-Contrast Vignette Overlays */}
-                <div className="absolute inset-0 bg-slate-950/60" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/60" />
-              </>
-            )}
+            <img
+              src={heroSlides[currentSlide].background}
+              alt={heroSlides[currentSlide].badge}
+              className={`w-full h-full object-cover ${isVideoSlide ? "opacity-25" : ""}`}
+            />
+            {/* High-Contrast Vignette Overlays */}
+            <div className={`absolute inset-0 ${isVideoSlide ? "bg-[#020817]/85" : "bg-slate-950/60"}`} />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/60" />
           </motion.div>
         </AnimatePresence>
 
@@ -265,46 +239,103 @@ export default function TechSolutions() {
         </AnimatePresence>
 
         {/* Content */}
-        <div
-          className={`container px-6 md:px-16 relative z-10 h-full flex justify-center ${
-            isVideoSlide ? "items-end pb-20" : "items-center"
-          }`}
-        >
-          <div className="max-w-4xl mx-auto text-center">
-            <AnimatePresence mode="wait">
+        <div className="container px-6 md:px-16 relative z-10 h-full flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            {isVideoSlide ? (
+              <motion.div
+                key="video-slide"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.5 }}
+                className="w-full max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-12 items-center"
+              >
+                {/* Left Column: Write-up */}
+                <div className="text-center lg:text-left space-y-6">
+                  <div className="flex items-center justify-center lg:justify-start gap-3">
+                    <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-amber-400/40 bg-amber-400/15 text-amber-300 text-sm font-semibold tracking-wide backdrop-blur-md shadow-sm">
+                      <Code className="w-4 h-4 text-amber-400" />
+                      {heroSlides[currentSlide].badge}
+                    </span>
+                  </div>
+
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white tracking-wide leading-tight drop-shadow-md">
+                    {heroSlides[currentSlide].title}{" "}
+                    <span className="text-amber-400">{heroSlides[currentSlide].highlight}</span>
+                  </h1>
+
+                  <p className="text-base md:text-lg text-slate-200 max-w-xl mx-auto lg:mx-0 leading-relaxed drop-shadow-sm">
+                    We engineer custom enterprise software, high-converting web & mobile applications, iconic brand identities, and high-impact motion graphics that empower businesses to scale and lead in the digital era.
+                  </p>
+
+                  <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+                    {["Web & Mobile Apps", "UI/UX & Branding", "Video & Motion", "Print Media"].map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3.5 py-1.5 rounded-full border border-white/20 bg-white/10 text-xs font-medium text-white backdrop-blur-md"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                    <Button variant="hero" size="xl" asChild>
+                      <Link to="/contact">
+                        Start Your Project
+                        <ArrowRight className="w-5 h-5 ml-1" />
+                      </Link>
+                    </Button>
+                    <Button variant="heroOutline" size="lg" className="border-white/40 text-white hover:bg-white hover:text-slate-950" asChild>
+                      <a href="#services">View Services</a>
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Right Column: HT-Video */}
+                <div className="flex items-center justify-center lg:justify-end">
+                  <div className="relative w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[440px] aspect-square rounded-3xl overflow-hidden border border-cyan-400/30 shadow-[0_0_50px_rgba(6,182,212,0.25)] bg-[#020817]">
+                    <video
+                      src={heroSlides[currentSlide].video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            ) : (
               <motion.div
                 key={currentSlide}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ duration: 0.5 }}
-                className="space-y-6"
+                className="max-w-4xl mx-auto text-center space-y-6"
               >
-                {!isVideoSlide && (
-                  <>
-                    {/* Badge with Icon */}
-                    <div className="flex items-center justify-center gap-3">
-                      <span className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-amber-400/40 bg-amber-400/15 text-amber-300 text-sm font-semibold tracking-wide backdrop-blur-md shadow-sm">
-                        {(() => {
-                          const IconComponent = heroSlides[currentSlide].icon;
-                          return <IconComponent className="w-4 h-4 text-amber-400" />;
-                        })()}
-                        {heroSlides[currentSlide].badge}
-                      </span>
-                    </div>
+                {/* Badge with Icon */}
+                <div className="flex items-center justify-center gap-3">
+                  <span className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-amber-400/40 bg-amber-400/15 text-amber-300 text-sm font-semibold tracking-wide backdrop-blur-md shadow-sm">
+                    {(() => {
+                      const IconComponent = heroSlides[currentSlide].icon;
+                      return <IconComponent className="w-4 h-4 text-amber-400" />;
+                    })()}
+                    {heroSlides[currentSlide].badge}
+                  </span>
+                </div>
 
-                    {/* Title */}
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white tracking-wide drop-shadow-md">
-                      {heroSlides[currentSlide].title}{" "}
-                      <span className="text-amber-400">{heroSlides[currentSlide].highlight}</span>
-                    </h1>
+                {/* Title */}
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white tracking-wide drop-shadow-md">
+                  {heroSlides[currentSlide].title}{" "}
+                  <span className="text-amber-400">{heroSlides[currentSlide].highlight}</span>
+                </h1>
 
-                    {/* Description */}
-                    <p className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
-                      {heroSlides[currentSlide].description}
-                    </p>
-                  </>
-                )}
+                {/* Description */}
+                <p className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
+                  {heroSlides[currentSlide].description}
+                </p>
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
@@ -319,8 +350,8 @@ export default function TechSolutions() {
                   </Button>
                 </div>
               </motion.div>
-            </AnimatePresence>
-          </div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Navigation Arrows */}
