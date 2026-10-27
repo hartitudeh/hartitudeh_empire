@@ -120,7 +120,7 @@ ${formData.message.trim()}`;
               variants={fadeInUp}
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
             >
-              Have a question or ready to start your journey with us? We're here to help you succeed in technology, crypto investments, or real estate.
+              Have a question or ready to start your journey with us? We're here to help you succeed in <span className="font-semibold text-foreground">technology</span>, <span className="font-semibold text-foreground">crypto investments</span>, or <span className="font-semibold text-foreground">real estate</span>.
             </motion.p>
           </motion.div>
         </div>
@@ -172,7 +172,7 @@ ${formData.message.trim()}`;
                 Send Us a Message
               </motion.h2>
               <motion.p variants={fadeInUp} className="text-muted-foreground">
-                Fill out the form below and our team will get back to you promptly.
+                Fill out the form below and our <span className="font-semibold text-foreground">dedicated advisory team</span> will get back to you <span className="font-semibold text-foreground">promptly via WhatsApp or email</span>.
               </motion.p>
             </motion.div>
 

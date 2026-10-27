@@ -28,42 +28,73 @@ const teamMembers = [
     name: "Adeyemi Pelumi Obaloluwa",
     role: "CEO & Founder",
     image: Team1,
-    description: "Visionary entrepreneur driving technology, finance, and real estate growth.",
+    description: (
+      <>
+        Visionary entrepreneur driving <span className="font-semibold text-foreground">enterprise technology</span>,{" "}
+        <span className="font-semibold text-foreground">Web3 finance</span>, and{" "}
+        <span className="font-semibold text-foreground">real estate growth</span>.
+      </>
+    ),
     socials: { linkedin: "#", twitter: "#", instagram: "#" },
   },
   {
     name: "Akinlabi Hammad",
     role: "Head of Sales",
     image: Team2,
-    description: "Expert in luxury property sales and client relations.",
+    description: (
+      <>
+        Specialist in <span className="font-semibold text-foreground">luxury property acquisitions</span>, high-value deals, and{" "}
+        <span className="font-semibold text-foreground">strategic client relations</span>.
+      </>
+    ),
     socials: { linkedin: "#", twitter: "#", instagram: "#" },
   },
   {
     name: "Emeka Nwachukwu",
     role: "Property Manager",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400",
-    description: "Ensures seamless property management operations.",
+    description: (
+      <>
+        Oversees <span className="font-semibold text-foreground">end-to-end property management</span>, facility maintenance, and{" "}
+        <span className="font-semibold text-foreground">tenant satisfaction</span>.
+      </>
+    ),
     socials: { linkedin: "#", twitter: "#", instagram: "#" },
   },
   {
     name: "Funke Adeyemi",
     role: "Legal Advisor",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400",
-    description: "Specializes in property law and documentation.",
+    description: (
+      <>
+        Specializes in <span className="font-semibold text-foreground">real estate law</span>,{" "}
+        <span className="font-semibold text-foreground">title verification</span>, and regulatory compliance.
+      </>
+    ),
     socials: { linkedin: "#", twitter: "#", instagram: "#" },
   },
   {
     name: "Oluwaseun Bakare",
     role: "Investment Analyst",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400",
-    description: "Expert in market analysis and investment strategies.",
+    description: (
+      <>
+        Expert in <span className="font-semibold text-foreground">market intelligence</span>,{" "}
+        <span className="font-semibold text-foreground">portfolio risk management</span>, and ROI optimization.
+      </>
+    ),
     socials: { linkedin: "#", twitter: "#", instagram: "#" },
   },
   {
     name: "Ngozi Eze",
     role: "Client Relations",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400",
-    description: "Dedicated to exceptional customer experience.",
+    description: (
+      <>
+        Dedicated to delivering <span className="font-semibold text-foreground">seamless onboarding</span> and{" "}
+        <span className="font-semibold text-foreground">world-class client support</span>.
+      </>
+    ),
     socials: { linkedin: "#", twitter: "#", instagram: "#" },
   },
 ];
@@ -86,7 +117,8 @@ export default function TeamSection() {
             Meet The <span className="text-gradient-gold">Experts</span>
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-muted-foreground mt-4">
-            Our dedicated professionals are here to guide you and deliver excellence across all our business verticals.
+            The <span className="font-semibold text-foreground">talented and passionate professionals</span> behind HARTITUDEH EMPIRE —{" "}
+            <span className="font-semibold text-foreground">building, designing, and managing</span> high-value solutions across all verticals.
           </motion.p>
         </motion.div>
 

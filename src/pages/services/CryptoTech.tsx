@@ -13,33 +13,73 @@ const services = [
   {
     icon: TrendingUp,
     title: "Managed Crypto Trading",
-    description: "Expert trading on your behalf with proven strategies to maximize returns while managing risk effectively.",
+    description: (
+      <>
+        <span className="font-semibold text-foreground">Expert trading on your behalf</span> with proven strategies to <span className="font-semibold text-foreground">maximize returns</span> while <span className="font-semibold text-foreground">managing risk effectively</span>.
+      </>
+    ),
     features: ["Professional Trading Team", "Risk Management", "Regular Performance Reports", "Flexible Investment Options"],
   },
   {
     icon: BarChart3,
     title: "ROI-Based Investment Plans",
-    description: "Structured investment packages designed to deliver consistent returns with full transparency.",
+    description: (
+      <>
+        <span className="font-semibold text-foreground">Structured investment packages</span> designed to deliver <span className="font-semibold text-foreground">consistent returns</span> with <span className="font-semibold text-foreground">full transparency</span>.
+      </>
+    ),
     features: ["Multiple Investment Tiers", "Clear ROI Expectations", "Capital Protection Strategies", "Monthly Distributions"],
   },
   {
     icon: Megaphone,
     title: "Web3 Marketing & Promotion",
-    description: "Comprehensive marketing solutions for blockchain projects looking to increase visibility and adoption.",
+    description: (
+      <>
+        <span className="font-semibold text-foreground">Comprehensive marketing solutions</span> for blockchain projects looking to <span className="font-semibold text-foreground">increase visibility and adoption</span>.
+      </>
+    ),
     features: ["Community Building", "Social Media Management", "Influencer Partnerships", "PR & Media Coverage"],
   },
   {
     icon: Gift,
     title: "Airdrop Campaigns",
-    description: "End-to-end airdrop management to distribute tokens effectively and grow your project's community.",
+    description: (
+      <>
+        <span className="font-semibold text-foreground">End-to-end airdrop management</span> to <span className="font-semibold text-foreground">distribute tokens effectively</span> and <span className="font-semibold text-foreground">grow your project's community</span>.
+      </>
+    ),
     features: ["Campaign Planning", "Smart Contract Setup", "Distribution Management", "Community Engagement"],
   },
 ];
 
 const trustFactors = [
-  { icon: Shield, title: "Secure Custody", description: "Industry-leading security protocols for your assets" },
-  { icon: Lock, title: "Full Transparency", description: "Real-time access to your portfolio and transactions" },
-  { icon: BarChart3, title: "Proven Track Record", description: "Consistent performance across market conditions" },
+  {
+    icon: Shield,
+    title: "Secure Custody",
+    description: (
+      <>
+        <span className="font-semibold text-foreground">Industry-leading security protocols</span> for your digital assets.
+      </>
+    ),
+  },
+  {
+    icon: Lock,
+    title: "Full Transparency",
+    description: (
+      <>
+        <span className="font-semibold text-foreground">Real-time access</span> to your portfolio and transactions.
+      </>
+    ),
+  },
+  {
+    icon: BarChart3,
+    title: "Proven Track Record",
+    description: (
+      <>
+        <span className="font-semibold text-foreground">Consistent performance</span> across diverse market conditions.
+      </>
+    ),
+  },
 ];
 
 const fadeInUp = {
@@ -102,11 +142,11 @@ export default function CryptoTech() {
               >
                 Your Gateway to Digital Wealth
               </motion.h2>
-              <motion.p variants={fadeInUp} className="text-muted-foreground mb-6">
-                Hartitudeh CryptoTech & Global Exchange provides comprehensive cryptocurrency and Web3 services for investors at all levels. Whether you're new to crypto or a seasoned investor, our expert team is here to help you navigate this exciting space.
+              <motion.p variants={fadeInUp} className="text-muted-foreground mb-6 leading-relaxed">
+                <span className="font-semibold text-foreground">Hartitudeh CryptoTech & Global Exchange</span> provides <span className="font-semibold text-foreground">comprehensive cryptocurrency and Web3 services</span> for investors at all levels. Whether you're new to crypto or a seasoned investor, our <span className="font-semibold text-foreground">expert team</span> is here to help you navigate this exciting space.
               </motion.p>
-              <motion.p variants={fadeInUp} className="text-muted-foreground mb-8">
-                We combine deep market expertise with rigorous risk management to deliver consistent results while maintaining the highest standards of security and transparency.
+              <motion.p variants={fadeInUp} className="text-muted-foreground mb-8 leading-relaxed">
+                We combine <span className="font-semibold text-foreground">deep market expertise</span> with <span className="font-semibold text-foreground">rigorous risk management</span> to deliver <span className="font-semibold text-foreground">consistent results</span> while maintaining the highest standards of <span className="font-semibold text-foreground">security and transparency</span>.
               </motion.p>
             </motion.div>
 
@@ -207,7 +247,7 @@ export default function CryptoTech() {
               Start Your Investment Journey
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-muted-foreground max-w-2xl mx-auto">
-              We offer flexible investment options to match your goals and risk tolerance. Contact our team to discuss the best plan for you.
+              We offer <span className="font-semibold text-foreground">flexible investment options</span> to match your <span className="font-semibold text-foreground">goals and risk tolerance</span>. Contact our team to discuss the best plan for you.
             </motion.p>
           </motion.div>
 
@@ -222,7 +262,7 @@ export default function CryptoTech() {
               <Coins className="w-16 h-16 text-gold mx-auto mb-6" />
               <h3 className="text-2xl font-display font-bold mb-4">Ready to Invest?</h3>
               <p className="text-muted-foreground mb-8">
-                Our investment specialists are ready to create a personalized plan that aligns with your financial goals. Schedule a consultation to get started.
+                Our <span className="font-semibold text-foreground">investment specialists</span> are ready to create a <span className="font-semibold text-foreground">personalized plan</span> that aligns with your <span className="font-semibold text-foreground">financial goals</span>. Schedule a consultation to get started.
               </p>
               <Button variant="gold" size="lg" asChild>
                 <Link to="/contact">

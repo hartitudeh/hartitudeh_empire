@@ -167,7 +167,7 @@ export default function TechPortfolio() {
               Our <span className="text-gradient-gold">Portfolio</span>
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-lg text-muted-foreground">
-              Explore our collection of projects across web development, graphic design, video production, and print media.
+              Explore our collection of projects across <span className="font-semibold text-foreground">web development</span>, <span className="font-semibold text-foreground">graphic design</span>, <span className="font-semibold text-foreground">video production</span>, and <span className="font-semibold text-foreground">print media</span>.
             </motion.p>
           </motion.div>
         </div>
@@ -262,7 +262,7 @@ export default function TechPortfolio() {
               Ready to Start Your Project?
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-muted-foreground mb-8">
-              Let's create something amazing together. Contact us today to discuss your project requirements.
+              Let's <span className="font-semibold text-foreground">create something amazing together</span>. Contact us today to discuss your <span className="font-semibold text-foreground">project requirements and technical roadmap</span>.
             </motion.p>
             <motion.div variants={fadeInUp}>
               <Button variant="gold" size="lg" asChild>

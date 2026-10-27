@@ -358,7 +358,7 @@ export default function Testimonials() {
               variants={fadeInUp}
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
             >
-              Hear what our clients have to say about their experience with HARTITUDEH EMPIRE across all our service verticals.
+              Hear what our clients have to say about their experience with <span className="font-semibold text-foreground">HARTITUDEH EMPIRE</span> across <span className="font-semibold text-foreground">Tech Solutions, CryptoTech, and Homes & Properties</span>.
             </motion.p>
           </motion.div>
         </div>
@@ -458,7 +458,7 @@ export default function Testimonials() {
               variants={fadeInUp}
               className="text-lg text-muted-foreground mb-10"
             >
-              Start your journey with HARTITUDEH EMPIRE today and become our next success story.
+              Start your journey with <span className="font-semibold text-foreground">HARTITUDEH EMPIRE</span> today and become our <span className="font-semibold text-foreground">next success story</span>.
             </motion.p>
             <motion.div variants={fadeInUp}>
               <Button variant="hero" size="xl" asChild>

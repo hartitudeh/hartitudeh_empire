@@ -161,7 +161,7 @@ export default function TechGallery() {
               Our <span className="text-gradient-gold">Gallery</span>
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-lg text-muted-foreground">
-              Browse through our creative works including graphic designs, video production stills, and print materials.
+              Browse through our creative works including <span className="font-semibold text-foreground">graphic designs</span>, <span className="font-semibold text-foreground">video production stills</span>, and <span className="font-semibold text-foreground">custom print materials</span>.
             </motion.p>
           </motion.div>
         </div>

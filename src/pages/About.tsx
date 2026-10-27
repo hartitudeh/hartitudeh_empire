@@ -10,22 +10,42 @@ const values = [
   { 
     icon: Heart, 
     title: "Integrity & Trust", 
-    description: "We uphold the highest ethical standards, transparency, and accountability in every client transaction and partnership." 
+    description: (
+      <>
+        We uphold the <span className="font-semibold text-foreground">highest ethical standards</span>,{" "}
+        <span className="font-semibold text-foreground">complete transparency</span>, and strict accountability in every client transaction.
+      </>
+    ),
   },
   { 
     icon: Target, 
     title: "Cutting-Edge Innovation", 
-    description: "We constantly pioneer new technologies, Web3 strategies, and modern real estate solutions to stay ahead of global trends." 
+    description: (
+      <>
+        We actively engineer <span className="font-semibold text-foreground">next-generation software</span>,{" "}
+        <span className="font-semibold text-foreground">Web3 strategies</span>, and modern real estate solutions to stay ahead of global trends.
+      </>
+    ),
   },
   { 
     icon: Award, 
     title: "Uncompromising Excellence", 
-    description: "We deliver exceptional quality and world-class service across all our technology, crypto, and property verticals." 
+    description: (
+      <>
+        We reject cookie-cutter execution, delivering <span className="font-semibold text-foreground">exceptional quality</span> and{" "}
+        <span className="font-semibold text-foreground">world-class service</span> across all verticals.
+      </>
+    ),
   },
   { 
     icon: Eye, 
     title: "Complete Transparency", 
-    description: "We maintain clear, open communication, transparent pricing, and dependable reporting for all stakeholders." 
+    description: (
+      <>
+        We maintain <span className="font-semibold text-foreground">clear communication</span>,{" "}
+        <span className="font-semibold text-foreground">verified documentation</span>, and dependable reporting for all stakeholders.
+      </>
+    ),
   },
 ];
 
@@ -42,7 +62,14 @@ const subBrands = [
     title: "Hartitudeh Tech Solutions",
     category: "Software & Digital Media",
     icon: Cpu,
-    description: "Your trusted partner in enterprise digital transformation. We engineer custom web and mobile software, brand identities, motion graphics, and high-impact digital solutions that elevate modern brands.",
+    description: (
+      <>
+        Your trusted partner in <span className="font-semibold text-foreground">enterprise digital transformation</span>. We engineer custom{" "}
+        <span className="font-semibold text-foreground">web and mobile software</span>,{" "}
+        <span className="font-semibold text-foreground">brand identities</span>,{" "}
+        <span className="font-semibold text-foreground">motion graphics</span>, and high-impact digital products that elevate modern brands.
+      </>
+    ),
     href: "/tech-solutions",
     features: ["Custom Software & Mobile App Development", "Brand Identity & Graphic Design", "Video Production & Motion Graphics", "Print Media & Digital Marketing"],
   },
@@ -50,7 +77,14 @@ const subBrands = [
     title: "Hartitudeh CryptoTech & Global Exchange",
     category: "Web3 & Digital Finance",
     icon: Coins,
-    description: "Navigating the future of global digital assets. We provide professional managed crypto trading, ROI-structured investment packages, Web3 project marketing, and token campaign execution.",
+    description: (
+      <>
+        Navigating the future of <span className="font-semibold text-foreground">global digital assets</span>. We provide professional{" "}
+        <span className="font-semibold text-foreground">managed crypto trading</span>,{" "}
+        <span className="font-semibold text-foreground">ROI-structured investment packages</span>,{" "}
+        <span className="font-semibold text-foreground">Web3 project marketing</span>, and token campaign execution.
+      </>
+    ),
     href: "/cryptotech",
     features: ["Managed Crypto Asset Portfolios", "ROI Investment Management", "Web3 & Blockchain Marketing", "Airdrop Campaign Execution"],
   },
@@ -58,7 +92,14 @@ const subBrands = [
     title: "Hartitudeh Homes & Properties",
     category: "Real Estate & Land Advisory",
     icon: Building2,
-    description: "Building sustainable wealth through premium real estate. We deliver comprehensive property solutions including luxury residential sales, commercial leasing, land acquisitions, and property management.",
+    description: (
+      <>
+        Building <span className="font-semibold text-foreground">sustainable wealth</span> through premium real estate. We deliver comprehensive property solutions including{" "}
+        <span className="font-semibold text-foreground">luxury residential sales</span>,{" "}
+        <span className="font-semibold text-foreground">commercial leasing</span>,{" "}
+        <span className="font-semibold text-foreground">verified land acquisitions</span>, and full-spectrum property management.
+      </>
+    ),
     href: "/homes-properties",
     features: ["Luxury Residential & Land Sales", "Commercial Property Leasing", "Diaspora Real Estate Advisory", "Full-Spectrum Property Management"],
   },
@@ -107,7 +148,11 @@ export default function About() {
               variants={fadeInUp}
               className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             >
-              HARTITUDEH EMPIRE is a premier multi-sector conglomerate engineered to deliver transformative software development, digital asset management, and high-value real estate opportunities under one unified ecosystem.
+              <span className="font-semibold text-foreground">HARTITUDEH EMPIRE</span> is a premier{" "}
+              <span className="font-semibold text-foreground">multi-sector conglomerate</span> engineered to deliver{" "}
+              <span className="font-semibold text-foreground">transformative software development</span>,{" "}
+              <span className="font-semibold text-foreground">digital asset management</span>, and{" "}
+              <span className="font-semibold text-foreground">high-value real estate opportunities</span> under one unified ecosystem.
             </motion.p>
           </motion.div>
 
@@ -157,10 +202,27 @@ export default function About() {
                 <span className="text-gradient-gold">Diverse Excellence</span>
               </motion.h2>
               <motion.p variants={fadeInUp} className="text-muted-foreground leading-relaxed mb-5">
-                HARTITUDEH EMPIRE stands as a benchmark of growth and reliability in the contemporary commercial landscape. Built on a foundation of visionary leadership, our conglomerate combines technological precision, Web3 foresight, and tangible property assets.
+                <span className="font-semibold text-foreground">HARTITUDEH EMPIRE</span> was created to help businesses and individuals{" "}
+                <span className="font-semibold text-foreground">turn ambitious visions into high-performing assets</span>. Built on a foundation of visionary leadership, our conglomerate combines{" "}
+                <span className="font-semibold text-foreground">technological precision</span>,{" "}
+                <span className="font-semibold text-foreground">Web3 financial foresight</span>, and{" "}
+                <span className="font-semibold text-foreground">tangible property investments</span>.
               </motion.p>
               <motion.p variants={fadeInUp} className="text-muted-foreground leading-relaxed mb-8">
-                Operating through three specialized divisions—<strong>Tech Solutions</strong>, <strong>CryptoTech & Global Exchange</strong>, and <strong>Homes & Properties</strong>—we provide individuals, corporate entities, diaspora investors, and ambitious projects with end-to-end solutions designed for long-term prosperity.
+                Operating through three specialized divisions—
+                <Link to="/tech-solutions" className="font-semibold text-[#19013b] underline decoration-[#19013b]/30 hover:text-amber-600 transition-colors">
+                  Tech Solutions
+                </Link>
+                ,{" "}
+                <Link to="/cryptotech" className="font-semibold text-[#19013b] underline decoration-[#19013b]/30 hover:text-amber-600 transition-colors">
+                  CryptoTech &amp; Global Exchange
+                </Link>
+                , and{" "}
+                <Link to="/homes-properties" className="font-semibold text-[#19013b] underline decoration-[#19013b]/30 hover:text-amber-600 transition-colors">
+                  Homes &amp; Properties
+                </Link>
+                —we provide corporate entities, startups, and <span className="font-semibold text-foreground">diaspora investors</span> with end-to-end solutions designed for{" "}
+                <span className="font-semibold text-foreground">long-term prosperity</span>.
               </motion.p>
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
                 <Button className="bg-[#19013b] hover:bg-[#2b0363] text-white font-bold px-6 py-2.5 rounded-xl shadow-md" asChild>
@@ -186,17 +248,32 @@ export default function About() {
               {[
                 {
                   title: "Technology & Software",
-                  desc: "Engineering custom web applications, digital branding, and enterprise tools for scale.",
+                  desc: (
+                    <>
+                      Engineering <span className="font-semibold text-foreground">custom web applications</span>,{" "}
+                      <span className="font-semibold text-foreground">digital branding</span>, and enterprise tools built to scale.
+                    </>
+                  ),
                   icon: Cpu,
                 },
                 {
                   title: "Crypto & Web3 Growth",
-                  desc: "Professional trading management, structured investment ROI plans, and token promotion.",
+                  desc: (
+                    <>
+                      Professional <span className="font-semibold text-foreground">trading management</span>,{" "}
+                      <span className="font-semibold text-foreground">structured ROI plans</span>, and blockchain token promotion.
+                    </>
+                  ),
                   icon: Coins,
                 },
                 {
                   title: "Real Estate & Properties",
-                  desc: "Curating verified residential estates, commercial plots, and property leasing across Nigeria.",
+                  desc: (
+                    <>
+                      Curating <span className="font-semibold text-foreground">verified residential estates</span>,{" "}
+                      <span className="font-semibold text-foreground">commercial plots</span>, and property leasing across Nigeria.
+                    </>
+                  ),
                   icon: Building2,
                 },
               ].map((pillar) => (
@@ -233,7 +310,11 @@ export default function About() {
               </div>
               <h3 className="text-2xl font-display font-bold mb-3">Our Vision</h3>
               <p className="text-muted-foreground leading-relaxed">
-                To position HARTITUDEH EMPIRE as an internationally renowned multi-sector conglomerate that empowers millions of individuals and businesses through scalable technology, smart digital wealth creation, and premium real estate assets.
+                To position <span className="font-semibold text-foreground">HARTITUDEH EMPIRE</span> as an{" "}
+                <span className="font-semibold text-foreground">internationally recognized conglomerate</span> that empowers millions of individuals and businesses through{" "}
+                <span className="font-semibold text-foreground">scalable technology</span>,{" "}
+                <span className="font-semibold text-foreground">smart digital wealth creation</span>, and{" "}
+                <span className="font-semibold text-foreground">premium real estate assets</span>.
               </p>
             </motion.div>
 
@@ -247,7 +328,10 @@ export default function About() {
               </div>
               <h3 className="text-2xl font-display font-bold mb-3">Our Mission</h3>
               <p className="text-muted-foreground leading-relaxed">
-                To deliver unmatched value across technology, Web3 finance, and property sectors by enforcing strict ethical standards, cutting-edge innovation, transparent management, and client-first relationship building in all operations.
+                To deliver <span className="font-semibold text-foreground">unmatched value</span> across technology, Web3 finance, and property sectors by enforcing{" "}
+                <span className="font-semibold text-foreground">strict ethical standards</span>,{" "}
+                <span className="font-semibold text-foreground">cutting-edge innovation</span>,{" "}
+                <span className="font-semibold text-foreground">transparent management</span>, and client-first partnerships.
               </p>
             </motion.div>
           </div>
@@ -269,7 +353,8 @@ export default function About() {
               Our Core Business Verticals
             </h2>
             <p className="text-muted-foreground mt-4 text-base">
-              Each division operates as a specialized powerhouse while sharing the overarching credibility, security, and infrastructure of HARTITUDEH EMPIRE.
+              Each division operates as a <span className="font-semibold text-foreground">specialized powerhouse</span> while sharing the overarching{" "}
+              <span className="font-semibold text-foreground">credibility, security, and enterprise infrastructure</span> of HARTITUDEH EMPIRE.
             </p>
           </motion.div>
 
@@ -374,8 +459,11 @@ export default function About() {
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
               Ready to Build Your Legacy With Us?
             </h2>
-            <p className="text-slate-200 max-w-xl mx-auto mb-10 leading-relaxed text-base">
-              Whether you are seeking custom enterprise software, Web3 crypto management, or verified real estate investments, our team is ready to deliver.
+            <p className="text-slate-300 max-w-xl mx-auto mb-10 leading-relaxed text-base">
+              Whether you are seeking <span className="font-semibold text-white">custom enterprise software</span>,{" "}
+              <span className="font-semibold text-white">Web3 crypto management</span>, or{" "}
+              <span className="font-semibold text-white">verified real estate investments</span>, our team is ready to{" "}
+              <span className="font-semibold text-white">deliver measurable results</span>.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-6 rounded-xl shadow-xl text-base" asChild>

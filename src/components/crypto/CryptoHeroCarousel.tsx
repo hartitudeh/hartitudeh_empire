@@ -12,7 +12,11 @@ const slides = [
     badge: "CRYPTOTECH",
     title: "Hartitudeh CryptoTech",
     subtitle: "& Global Exchange",
-    description: "Navigate the future of finance with expert crypto trading, investment management, and Web3 solutions designed for sustainable growth.",
+    description: (
+      <>
+        Navigate the future of finance with <span className="font-semibold text-white">expert crypto trading</span>, <span className="font-semibold text-white">investment management</span>, and <span className="font-semibold text-white">Web3 solutions</span> designed for sustainable growth.
+      </>
+    ),
     services: ["Crypto Trading", "Investment Management", "Web3 Marketing", "Blockchain"],
     cta: { text: "Start Investing", href: "/contact" },
     background: slideCrypto,
@@ -22,7 +26,11 @@ const slides = [
     badge: "TRADING",
     title: "Managed Crypto",
     subtitle: "Trading Solutions",
-    description: "Expert trading on your behalf with proven strategies to maximize returns while managing risk effectively.",
+    description: (
+      <>
+        <span className="font-semibold text-white">Expert trading on your behalf</span> with proven strategies to <span className="font-semibold text-white">maximize returns</span> while <span className="font-semibold text-white">managing risk effectively</span>.
+      </>
+    ),
     services: ["Professional Trading Team", "Risk Management", "Performance Reports", "Flexible Options"],
     cta: { text: "Start Trading", href: "/contact" },
     background: heroBg,
@@ -32,7 +40,11 @@ const slides = [
     badge: "INVESTMENTS",
     title: "ROI-Based",
     subtitle: "Investment Plans",
-    description: "Structured investment packages designed to deliver consistent returns with full transparency and capital protection.",
+    description: (
+      <>
+        <span className="font-semibold text-white">Structured investment packages</span> designed to deliver <span className="font-semibold text-white">consistent returns</span> with <span className="font-semibold text-white">full transparency and capital protection</span>.
+      </>
+    ),
     services: ["Multiple Investment Tiers", "Clear ROI Expectations", "Capital Protection", "Monthly Distributions"],
     cta: { text: "View Plans", href: "/contact" },
     background: slideTech,
@@ -42,7 +54,11 @@ const slides = [
     badge: "WEB3",
     title: "Web3 Marketing",
     subtitle: "& Airdrop Campaigns",
-    description: "Comprehensive marketing solutions for blockchain projects looking to increase visibility and grow their community.",
+    description: (
+      <>
+        <span className="font-semibold text-white">Comprehensive marketing solutions</span> for blockchain projects looking to <span className="font-semibold text-white">increase visibility</span> and <span className="font-semibold text-white">grow their community</span>.
+      </>
+    ),
     services: ["Community Building", "Social Media", "Influencer Partnerships", "Airdrop Management"],
     cta: { text: "Get Started", href: "/contact" },
     background: slideCrypto,

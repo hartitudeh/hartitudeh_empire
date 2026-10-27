@@ -16,31 +16,88 @@ const services = [
   {
     icon: Code,
     title: "Hartitudeh Tech Solutions",
-    description: "Software development, graphic design, video editing, and digital innovation that brings your ideas to life.",
+    description: (
+      <>
+        Custom <span className="font-semibold text-foreground">software development</span>,{" "}
+        <span className="font-semibold text-foreground">brand identity design</span>,{" "}
+        <span className="font-semibold text-foreground">motion graphics</span>, and scalable{" "}
+        <span className="font-semibold text-foreground">digital products</span> engineered to help businesses grow.
+      </>
+    ),
     href: "/tech-solutions",
     color: "from-blue-500 to-cyan-500",
   },
   {
     icon: TrendingUp,
     title: "CryptoTech & Global Exchange",
-    description: "Crypto trading, ROI-based investment management, Web3 marketing, and blockchain solutions.",
+    description: (
+      <>
+        Professional <span className="font-semibold text-foreground">crypto asset trading</span>,{" "}
+        <span className="font-semibold text-foreground">ROI-structured investment plans</span>,{" "}
+        <span className="font-semibold text-foreground">Web3 marketing</span>, and{" "}
+        <span className="font-semibold text-foreground">airdrop campaign execution</span>.
+      </>
+    ),
     href: "/cryptotech",
     color: "from-amber-500 to-orange-500",
   },
   {
     icon: Home,
     title: "Homes & Properties",
-    description: "Premium real estate opportunities including property sales, leasing, and investment consulting.",
+    description: (
+      <>
+        Verified <span className="font-semibold text-foreground">real estate investments</span> including{" "}
+        <span className="font-semibold text-foreground">luxury residential sales</span>,{" "}
+        <span className="font-semibold text-foreground">commercial leasing</span>, and{" "}
+        <span className="font-semibold text-foreground">full-service property management</span>.
+      </>
+    ),
     href: "/homes-properties",
     color: "from-emerald-500 to-teal-500",
   },
 ];
 
 const values = [
-  { icon: Shield, title: "Trust", description: "Building lasting relationships through transparency and reliability" },
-  { icon: Zap, title: "Innovation", description: "Pioneering solutions that push boundaries and create value" },
-  { icon: Globe, title: "Excellence", description: "Delivering world-class services across all our ventures" },
-  { icon: Users, title: "Transparency", description: "Clear communication and honest dealings at every step" },
+  {
+    icon: Shield,
+    title: "Trust",
+    description: (
+      <>
+        Building lasting client partnerships through <span className="font-semibold text-foreground">complete accountability</span> and{" "}
+        <span className="font-semibold text-foreground">proven reliability</span>.
+      </>
+    ),
+  },
+  {
+    icon: Zap,
+    title: "Innovation",
+    description: (
+      <>
+        Engineering <span className="font-semibold text-foreground">modern digital architectures</span> and{" "}
+        <span className="font-semibold text-foreground">forward-thinking strategies</span> that create lasting value.
+      </>
+    ),
+  },
+  {
+    icon: Globe,
+    title: "Excellence",
+    description: (
+      <>
+        Delivering <span className="font-semibold text-foreground">world-class execution</span> and{" "}
+        <span className="font-semibold text-foreground">measurable results</span> across every business vertical.
+      </>
+    ),
+  },
+  {
+    icon: Users,
+    title: "Transparency",
+    description: (
+      <>
+        Maintaining <span className="font-semibold text-foreground">clear communication</span>,{" "}
+        <span className="font-semibold text-foreground">verified documentation</span>, and honest dealings at every step.
+      </>
+    ),
+  },
 ];
 
 const testimonials = [
@@ -125,8 +182,28 @@ export default function Index() {
             >
               One Vision, Multiple Verticals
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-muted-foreground text-lg">
-              HARTITUDEH EMPIRE is a multi-service enterprise built on trust, innovation, and excellence. We unite technology, cryptocurrency, and real estate under one powerful ecosystem, providing comprehensive solutions for individuals and businesses worldwide.
+            <motion.p variants={fadeInUp} className="text-muted-foreground text-lg leading-relaxed mb-4">
+              As a <span className="font-semibold text-foreground">diversified multi-service conglomerate</span>,{" "}
+              <span className="font-semibold text-foreground">HARTITUDEH EMPIRE</span> builds tailored{" "}
+              <span className="font-semibold text-foreground">software solutions</span>, manages{" "}
+              <span className="font-semibold text-foreground">digital wealth portfolios</span>, and curates{" "}
+              <span className="font-semibold text-foreground">verified real estate assets</span> that empower individuals, startups, and enterprises to{" "}
+              <span className="font-semibold text-foreground">scale with confidence</span>.
+            </motion.p>
+            <motion.p variants={fadeInUp} className="text-muted-foreground text-base leading-relaxed">
+              We engineer specialized solutions across three high-growth sectors, delivering custom{" "}
+              <Link to="/tech-solutions" className="text-[#19013b] hover:text-amber-600 font-semibold underline decoration-[#19013b]/30 transition-colors">
+                enterprise software &amp; digital branding
+              </Link>
+              , secure{" "}
+              <Link to="/cryptotech" className="text-[#19013b] hover:text-amber-600 font-semibold underline decoration-[#19013b]/30 transition-colors">
+                crypto trading &amp; Web3 growth campaigns
+              </Link>
+              , and high-yield{" "}
+              <Link to="/homes-properties" className="text-[#19013b] hover:text-amber-600 font-semibold underline decoration-[#19013b]/30 transition-colors">
+                residential &amp; commercial property investments
+              </Link>
+              .
             </motion.p>
           </motion.div>
 
@@ -359,9 +436,13 @@ export default function Index() {
             </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="text-lg text-muted-foreground mb-10"
+              className="text-lg text-muted-foreground mb-10 leading-relaxed"
             >
-              Join thousands of satisfied clients who have trusted HARTITUDEH EMPIRE for their technology, investment, and real estate needs.
+              Whether you are launching a new business, scaling an existing enterprise, or building long-term wealth,{" "}
+              <span className="font-semibold text-foreground">HARTITUDEH EMPIRE</span> is ready to deliver{" "}
+              <span className="font-semibold text-foreground">world-class technology</span>,{" "}
+              <span className="font-semibold text-foreground">crypto investments</span>, and{" "}
+              <span className="font-semibold text-foreground">verified real estate solutions</span>.
             </motion.p>
             <motion.div variants={fadeInUp}>
               <Button variant="hero" size="xl" asChild>

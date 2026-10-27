@@ -27,31 +27,51 @@ const services = [
   {
     icon: Home,
     title: "Land Sales",
-    description: "Premium plots and acres in prime locations across Nigeria. Verified titles and documentation.",
+    description: (
+      <>
+        <span className="font-semibold text-foreground">Premium plots and acres</span> in prime locations across Nigeria with <span className="font-semibold text-foreground">verified titles and documentation</span>.
+      </>
+    ),
     features: ["Residential Plots", "Commercial Land", "Agricultural Land", "Estate Development", "Survey & Documentation"],
   },
   {
     icon: Key,
     title: "Property Leasing",
-    description: "Long-term lease options for residential and commercial properties. Flexible terms.",
+    description: (
+      <>
+        <span className="font-semibold text-foreground">Long-term lease options</span> for residential and commercial properties with <span className="font-semibold text-foreground">flexible terms</span>.
+      </>
+    ),
     features: ["Residential Leases", "Commercial Leases", "Office Spaces", "Warehouse Leasing", "Ground Rent"],
   },
   {
     icon: Building2,
     title: "Rentals",
-    description: "Quality rental properties for every budget. From apartments to luxury homes.",
+    description: (
+      <>
+        <span className="font-semibold text-foreground">Quality rental properties</span> for every budget, ranging from <span className="font-semibold text-foreground">modern apartments to luxury homes</span>.
+      </>
+    ),
     features: ["Apartments", "Duplexes", "Terrace Houses", "Bungalows", "Serviced Apartments"],
   },
   {
     icon: FileText,
     title: "Property Management",
-    description: "Professional management services for property owners. Maximize your investment returns.",
+    description: (
+      <>
+        <span className="font-semibold text-foreground">Professional management services</span> for property owners designed to <span className="font-semibold text-foreground">maximize your investment returns</span>.
+      </>
+    ),
     features: ["Tenant Screening", "Rent Collection", "Maintenance", "Financial Reporting", "Legal Compliance"],
   },
   {
     icon: MapPin,
     title: "Real Estate Advisory",
-    description: "Expert guidance for property investments. Make informed decisions with our insights.",
+    description: (
+      <>
+        <span className="font-semibold text-foreground">Expert guidance</span> for property investments so you can <span className="font-semibold text-foreground">make informed decisions</span> with our market insights.
+      </>
+    ),
     features: ["Market Analysis", "Investment Strategy", "Due Diligence", "Valuation Services", "Portfolio Management"],
   },
 ];
@@ -66,35 +86,83 @@ const featuredLocations = [
 ];
 
 const whyChooseUs = [
-  { icon: Shield, title: "Verified Properties", description: "Every listing is thoroughly verified and documented" },
-  { icon: Clock, title: "Quick Process", description: "Streamlined transactions with minimal delays" },
-  { icon: Users, title: "Diaspora Friendly", description: "Special services for international clients and investors" },
+  {
+    icon: Shield,
+    title: "Verified Properties",
+    description: (
+      <>
+        Every listing is <span className="font-semibold text-foreground">thoroughly verified and documented</span>.
+      </>
+    ),
+  },
+  {
+    icon: Clock,
+    title: "Quick Process",
+    description: (
+      <>
+        <span className="font-semibold text-foreground">Streamlined transactions</span> with minimal delays.
+      </>
+    ),
+  },
+  {
+    icon: Users,
+    title: "Diaspora Friendly",
+    description: (
+      <>
+        <span className="font-semibold text-foreground">Dedicated concierge services</span> for international clients and investors.
+      </>
+    ),
+  },
 ];
 
 const faqs = [
   {
     question: "How do I start the property buying process?",
-    answer: "The process begins with understanding your needs and budget. Contact our team for a consultation where we'll discuss your requirements, show you available properties, and guide you through financing options, documentation, and closing procedures.",
+    answer: (
+      <>
+        The process begins with understanding your <span className="font-semibold text-foreground">specific needs and budget</span>. Contact our team for a <span className="font-semibold text-foreground">personalized consultation</span> where we'll discuss your requirements, showcase <span className="font-semibold text-foreground">verified properties</span>, and guide you through financing options, legal documentation, and closing procedures.
+      </>
+    ),
   },
   {
     question: "What documents are required for property purchase?",
-    answer: "Typically, you'll need valid identification (National ID, passport, or driver's license), proof of income, bank statements, and in some cases, a letter of employment. Our team will provide a comprehensive checklist based on your specific transaction.",
+    answer: (
+      <>
+        Typically, you'll need <span className="font-semibold text-foreground">valid government identification</span> (National ID, passport, or driver's license), <span className="font-semibold text-foreground">proof of income</span>, bank statements, and in some cases, a letter of employment. Our team provides a <span className="font-semibold text-foreground">comprehensive checklist</span> tailored to your specific transaction.
+      </>
+    ),
   },
   {
     question: "Do you offer property management services?",
-    answer: "Yes! We provide comprehensive property management services including tenant screening, rent collection, property maintenance, and regular inspections. This is ideal for property owners who want hassle-free income from their investments.",
+    answer: (
+      <>
+        Yes! We provide <span className="font-semibold text-foreground">end-to-end property management services</span> including <span className="font-semibold text-foreground">tenant screening, rent collection, routine maintenance, and regular inspections</span>—ideal for property owners seeking <span className="font-semibold text-foreground">hassle-free passive income</span>.
+      </>
+    ),
   },
   {
     question: "How do you verify property authenticity?",
-    answer: "We conduct thorough due diligence on all properties including title verification at the land registry, survey plan authentication, and verification of all relevant approvals and permits. We ensure every property we list is legitimate and free of encumbrances.",
+    answer: (
+      <>
+        We conduct <span className="font-semibold text-foreground">rigorous legal due diligence</span> on all properties, including <span className="font-semibold text-foreground">title verification at the land registry</span>, <span className="font-semibold text-foreground">survey plan authentication</span>, and verification of government approvals—ensuring every property is <span className="font-semibold text-foreground">100% legitimate and free of encumbrances</span>.
+      </>
+    ),
   },
   {
     question: "What areas do you cover?",
-    answer: "We currently operate primarily in Lagos and surrounding areas including Lekki, Victoria Island, Ikoyi, Ajah, and the mainland. We're expanding to other Nigerian cities. Contact us to check coverage in your preferred location.",
+    answer: (
+      <>
+        We operate across <span className="font-semibold text-foreground">Lagos and prime surrounding corridors</span> including <span className="font-semibold text-foreground">Lekki, Victoria Island, Ikoyi, Ajah, and the Mainland</span>, as well as <span className="font-semibold text-foreground">Abuja and other major Nigerian cities</span>. Contact us to check availability in your preferred location.
+      </>
+    ),
   },
   {
     question: "Can I invest from abroad (diaspora)?",
-    answer: "Absolutely! We specialize in helping diaspora clients invest in Nigerian real estate. We handle everything from property selection to legal documentation, and provide regular updates with photos and videos throughout the process.",
+    answer: (
+      <>
+        Absolutely! We specialize in helping <span className="font-semibold text-foreground">diaspora clients invest safely in Nigerian real estate</span>. We handle everything from <span className="font-semibold text-foreground">property selection to legal documentation</span> and provide <span className="font-semibold text-foreground">regular video and photo inspections</span> throughout the entire process.
+      </>
+    ),
   },
 ];
 
@@ -173,10 +241,9 @@ export default function HomesProperties() {
 
             <motion.p
               variants={fadeInUp}
-              className="text-lg text-slate-200 max-w-xl mx-auto mb-10"
+              className="text-lg text-slate-300 max-w-xl mx-auto mb-10"
             >
-              Your trusted partner in premium real estate. We help you buy, sell, lease, 
-              and rent properties with transparency and excellence.
+              Your trusted partner in <span className="font-semibold text-white">premium real estate</span>. We help you <span className="font-semibold text-white">buy, sell, lease, and rent properties</span> with <span className="font-semibold text-white">transparency and excellence</span>.
             </motion.p>
 
             {/* Search Box */}
@@ -347,7 +414,7 @@ export default function HomesProperties() {
                 variants={fadeInUp}
                 className="text-muted-foreground mt-4"
               >
-                Find answers to common questions about our real estate services.
+                Find clear answers to <span className="font-semibold text-foreground">common questions</span> about our <span className="font-semibold text-foreground">real estate services and property verification process</span>.
               </motion.p>
             </div>
 
@@ -396,11 +463,11 @@ export default function HomesProperties() {
               >
                 Your Trusted Real Estate Partner
               </motion.h2>
-              <motion.p variants={fadeInUp} className="text-muted-foreground mb-6">
-                Hartitudeh Homes & Properties is dedicated to making property ownership accessible and rewarding. Whether you're looking for your first home, an investment property, or commercial space, our experienced team is here to guide you.
+              <motion.p variants={fadeInUp} className="text-muted-foreground mb-6 leading-relaxed">
+                <span className="font-semibold text-foreground">Hartitudeh Homes & Properties</span> is dedicated to making <span className="font-semibold text-foreground">property ownership accessible and rewarding</span>. Whether you're looking for your <span className="font-semibold text-foreground">first home, a high-yield investment property, or prime commercial space</span>, our experienced team is here to guide you.
               </motion.p>
-              <motion.p variants={fadeInUp} className="text-muted-foreground mb-8">
-                We specialize in serving diverse clients including individuals, investors, diaspora communities, and businesses seeking quality real estate opportunities.
+              <motion.p variants={fadeInUp} className="text-muted-foreground mb-8 leading-relaxed">
+                We specialize in serving <span className="font-semibold text-foreground">diverse clients</span> including <span className="font-semibold text-foreground">individuals, institutional investors, diaspora communities, and corporate businesses</span> seeking verified real estate opportunities.
               </motion.p>
             </motion.div>
 
@@ -449,7 +516,7 @@ export default function HomesProperties() {
               Properties Across Key Markets
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-muted-foreground max-w-2xl mx-auto">
-              We maintain a diverse portfolio of properties across strategic locations to meet various needs and investment goals.
+              We maintain a <span className="font-semibold text-foreground">diverse portfolio of verified properties</span> across <span className="font-semibold text-foreground">strategic locations</span> to meet your lifestyle and <span className="font-semibold text-foreground">long-term investment goals</span>.
             </motion.p>
           </motion.div>
 
@@ -491,7 +558,7 @@ export default function HomesProperties() {
               Want to <span className="text-gradient-gold">List Your Property</span>?
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-muted-foreground mb-4 max-w-xl mx-auto">
-              Become a partner and list your property on our platform for free. All listings are reviewed to ensure they meet our quality standards before going live.
+              Become a partner and <span className="font-semibold text-foreground">list your property on our platform for free</span>. All listings are <span className="font-semibold text-foreground">rigorously reviewed</span> to ensure they meet our <span className="font-semibold text-foreground">quality and title standards</span> before going live.
             </motion.p>
             <motion.ul variants={fadeInUp} className="flex flex-wrap justify-center gap-4 mb-8 text-sm text-muted-foreground">
               <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-gold" /> Free listing</li>
@@ -528,7 +595,7 @@ export default function HomesProperties() {
               Ready to Find Your Perfect Property?
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-lg text-muted-foreground mb-10">
-              Whether you're buying, selling, leasing, or investing, our team is ready to help you achieve your real estate goals.
+              Whether you're <span className="font-semibold text-foreground">buying, selling, leasing, or investing</span>, our team is ready to help you <span className="font-semibold text-foreground">achieve your real estate goals</span>.
             </motion.p>
             <motion.div variants={fadeInUp}>
               <Button variant="hero" size="xl" asChild>

@@ -478,7 +478,7 @@ const Properties = () => {
                 variants={fadeInUp}
                 className="text-muted-foreground mt-4 max-w-xl"
               >
-                Explore our curated collection of premium properties across Nigeria
+                Explore our curated collection of <span className="font-semibold text-foreground">verified luxury homes, commercial spaces, and prime land</span> across Nigeria.
               </motion.p>
             </div>
           </motion.div>

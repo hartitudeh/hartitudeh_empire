@@ -94,7 +94,7 @@ export default function Blog() {
               Latest <span className="text-gold">Insights & Articles</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Explore daily updated industry insights, expert analyses, and tech trends across Technology, Cryptocurrency, and Real Estate.
+              Explore <span className="font-semibold text-foreground">daily updated industry insights</span>, <span className="font-semibold text-foreground">expert analyses</span>, and <span className="font-semibold text-foreground">emerging trends</span> across <span className="font-semibold text-foreground">Technology, Cryptocurrency, and Real Estate</span>.
             </p>
           </motion.div>
         </div>

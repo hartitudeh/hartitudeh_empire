@@ -44,7 +44,15 @@ const heroSlides = [
     badge: "Hartitudeh Tech",
     title: "Hartitudeh Tech",
     highlight: "Solutions",
-    description: "Transforming ideas into powerful digital reality through innovative software engineering, creative design, and cutting-edge media.",
+    description: (
+      <>
+        We provide <span className="font-semibold text-white">custom software development services</span>, building tailored{" "}
+        <span className="font-semibold text-white">enterprise applications</span>,{" "}
+        <span className="font-semibold text-white">high-impact brand identities</span>, and{" "}
+        <span className="font-semibold text-white">motion graphics</span> that help businesses{" "}
+        <span className="font-semibold text-white">streamline operations</span> and <span className="font-semibold text-white">grow</span>.
+      </>
+    ),
     icon: Code,
     gradient: "from-blue-500/10 via-transparent to-cyan-500/10",
     background: slideTech,
@@ -54,7 +62,13 @@ const heroSlides = [
     badge: "Software Development",
     title: "Building Digital",
     highlight: "Solutions",
-    description: "Custom web and mobile applications built with cutting-edge technologies for maximum performance and scalability.",
+    description: (
+      <>
+        Custom <span className="font-semibold text-white">web and mobile applications</span> engineered with{" "}
+        <span className="font-semibold text-white">modern cloud architectures</span> for maximum{" "}
+        <span className="font-semibold text-white">performance, security, and scalability</span>.
+      </>
+    ),
     icon: Code,
     gradient: "from-blue-500/20 via-transparent to-cyan-500/20",
     background: slideTech,
@@ -63,7 +77,13 @@ const heroSlides = [
     badge: "Graphic Design & Branding",
     title: "Creative Visual",
     highlight: "Identity",
-    description: "Compelling visual identities and designs that capture your brand essence and resonate with your audience.",
+    description: (
+      <>
+        High-impact logos, <span className="font-semibold text-white">brand identities</span>, and{" "}
+        <span className="font-semibold text-white">custom visual design systems</span> that help your business stand out and establish{" "}
+        <span className="font-semibold text-white">global credibility</span>.
+      </>
+    ),
     icon: Palette,
     gradient: "from-purple-500/20 via-transparent to-pink-500/20",
     background: heroBg,
@@ -72,7 +92,13 @@ const heroSlides = [
     badge: "Video & Motion Graphics",
     title: "Stunning Video",
     highlight: "Production",
-    description: "Professional video production and animation services that bring your stories to life with stunning visuals.",
+    description: (
+      <>
+        High-converting <span className="font-semibold text-white">video content</span>,{" "}
+        <span className="font-semibold text-white">2D/3D motion graphics</span>, and promotional showcases designed to{" "}
+        <span className="font-semibold text-white">captivate and convert viewers</span>.
+      </>
+    ),
     icon: Video,
     gradient: "from-orange-500/20 via-transparent to-red-500/20",
     background: slideRealEstate,
@@ -81,7 +107,13 @@ const heroSlides = [
     badge: "Printing & Digital Media",
     title: "Premium Print",
     highlight: "Solutions",
-    description: "High-quality printing solutions and digital media services for all your marketing and communication needs.",
+    description: (
+      <>
+        Precision <span className="font-semibold text-white">commercial printing</span>,{" "}
+        <span className="font-semibold text-white">corporate branding collateral</span>, and large-format signage for{" "}
+        <span className="font-semibold text-white">unforgettable brand presence</span>.
+      </>
+    ),
     icon: Printer,
     gradient: "from-green-500/20 via-transparent to-teal-500/20",
     background: slideCrypto,
@@ -92,25 +124,49 @@ const services = [
   {
     icon: Code,
     title: "Software Development",
-    description: "Custom web and mobile applications built with cutting-edge technologies for maximum performance and scalability.",
+    description: (
+      <>
+        Custom <span className="font-semibold text-foreground">web applications</span>,{" "}
+        <span className="font-semibold text-foreground">native &amp; cross-platform mobile apps</span>, and{" "}
+        <span className="font-semibold text-foreground">enterprise software systems</span> engineered for speed, security, and scale.
+      </>
+    ),
     features: ["Web Applications", "Mobile Apps (iOS & Android)", "API Development", "Cloud Solutions"],
   },
   {
     icon: Palette,
     title: "Graphic Design & Branding",
-    description: "Compelling visual identities and designs that capture your brand essence and resonate with your audience.",
+    description: (
+      <>
+        High-impact logos, <span className="font-semibold text-foreground">brand identities</span>, and custom{" "}
+        <span className="font-semibold text-foreground">UI/UX design systems</span> that help brands stand out and establish{" "}
+        <span className="font-semibold text-foreground">global credibility</span>.
+      </>
+    ),
     features: ["Logo Design", "Brand Identity", "Marketing Materials", "UI/UX Design"],
   },
   {
     icon: Video,
     title: "Video Editing & Motion Graphics",
-    description: "Professional video production and animation services that bring your stories to life with stunning visuals.",
+    description: (
+      <>
+        High-converting <span className="font-semibold text-foreground">video production</span>, promotional showcases, and{" "}
+        <span className="font-semibold text-foreground">dynamic motion graphics</span> designed to{" "}
+        <span className="font-semibold text-foreground">inspire and convert viewers</span>.
+      </>
+    ),
     features: ["Video Editing", "Motion Graphics", "Animation", "Social Media Content"],
   },
   {
     icon: Printer,
     title: "Printing & Digital Media",
-    description: "High-quality printing solutions and digital media services for all your marketing and communication needs.",
+    description: (
+      <>
+        Premium <span className="font-semibold text-foreground">corporate printing solutions</span>,{" "}
+        <span className="font-semibold text-foreground">custom packaging</span>, and high-visibility{" "}
+        <span className="font-semibold text-foreground">marketing collateral</span> built to elevate your physical brand presence.
+      </>
+    ),
     features: ["Business Cards", "Brochures & Flyers", "Banners & Signage", "Packaging Design"],
   },
 ];
@@ -264,8 +320,13 @@ export default function TechSolutions() {
                     <span className="text-amber-400">{heroSlides[currentSlide].highlight}</span>
                   </h1>
 
-                  <p className="text-base md:text-lg text-slate-200 max-w-xl mx-auto lg:mx-0 leading-relaxed drop-shadow-sm">
-                    We engineer custom enterprise software, high-converting web & mobile applications, iconic brand identities, and high-impact motion graphics that empower businesses to scale and lead in the digital era.
+                  <p className="text-base md:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed drop-shadow-sm">
+                    We provide <span className="font-semibold text-white">custom software development services</span>, building tailored{" "}
+                    <span className="font-semibold text-white">enterprise applications</span>,{" "}
+                    <span className="font-semibold text-white">high-converting web &amp; mobile apps</span>,{" "}
+                    <span className="font-semibold text-white">iconic brand identities</span>, and{" "}
+                    <span className="font-semibold text-white">motion graphics</span> that help businesses{" "}
+                    <span className="font-semibold text-white">solve problems, streamline operations, and grow</span>.
                   </p>
 
                   <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
@@ -333,7 +394,7 @@ export default function TechSolutions() {
                 </h1>
 
                 {/* Description */}
-                <p className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
+                <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
                   {heroSlides[currentSlide].description}
                 </p>
 
@@ -409,11 +470,21 @@ export default function TechSolutions() {
               >
                 Your Partner in Digital Transformation
               </motion.h2>
-              <motion.p variants={fadeInUp} className="text-muted-foreground mb-6">
-                At Hartitudeh Tech Solutions, we specialize in turning your ideas into digital reality. Our team of skilled developers, designers, and creative professionals work together to deliver solutions that not only meet but exceed expectations.
+              <motion.p variants={fadeInUp} className="text-muted-foreground mb-6 leading-relaxed">
+                As a <span className="font-semibold text-foreground">custom software and digital solutions agency</span>,{" "}
+                <span className="font-semibold text-foreground">Hartitudeh Tech Solutions</span> builds tailored{" "}
+                <span className="font-semibold text-foreground">web applications</span>,{" "}
+                <span className="font-semibold text-foreground">mobile apps</span>, and{" "}
+                <span className="font-semibold text-foreground">brand identity systems</span>. Our engineering and creative teams help businesses{" "}
+                <span className="font-semibold text-foreground">automate workflows</span> and scale through{" "}
+                <span className="font-semibold text-foreground">high-performance digital engineering</span>.
               </motion.p>
-              <motion.p variants={fadeInUp} className="text-muted-foreground mb-8">
-                Whether you're a startup looking to establish your digital presence, an SME ready to scale, or an individual with a vision, we have the expertise and creativity to bring your projects to life.
+              <motion.p variants={fadeInUp} className="text-muted-foreground mb-8 leading-relaxed">
+                From <span className="font-semibold text-foreground">enterprise software platforms</span> and{" "}
+                <span className="font-semibold text-foreground">e-commerce storefronts</span> to{" "}
+                <span className="font-semibold text-foreground">promotional video production</span> and{" "}
+                <span className="font-semibold text-foreground">premium corporate printing</span>, we help startups, SMEs, and global organizations build a{" "}
+                <span className="font-semibold text-foreground">commanding market presence</span>.
               </motion.p>
             </motion.div>
 
@@ -484,7 +555,7 @@ export default function TechSolutions() {
                   <service.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-display font-bold mb-3">{service.title}</h3>
-                <p className="text-muted-foreground mb-6">{service.description}</p>
+                <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
                 <ul className="space-y-2">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -515,8 +586,10 @@ export default function TechSolutions() {
             <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-display font-bold mt-4">
               Our Portfolio
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Explore some of our recent projects across web development, graphic design, video production, and print media.
+            <motion.p variants={fadeInUp} className="text-muted-foreground mt-4 max-w-2xl mx-auto leading-relaxed">
+              Explore our <span className="font-semibold text-foreground">custom software projects</span>,{" "}
+              <span className="font-semibold text-foreground">corporate brand identities</span>,{" "}
+              <span className="font-semibold text-foreground">video productions</span>, and digital experiences engineered to solve real business challenges.
             </motion.p>
           </motion.div>
 
@@ -670,8 +743,10 @@ export default function TechSolutions() {
               className="p-8 rounded-2xl bg-background border border-border text-center"
             >
               <h3 className="text-2xl font-display font-bold mb-4">Ready to Start?</h3>
-              <p className="text-muted-foreground mb-6">
-                Let's discuss your project and create something amazing together. Our team is ready to bring your vision to life.
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Whether you are launching a <span className="font-semibold text-foreground">custom web platform</span>, building a{" "}
+                <span className="font-semibold text-foreground">mobile application</span>, or elevating your{" "}
+                <span className="font-semibold text-foreground">brand identity</span>, our team is ready to bring your vision to life.
               </p>
               <Button variant="gold" asChild>
                 <Link to="/contact">

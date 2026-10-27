@@ -13,7 +13,15 @@ const slides = [
     badge: "EMPIRE",
     title: "HARTITUDEH EMPIRE",
     subtitle: "One Empire, Endless Possibilities",
-    description: "A diversified holding company driving innovation across technology, cryptocurrency, and real estate. Your trusted partner for success.",
+    description: (
+      <>
+        A <span className="font-semibold text-white">diversified holding company</span> driving innovation across{" "}
+        <span className="font-semibold text-white">enterprise technology</span>,{" "}
+        <span className="font-semibold text-white">cryptocurrency &amp; Web3</span>, and{" "}
+        <span className="font-semibold text-white">premium real estate</span> — your trusted partner for{" "}
+        <span className="font-semibold text-white">sustainable growth</span>.
+      </>
+    ),
     services: ["Tech Solutions", "Crypto Trading", "Real Estate", "Investment Advisory"],
     cta: { text: "Discover More", href: "/about" },
     background: heroBg,
@@ -22,7 +30,15 @@ const slides = [
     badge: "TECHNOLOGY",
     title: "Tech Solutions",
     subtitle: "Digital Innovation That Delivers",
-    description: "Software development, graphic design, video editing, and cutting-edge digital solutions that transform your business vision into reality.",
+    description: (
+      <>
+        We provide <span className="font-semibold text-white">custom software development</span>,{" "}
+        <span className="font-semibold text-white">high-impact brand design</span>,{" "}
+        <span className="font-semibold text-white">motion graphics</span>, and{" "}
+        <span className="font-semibold text-white">scalable digital products</span> that help businesses{" "}
+        <span className="font-semibold text-white">streamline operations</span> and <span className="font-semibold text-white">grow</span>.
+      </>
+    ),
     services: ["Software Development", "Graphic Design", "Video Editing", "Web Development"],
     cta: { text: "Explore Tech", href: "/tech-solutions" },
     background: slideTech,
@@ -31,7 +47,14 @@ const slides = [
     badge: "CRYPTO",
     title: "CryptoTech & Exchange",
     subtitle: "Secure Your Digital Future",
-    description: "Expert crypto trading, ROI-based investment management, Web3 marketing, and blockchain solutions for the modern investor.",
+    description: (
+      <>
+        Expert <span className="font-semibold text-white">managed crypto trading</span>,{" "}
+        <span className="font-semibold text-white">ROI-structured investment plans</span>,{" "}
+        <span className="font-semibold text-white">Web3 project marketing</span>, and{" "}
+        <span className="font-semibold text-white">blockchain growth solutions</span> engineered for the modern investor.
+      </>
+    ),
     services: ["Crypto Trading", "Investment Management", "Web3 Marketing", "Blockchain"],
     cta: { text: "Start Trading", href: "/cryptotech" },
     background: slideCrypto,
@@ -40,7 +63,14 @@ const slides = [
     badge: "REAL ESTATE",
     title: "Homes & Properties",
     subtitle: "Premium Real Estate Opportunities",
-    description: "Discover exceptional property investments, from luxury homes to commercial real estate. Expert guidance for property sales, leasing, and consulting.",
+    description: (
+      <>
+        Discover <span className="font-semibold text-white">verified property investments</span>, from{" "}
+        <span className="font-semibold text-white">luxury residential estates</span> to{" "}
+        <span className="font-semibold text-white">commercial land</span>, backed by expert guidance in{" "}
+        <span className="font-semibold text-white">property sales, leasing, and management</span>.
+      </>
+    ),
     services: ["Property Sales", "Leasing", "Investment Consulting", "Property Management"],
     cta: { text: "View Properties", href: "/homes-properties" },
     background: slideRealEstate,

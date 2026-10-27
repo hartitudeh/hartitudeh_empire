@@ -17,11 +17,51 @@ const staggerContainer = {
 };
 
 const milestones = [
-  { year: "2019", event: "Founded Hartitudeh Empire with a vision to bridge technology, finance, and real estate." },
-  { year: "2021", event: "Launched Hartitudeh Tech Solutions, delivering digital transformation for businesses across Africa." },
-  { year: "2022", event: "Expanded into cryptocurrency and Web3 with Hartitudeh CryptoTech & Global Exchange." },
-  { year: "2023", event: "Entered the real estate sector with Hartitudeh Homes & Properties." },
-  { year: "2025", event: "Grew to 50+ team members serving 500+ clients across 10+ countries." },
+  {
+    year: "2019",
+    event: (
+      <>
+        Founded <span className="font-semibold text-foreground">Hartitudeh Empire</span> with a vision to bridge{" "}
+        <span className="font-semibold text-foreground">technology, finance, and real estate</span>.
+      </>
+    ),
+  },
+  {
+    year: "2021",
+    event: (
+      <>
+        Launched <span className="font-semibold text-foreground">Hartitudeh Tech Solutions</span>, delivering{" "}
+        <span className="font-semibold text-foreground">digital transformation</span> for businesses across Africa.
+      </>
+    ),
+  },
+  {
+    year: "2022",
+    event: (
+      <>
+        Expanded into <span className="font-semibold text-foreground">cryptocurrency and Web3</span> with{" "}
+        <span className="font-semibold text-foreground">Hartitudeh CryptoTech &amp; Global Exchange</span>.
+      </>
+    ),
+  },
+  {
+    year: "2023",
+    event: (
+      <>
+        Entered the <span className="font-semibold text-foreground">premium real estate sector</span> with{" "}
+        <span className="font-semibold text-foreground">Hartitudeh Homes &amp; Properties</span>.
+      </>
+    ),
+  },
+  {
+    year: "2025",
+    event: (
+      <>
+        Scaled to <span className="font-semibold text-foreground">30+ dedicated professionals</span> serving{" "}
+        <span className="font-semibold text-foreground">500+ clients across 10+ countries</span>.
+      </>
+    ),
+  },
 ];
 
 const socialLinks = [
@@ -107,21 +147,34 @@ export default function CeoSection() {
           >
             <motion.div variants={fadeInUp} className="p-8 rounded-2xl bg-card border border-border mb-8">
               <h4 className="text-lg font-display font-bold mb-4 text-gold">The Journey</h4>
-              <p className="text-muted-foreground mb-4">
-                Adeyemi Pelumi Obaloluwa is a dynamic entrepreneur, tech enthusiast, and visionary leader who founded HARTITUDEH EMPIRE with a single, audacious goal — to build a diversified enterprise that empowers individuals and businesses through technology, finance, and real estate.
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                <span className="font-semibold text-foreground">Adeyemi Pelumi Obaloluwa</span> is a dynamic entrepreneur, technology strategist, and visionary leader who founded{" "}
+                <span className="font-semibold text-foreground">HARTITUDEH EMPIRE</span> with a single, audacious goal — to build a{" "}
+                <span className="font-semibold text-foreground">diversified enterprise</span> that empowers individuals and businesses through{" "}
+                <span className="font-semibold text-foreground">technology, finance, and real estate</span>.
               </p>
-              <p className="text-muted-foreground mb-4">
-                Starting from humble beginnings, Pelumi identified a gap in the market for a trusted, all-in-one solution provider that could serve the evolving needs of a digital-first generation. What began as a passion for technology and innovation quickly evolved into a multi-vertical empire spanning three continents.
+              <p className="text-muted-foreground mb-4 leading-relaxed">
+                Starting from humble beginnings, Pelumi identified a critical market gap for a{" "}
+                <span className="font-semibold text-foreground">trusted, all-in-one solution provider</span> built for a digital-first generation. What began as a passion for{" "}
+                <span className="font-semibold text-foreground">software innovation</span> quickly evolved into a{" "}
+                <span className="font-semibold text-foreground">multi-vertical empire</span> serving clients globally.
               </p>
-              <p className="text-muted-foreground">
-                Under his leadership, Hartitudeh Empire has grown from a solo venture into a thriving enterprise with over 30+ team members, serving 500+ clients across 22+ states and 3+ countries. His hands-on approach, relentless work ethic, and commitment to excellence have been the driving forces behind the company's rapid growth and reputation for delivering results.
+              <p className="text-muted-foreground leading-relaxed">
+                Under his leadership, Hartitudeh Empire has scaled into a thriving conglomerate with{" "}
+                <span className="font-semibold text-foreground">30+ dedicated professionals</span>, serving{" "}
+                <span className="font-semibold text-foreground">500+ clients across 22+ states and 10+ countries</span>. His hands-on execution and{" "}
+                <span className="font-semibold text-foreground">uncompromising commitment to excellence</span> drive the company's reputation for delivering results.
               </p>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="p-8 rounded-2xl bg-card border border-border mb-8">
               <h4 className="text-lg font-display font-bold mb-4 text-gold">Vision for the Future</h4>
-              <p className="text-muted-foreground">
-                Pelumi envisions HARTITUDEH EMPIRE becoming a global household name, a trusted ecosystem where anyone can access world-class technology services, build wealth through smart crypto investments, and secure their future through premium real estate. The next chapter includes expanding into new markets, launching innovative fintech products, and establishing a Hartitudeh Academy to train the next generation of African entrepreneurs.
+              <p className="text-muted-foreground leading-relaxed">
+                Pelumi envisions <span className="font-semibold text-foreground">HARTITUDEH EMPIRE</span> becoming a{" "}
+                <span className="font-semibold text-foreground">global household name</span> — a trusted ecosystem where anyone can access{" "}
+                <span className="font-semibold text-foreground">world-class technology services</span>, build wealth through{" "}
+                <span className="font-semibold text-foreground">smart crypto investments</span>, and secure their future through{" "}
+                <span className="font-semibold text-foreground">verified real estate</span>, while training the next generation of African innovators.
               </p>
             </motion.div>
 
